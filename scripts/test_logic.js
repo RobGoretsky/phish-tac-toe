@@ -180,4 +180,32 @@ ok("every square's displayed odds match the analysis", () => {
     assert.strictEqual(songs[key].p, ranked[key], `${key} odds drifted from the model`);
 });
 
+console.log("markup / css");
+ok("no [hidden] element is overridden by an author display rule", () => {
+  // The UA stylesheet's `[hidden] { display: none }` loses to any author rule
+  // that sets `display` on the same element, which silently pins overlays open.
+  const html = fs.readFileSync(path.join(ROOT, "index.html"), "utf8");
+  const css = fs.readFileSync(path.join(ROOT, "styles.css"), "utf8");
+  const classesOfHidden = new Set();
+  for (const tag of html.match(/<[^>]*\bhidden\b[^>]*>/g) || []) {
+    const cls = /class="([^"]+)"/.exec(tag);
+    if (cls) cls[1].split(/\s+/).forEach((c) => classesOfHidden.add(c));
+  }
+  assert.ok(classesOfHidden.size, "expected some hidden elements to check");
+  for (const c of classesOfHidden) {
+    const setsDisplay = new RegExp(`\\.${c}\\s*\\{[^}]*display\\s*:`).test(css);
+    if (!setsDisplay) continue;
+    const guarded = new RegExp(`\\.${c}\\[hidden\\][^{]*\\{[^}]*display\\s*:\\s*none`).test(css);
+    assert.ok(guarded, `.${c} sets display but has no .${c}[hidden] { display: none } override`);
+  }
+});
+
+ok("every stylesheet/script the page references exists", () => {
+  const html = fs.readFileSync(path.join(ROOT, "index.html"), "utf8");
+  const refs = [...html.matchAll(/(?:src|href)="(?!https?:|data:)([^"#?]+)[^"]*"/g)].map((m) => m[1]);
+  assert.ok(refs.length, "expected local asset references");
+  for (const r of refs)
+    assert.ok(fs.existsSync(path.join(ROOT, r)), `referenced asset missing: ${r}`);
+});
+
 console.log(`\n${pass} passed`);

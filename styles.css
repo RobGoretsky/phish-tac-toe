@@ -164,6 +164,11 @@ main { max-width: 620px; margin: 0 auto; padding: 0 14px calc(28px + var(--safe-
 .ghost.danger { color: var(--danger); border-color: rgba(255,107,107,.35); margin-top: 14px; width: 100%; }
 
 /* ---------- sheets ---------- */
+/* MUST come before the display:flex rule below — an author `display` declaration
+ * beats the UA stylesheet's `[hidden] { display: none }`, so without this the
+ * sheets are permanently visible and their backdrops black out the whole page. */
+.sheet-wrap[hidden] { display: none !important; }
+
 .sheet-wrap {
   position: fixed; inset: 0; z-index: 60; display: flex; align-items: flex-end; justify-content: center;
   background: rgba(6,4,12,.72); backdrop-filter: blur(3px);
