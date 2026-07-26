@@ -57,7 +57,8 @@ ok("a duplicate Phantasy Tour id still matches by name", () => {
   // is 1098 — the name fallback is what saves us from that class of bug.
   const s = { songs: [{ id: 999999, name: "Free", set: 1, pos: 1, order: 0 }] };
   const r = PTT.evaluate(players(), songs, s, null);
-  assert.ok(r.players.find((p) => p.name === "Rob").cells.some((c) => c.key === "Free" && c.hit));
+  const hit = r.players.flatMap((p) => p.cells).filter((c) => c.hit).map((c) => c.key);
+  assert.deepStrictEqual(hit, ["Free"]);
 });
 
 ok("an unrelated song hits nothing", () => {
@@ -163,6 +164,20 @@ ok("no song appears on two boards except the centre", () => {
       assert.ok(!seen.has(s), `"${s}" is on both ${seen.get(s)} and ${p.name}`);
       seen.set(s, p.name);
     });
+});
+
+ok("Drowned is on a board and matches by name", () => {
+  assert.ok(songs["Drowned"], "Drowned should be a board song");
+  const r = PTT.evaluate(players(), songs, setlist(["Drowned"]), null);
+  const hit = r.players.flatMap((p) => p.cells).filter((c) => c.hit).map((c) => c.key);
+  assert.deepStrictEqual(hit, ["Drowned"]);
+});
+
+ok("every square's displayed odds match the analysis", () => {
+  const ranked = Object.fromEntries(
+    JSON.parse(fs.readFileSync(path.join(ROOT, "analysis/ranked95.json"))).map((r) => [r.name, r.p]));
+  for (const key of Object.keys(songs))
+    assert.strictEqual(songs[key].p, ranked[key], `${key} odds drifted from the model`);
 });
 
 console.log(`\n${pass} passed`);

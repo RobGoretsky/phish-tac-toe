@@ -24,14 +24,6 @@
   "fact95": "A deliberately slow arrangement debuted 11/19/95 in Charlotte; at Hampton they played it slower each time, then asked the crowd \"Get it?\" Béla Fleck guested on banjo 11/29/95."
  },
  {
-  "song": "Hello My Baby",
-  "bio": "An 1899 ragtime tune by Joseph E. Howard and Ida Emerson — the same song that top-hatted cartoon frog sings. Phish does just the chorus, a cappella in barbershop harmony, sometimes with no microphones at all.",
-  "lyric": "Hello my baby, hello my honey",
-  "why95": "This is a 1995 song: it debuted 9/27/95 and was played 15 times before the year was out, more than in any other year.",
-  "debut": "1995-09-27, Cal Expo Amphitheater, Sacramento CA",
-  "fact95": "It was performed in set two of 12/31/95 at MSG — a version issued on the official release New Year's Eve 1995: Live at Madison Square Garden."
- },
- {
   "song": "Fee",
   "bio": "Trey's storybook original from Junta about Fee the Buddhist weasel, a singer named Millie Grace, and Floyd the villainous chimpanzee. The tell is the megaphone: Trey sings the verses through it for a tinny, far-off sound.",
   "lyric": "A weasel named Fee",
@@ -198,5 +190,13 @@
   "why95": "The one square where the modern band plays it more than 1995 did — 6 shows that year, but it's a regular launchpad now.",
   "debut": "1986-05-17, Goddard College, Plainfield VT",
   "fact95": "On 12/14/95 in Binghamton it opened the run Halley's > NICU > Slave to the Traffic Light, released officially as LivePhish 01."
+ },
+ {
+  "song": "Drowned",
+  "bio": "A cover from The Who's rock opera Quadrophenia — Page's pounding piano intro, Mike singing way up high, and then it cracks open into one of the biggest jams Phish has. Not really a Who song anymore.",
+  "lyric": "I wanna drown in cold water",
+  "why95": "Phish learned it for their 10/31/95 Halloween costume — the entire Quadrophenia album — and it's the only song from that night they ever kept.",
+  "debut": "1995-10-31, Rosemont Horizon, Rosemont IL",
+  "fact95": "phish.net: the only Quadrophenia song ever played more than three times. It was a centerpiece of the legendary 12/31/95 MSG show, complete with a much-argued-about Fire on the Mountain tease."
  }
 ]

@@ -61,12 +61,36 @@ Validated on 60,000 further shows with a different RNG:
 
 | board | wins the game | gets a line | avg score |
 |-------|--------------|-------------|-----------|
-| Rob | 29.2% | 48.7% | 4.05 / 9 |
-| Dylan | 28.3% | 49.2% | 4.05 / 9 |
-| Justin | 27.7% | 49.8% | 4.05 / 9 |
-| nobody | 14.9% | | |
+| Rob | 28.0% | 47.8% | 4.03 / 9 |
+| Dylan | 28.2% | 48.7% | 4.04 / 9 |
+| Justin | 28.3% | 51.2% | 4.04 / 9 |
+| nobody | 15.5% | | |
 
-Identical average scores and a 1.5-point spread on winning.
+A 0.3-point spread on winning, and effectively identical average scores.
+
+### One deliberate override
+
+**Drowned** is on a board by choice rather than by score. Phish played The Who's entire
+*Quadrophenia* for Halloween 1995, and per phish.net it's the only song from that night they ever
+played more than three times — it anchored 12/31/95 at this same building.
+
+The obvious question is whether songs carrying a year's landmark-event meaning deserve a
+systematic bonus. The 1994 night is suggestive: it *opened* with Back in the USSR, from that
+year's White Album Halloween costume, and the model had it at 3% — rank #117 of 146.
+
+But the hypothesis doesn't survive testing. Sweeping a landmark multiplier (and a discount for
+one-off costume-set tracks) across nights 1–3 left precision flat at 51–52%, and Back in the USSR
+never moved from #117 — a uniform bonus lifts every song from that show equally, so it can't
+single one out. Aggregate behaviour points the same way: songs played 1–2 times in a given year
+made up 4% / 12% / 12% of each theme night while being 31% / 27% / 39% of the available
+repertoire. **Theme nights lean on that year's workhorses, not its deep cuts.**
+
+So Drowned carries its honest 9%, displayed on the square. It's a story square, and it's labelled
+as one.
+
+Related correction: the 1994 night did **not** recreate the 6/18/94 "Tweezerfest" — overlap was
+38%, against a 23% baseline for a random 1994 show. They played a lot of Tweezer; they didn't
+reproduce that setlist.
 
 ---
 
@@ -119,7 +143,7 @@ scripts/
 ```
 
 ```bash
-node scripts/test_logic.js     # 18 assertions over the scoring engine
+node scripts/test_logic.js     # 20 assertions over the scoring engine
 python3 scripts/build_data.py  # regenerate data/ from analysis/
 python3 -m http.server 8000    # then open http://localhost:8000
 ```
