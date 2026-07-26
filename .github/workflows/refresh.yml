@@ -35,7 +35,11 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
+      # Full history: the retry path rebases onto whatever another run pushed,
+      # and rebasing a depth-1 clone fails.
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Poll and commit
         env:
