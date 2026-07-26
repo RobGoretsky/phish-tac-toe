@@ -1,7 +1,203 @@
 {
  "showId": 62005,
- "fetchedAt": "2026-07-26T20:42:43+00:00",
- "showNotes": "This show is Phish\u2019s 95th appearance at Madison Square Garden.",
- "count": 0,
- "songs": []
+ "showDate": "1995-10-31",
+ "fetchedAt": "2026-07-26T21:21:39+00:00",
+ "source": "phish.net-api",
+ "sourceCounts": {
+  "phish.net-api": 31,
+  "phish.net-web": 31
+ },
+ "sourceMs": {
+  "phish.net-api": 270,
+  "phish.net-web": 551
+ },
+ "count": 31,
+ "songs": [
+  {
+   "name": "Icculus",
+   "set": 1,
+   "pos": 1,
+   "segue": false
+  },
+  {
+   "name": "Divided Sky",
+   "set": 1,
+   "pos": 2,
+   "segue": false
+  },
+  {
+   "name": "Wilson",
+   "set": 1,
+   "pos": 3,
+   "segue": true
+  },
+  {
+   "name": "Ya Mar",
+   "set": 1,
+   "pos": 4,
+   "segue": false
+  },
+  {
+   "name": "Sparkle",
+   "set": 1,
+   "pos": 5,
+   "segue": true
+  },
+  {
+   "name": "Free",
+   "set": 1,
+   "pos": 6,
+   "segue": false
+  },
+  {
+   "name": "Guyute",
+   "set": 1,
+   "pos": 7,
+   "segue": false
+  },
+  {
+   "name": "Run Like an Antelope",
+   "set": 1,
+   "pos": 8,
+   "segue": false
+  },
+  {
+   "name": "Harpua",
+   "set": 1,
+   "pos": 9,
+   "segue": false
+  },
+  {
+   "name": "I Am the Sea",
+   "set": 2,
+   "pos": 1,
+   "segue": false
+  },
+  {
+   "name": "The Real Me",
+   "set": 2,
+   "pos": 2,
+   "segue": true
+  },
+  {
+   "name": "Quadrophenia",
+   "set": 2,
+   "pos": 3,
+   "segue": false
+  },
+  {
+   "name": "Cut My Hair",
+   "set": 2,
+   "pos": 4,
+   "segue": false
+  },
+  {
+   "name": "The Punk Meets the Godfather",
+   "set": 2,
+   "pos": 5,
+   "segue": false
+  },
+  {
+   "name": "I'm One",
+   "set": 2,
+   "pos": 6,
+   "segue": false
+  },
+  {
+   "name": "The Dirty Jobs",
+   "set": 2,
+   "pos": 7,
+   "segue": true
+  },
+  {
+   "name": "Helpless Dancer",
+   "set": 2,
+   "pos": 8,
+   "segue": false
+  },
+  {
+   "name": "Is It In My Head?",
+   "set": 2,
+   "pos": 9,
+   "segue": false
+  },
+  {
+   "name": "I've Had Enough",
+   "set": 2,
+   "pos": 10,
+   "segue": false
+  },
+  {
+   "name": "5:15",
+   "set": 2,
+   "pos": 11,
+   "segue": false
+  },
+  {
+   "name": "Sea and Sand",
+   "set": 2,
+   "pos": 12,
+   "segue": false
+  },
+  {
+   "name": "Drowned",
+   "set": 2,
+   "pos": 13,
+   "segue": false
+  },
+  {
+   "name": "Bell Boy",
+   "set": 2,
+   "pos": 14,
+   "segue": false
+  },
+  {
+   "name": "Doctor Jimmy",
+   "set": 2,
+   "pos": 15,
+   "segue": true
+  },
+  {
+   "name": "The Rock",
+   "set": 2,
+   "pos": 16,
+   "segue": false
+  },
+  {
+   "name": "Love, Reign O'er Me",
+   "set": 2,
+   "pos": 17,
+   "segue": false
+  },
+  {
+   "name": "You Enjoy Myself",
+   "set": 3,
+   "pos": 1,
+   "segue": false
+  },
+  {
+   "name": "Jesus Just Left Chicago",
+   "set": 3,
+   "pos": 2,
+   "segue": false
+  },
+  {
+   "name": "A Day in the Life",
+   "set": 3,
+   "pos": 3,
+   "segue": true
+  },
+  {
+   "name": "Suzy Greenberg",
+   "set": 3,
+   "pos": 4,
+   "segue": false
+  },
+  {
+   "name": "My Generation",
+   "set": 9,
+   "pos": 1,
+   "segue": false
+  }
+ ]
 }
