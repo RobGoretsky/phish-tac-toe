@@ -213,10 +213,14 @@ ALL_SOURCES = [
     ("phish.net-web", from_phishnet_html, 2),
 ]
 
-# Only these actually run. phantasy-tour and phish.net-web stay implemented and
-# tested as parked backups: add them to SETLIST_SOURCES (or the workflow's
-# `sources` input) to bring them back without a code change.
-DEFAULT_SOURCES = "phish.net-api"
+# Only these actually run. phish.net-api leads (canonical, structured, and ~2x
+# faster in practice); phish.net-web rides along as a live safety net because
+# phish.net's docs warn API responses are cached and not meant for in-progress
+# shows. They agree exactly on every show tested, and when they tie the API wins,
+# so the scrape only takes over if the API actually falls behind.
+# phantasy-tour stays implemented and tested but parked: add it to
+# SETLIST_SOURCES (or the workflow's `sources` input) with no code change.
+DEFAULT_SOURCES = "phish.net-api,phish.net-web"
 
 
 def active_sources():

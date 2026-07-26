@@ -106,16 +106,18 @@ phish.net web page ─┘        (longest wins)                                 
                                               page re-fetches every 45s  ◀─────────┘
 ```
 
-### One live feed, two parked backups
-
-**`phish.net-api` is the only source that runs.** It's the canonical database and a structured API.
-Two more are implemented and tested but idle:
+### Two live feeds, one parked backup
 
 | source | key needed | status |
 |--------|-----------|--------|
-| `phish.net-api` | `PHISHNET_API_KEY` | **active** |
+| `phish.net-api` | `PHISHNET_API_KEY` | **active — leads** |
+| `phish.net-web` | no | **active — live fallback** |
 | `phantasy-tour` | no | parked |
-| `phish.net-web` | no | parked |
+
+`phish.net-api` leads: canonical, structured, and measured ~2× faster (112–270ms vs 217–551ms).
+`phish.net-web` rides along because phish.net's docs warn API responses are cached and not intended
+for in-progress shows — since ties go to the API, the scrape only takes over if the API genuinely
+falls behind.
 
 Bring a backup online without touching code — set the workflow's `sources` input (or
 `SETLIST_SOURCES`) to e.g. `phish.net-api,phish.net-web`. With several active, the one furthest

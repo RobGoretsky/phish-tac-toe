@@ -218,19 +218,21 @@ def api_rows_match_the_boards():
 ok("API song names match board squares", api_rows_match_the_boards)
 
 
-def default_is_api_only():
+def default_sources():
+    """API leads, scrape rides along as the live fallback; PT stays parked."""
     import os
     old = os.environ.pop("SETLIST_SOURCES", None)
     try:
         R.SOURCES = None
-        assert [n for n, _, _ in R.active_sources()] == ["phish.net-api"], \
-            "default should be phish.net-api only"
+        got = [n for n, _, _ in R.active_sources()]
+        assert got == ["phish.net-api", "phish.net-web"], got
+        assert "phantasy-tour" not in got, "phantasy-tour should stay parked"
     finally:
         if old is not None:
             os.environ["SETLIST_SOURCES"] = old
 
 
-ok("only phish.net-api runs by default", default_is_api_only)
+ok("default is api + web scrape, with phantasy-tour parked", default_sources)
 
 
 def backups_still_available():

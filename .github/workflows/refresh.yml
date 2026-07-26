@@ -20,8 +20,8 @@ on:
         description: "phish.net show date (YYYY-MM-DD)"
         default: "2026-07-27"
       sources:
-        description: "Comma-separated feeds. Backups: phantasy-tour, phish.net-web"
-        default: "phish.net-api"
+        description: "Comma-separated feeds. Parked backup: phantasy-tour"
+        default: "phish.net-api,phish.net-web"
       probe:
         description: "Set to 'true' to just validate the phish.net API and exit"
         default: "false"
@@ -55,9 +55,10 @@ jobs:
           SHOW_ID: ${{ github.event.inputs.show_id || '62005' }}
           SHOW_DATE: ${{ github.event.inputs.show_date || '2026-07-27' }}
           MINUTES: ${{ github.event.inputs.minutes || '8' }}
-          # phish.net API v5 is the only live feed by default. phantasy-tour and
-          # phish.net-web stay implemented and tested as parked backups.
-          SETLIST_SOURCES: ${{ github.event.inputs.sources || 'phish.net-api' }}
+          # phish.net API v5 leads, with the phish.net web scrape as a live
+          # fallback in case the API's caching lags mid-show. phantasy-tour stays
+          # implemented and tested but parked.
+          SETLIST_SOURCES: ${{ github.event.inputs.sources || 'phish.net-api,phish.net-web' }}
           PHISHNET_API_KEY: ${{ secrets.PHISHNET_API_KEY }}
         run: |
           if [ "${{ github.event.inputs.probe }}" = "true" ]; then
