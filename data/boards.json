@@ -1,0 +1,69 @@
+{
+ "show": {
+  "id": 62005,
+  "date": "2026-07-27",
+  "venue": "Madison Square Garden",
+  "title": "1995 Night",
+  "line": "Mon Jul 27 · MSG · 1995 Night"
+ },
+ "about": "\n<h3>Phish-Tac-Toe</h3>\n<p class=\"body\">Three boards, nine songs each. A square lights up when Phish plays that\nsong tonight. <b>First to three in a row</b> — across, down or diagonal — wins. If more than\none board completes a line, the winner is whoever's line finished <b>earlier in the show</b>,\nwhich the app works out from the actual setlist order.</p>\n\n<div class=\"label\">Why these 25 songs</div>\n<p class=\"body\">Every setlist Phish played in 1995 (83 shows) and every show since Jan 2023\n(164 shows) was pulled from the Phantasy Tour API. Each candidate got two numbers: how core it\nwas to <b>1995</b>, and how often the band <b>still</b> plays it. The score blends them, weighted\n0.4 / 0.8 — meaning current rotation actually matters a bit more than era authenticity.</p>\n\n<div class=\"label\">Everything already played is gone</div>\n<p class=\"body\">Phish doesn't repeat inside a run. Nights 1–3 (1992, 1993, 1994) burned 66 songs,\nincluding 20 of the 30 most-played songs of 1995 — Stash, Reba, Bowie, Antelope, Maze, Chalk Dust,\nHarry Hood, Sample in a Jar. That's <b>62% of the probability weight</b> already spent, which is\nexactly why night 4 is more predictable than night 1 was. Tweezer would have ranked #3 tonight\nif they hadn't burned it Saturday.</p>\n\n<div class=\"label\">Does the model actually work?</div>\n<p class=\"body\">It was backtested against this run's first three nights — scoring each night with\nthat year's own play rates, and excluding whatever the earlier nights had used. It put about\n<b>half</b> of each night's real setlist in its top picks, against roughly 17% for guessing at\nrandom. The percentages on the squares are calibrated: squares marked 30% hit about 30% of the\ntime in that test.</p>\n\n<div class=\"label\">The center square</div>\n<p class=\"body\">You Enjoy Myself is the center of all three boards on purpose. It's the one\nmonster left unburned — the 21-minute centerpiece of <i>A Live One</i>, Phish's 1995 album — and\nthe model ranked it a top pick on all three previous nights and was wrong every time. They are\nsaving it. Making it shared means nobody gets an unfair edge from the single most likely song,\nand all three boards light up together when it drops.</p>\n\n<div class=\"label\">Fairness</div>\n<p class=\"body\">The other 24 songs were assigned by an optimizer that enumerated all 512 states of\neach board exactly. All three boards came out at a <b>50.4–50.5%</b> chance of three-in-a-row and\n4.04–4.06 expected hits. Nobody has the better board. There's an 84% chance somebody wins.</p>\n\n<div class=\"label\">If the feed lags</div>\n<p class=\"body\">The setlist comes from Phantasy Tour, updated by fans during the show, and is\nre-checked about every 30 seconds. If it falls behind, hit <b>Manual entry</b> and mark squares\nyourself — those marks stay on your own phone and can only add hits, never remove one.</p>\n\n<p class=\"fine\" style=\"margin-top:18px\">Odds are one model's opinion, not gospel. Phish will do\nwhatever Phish wants. That's the entire point.</p>\n",
+ "players": [
+  {
+   "id": "rob",
+   "name": "Rob",
+   "accent": "#ffcf4a",
+   "squares": [
+    "Free",
+    "Ya Mar",
+    "It's Ice",
+    "Buried Alive",
+    "You Enjoy Myself",
+    "Cars Trucks Buses",
+    "McGrupp and the Watchful Hosemasters",
+    "Strange Design",
+    "Colonel Forbin's Ascent"
+   ],
+   "pwin": 0.4828,
+   "expected": 4.048,
+   "share": 0.2914
+  },
+  {
+   "id": "dylan",
+   "name": "Dylan",
+   "accent": "#6ce5ff",
+   "squares": [
+    "Theme from the Bottom",
+    "Wilson",
+    "Timber (Jerry the Mule)",
+    "Funky Bitch",
+    "You Enjoy Myself",
+    "Fee",
+    "Loving Cup",
+    "Guyute",
+    "Hello My Baby"
+   ],
+   "pwin": 0.4918,
+   "expected": 4.051,
+   "share": 0.2801
+  },
+  {
+   "id": "justin",
+   "name": "Justin",
+   "accent": "#ff7ad9",
+   "squares": [
+    "Taste",
+    "Prince Caspian",
+    "Halley's Comet",
+    "NICU",
+    "You Enjoy Myself",
+    "A Day in the Life",
+    "Poor Heart",
+    "Scent of a Mule",
+    "Acoustic Army"
+   ],
+   "pwin": 0.4953,
+   "expected": 4.049,
+   "share": 0.2806
+  }
+ ]
+}

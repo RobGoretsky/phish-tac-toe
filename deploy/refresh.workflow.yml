@@ -1,0 +1,60 @@
+name: Refresh setlist
+
+# Polls Phantasy Tour for tonight's setlist and commits data/setlist.json.
+#
+# GitHub's cron is best-effort and can fire many minutes late, so each run polls
+# in an 8-minute internal loop rather than once. Combined with a */10 schedule
+# that leaves no gap: a late run still covers its own window, and consecutive
+# runs chain. The concurrency group keeps two runs from pushing over each other.
+
+on:
+  workflow_dispatch:
+    inputs:
+      minutes:
+        description: "How long this run should keep polling (minutes)"
+        default: "8"
+      show_id:
+        description: "Phantasy Tour show id"
+        default: "62005"
+  schedule:
+    # 1995 night: Mon 2026-07-27 19:00 ET == 23:00 UTC. Cover 22:40 UTC Mon
+    # through 06:00 UTC Tue, which is doors through a very long encore.
+    - cron: "*/10 23 27 7 *"
+    - cron: "40,50 22 27 7 *"
+    - cron: "*/10 0-5 28 7 *"
+
+concurrency:
+  group: refresh-setlist
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Poll and commit
+        env:
+          SHOW_ID: ${{ github.event.inputs.show_id || '62005' }}
+          MINUTES: ${{ github.event.inputs.minutes || '8' }}
+        run: |
+          git config user.name  "phish-tac-toe bot"
+          git config user.email "actions@github.com"
+          deadline=$(( $(date +%s) + MINUTES * 60 ))
+          while [ "$(date +%s)" -lt "$deadline" ]; do
+            python3 scripts/refresh_setlist.py || true
+            if ! git diff --quiet -- data/setlist.json; then
+              git add data/setlist.json
+              git commit -m "setlist: $(python3 -c "import json;print(json.load(open('data/setlist.json'))['count'])") songs"
+              # Another run may have pushed between our fetch and now.
+              for i in 1 2 3; do
+                git pull --rebase --autostash origin "${GITHUB_REF_NAME}" && git push && break
+                sleep 5
+              done
+            fi
+            sleep 30
+          done
