@@ -171,5 +171,85 @@ const ok = (name, fn) => {
       throw new Error(".sheet-scroll must be the scroll container");
   });
 
+  console.log("setlist rendering");
+  // Load a real 31-song 1995 setlist (10/31/95 Quadrophenia) into the page.
+  const real = JSON.parse(fs.readFileSync(path.join(__dirname, "fixtures/setlist-1995-10-31.json")));
+  window.fetch = async (u) => {
+    const clean = String(u).split("?")[0];
+    const body = clean.endsWith("setlist.json") ? JSON.stringify(real) : read(clean);
+    return { ok: true, status: 200, json: async () => JSON.parse(body) };
+  };
+  window.eval("loadSetlist()");
+  await new Promise((r) => setTimeout(r, 200));
+
+  const slSongs = () => [...window.document.querySelectorAll("#setlistBody .sl-song")];
+  ok("the whole setlist renders", () => {
+    if (slSongs().length !== real.songs.length)
+      throw new Error(`rendered ${slSongs().length} of ${real.songs.length}`);
+  });
+  ok("no setlist element reuses a class that sets `display`", () => {
+    // "board" used to be reused here and collided with .board { display: grid },
+    // turning every matched song into a block and breaking the line flow.
+    const css = fs.readFileSync(path.join(ROOT, "styles.css"), "utf8");
+    const displayClasses = new Set(
+      [...css.matchAll(/\.([a-zA-Z][\w-]*)[^{}]*\{[^}]*display\s*:/g)].map((m) => m[1]));
+    for (const el of window.document.querySelectorAll("#setlistBody *"))
+      for (const c of el.classList)
+        if (displayClasses.has(c) && c !== "setrow")
+          throw new Error(`<${el.tagName.toLowerCase()} class="${el.className}"> reuses .${c}, which sets display`);
+  });
+  ok("matched songs are inline, not block", () => {
+    const css = fs.readFileSync(path.join(ROOT, "styles.css"), "utf8");
+    for (const cls of ["sl-song", "sl-hit", "sl-sep"]) {
+      const m = new RegExp(`\\.${cls}\\s*\\{([^}]*)\\}`).exec(css);
+      if (m && /display\s*:\s*(block|grid|flex)/.test(m[1]))
+        throw new Error(`.${cls} is display:${/display\s*:\s*(\w+)/.exec(m[1])[1]}`);
+    }
+  });
+  ok("hits are colour-coded to their board owner", () => {
+    const boards = JSON.parse(read("data/boards.json"));
+    const accents = new Set(boards.players.map((p) => p.accent.toLowerCase()));
+    const hits = slSongs().filter((e) => e.classList.contains("sl-hit"));
+    if (hits.length < 5) throw new Error(`only ${hits.length} hits coloured`);
+    for (const h of hits) {
+      if (h.classList.contains("sl-multi")) {
+        if (!/linear-gradient/.test(h.getAttribute("style") || ""))
+          throw new Error(`shared song ${h.textContent} has no gradient`);
+        continue;
+      }
+      const col = (h.style.color || "").toLowerCase();
+      const hex = /^#/.test(col) ? col : rgbToHex(col);
+      if (!accents.has(hex)) throw new Error(`${h.textContent} coloured ${col}, not a player accent`);
+    }
+  });
+  ok("You Enjoy Myself is marked as shared by all three", () => {
+    const yem = slSongs().find((e) => e.textContent === "You Enjoy Myself");
+    if (!yem) throw new Error("YEM not in this setlist");
+    if (!yem.classList.contains("sl-multi")) throw new Error("YEM should be .sl-multi");
+  });
+  ok("non-hits stay dim and unstyled", () => {
+    const miss = slSongs().filter((e) => !e.classList.contains("sl-hit"));
+    for (const m of miss)
+      if (m.getAttribute("style")) throw new Error(`${m.textContent} should have no inline colour`);
+  });
+  ok("separators sit between songs, never trailing a set", () => {
+    for (const row of window.document.querySelectorAll(".setrow")) {
+      const kids = [...row.children];
+      const last = kids[kids.length - 1];
+      if (last.classList.contains("sl-sep"))
+        throw new Error("a set ends with a dangling separator");
+    }
+  });
+  ok("the legend lists all three players with their colours", () => {
+    const keys = window.document.querySelectorAll("#legend .k");
+    if (keys.length !== 3) throw new Error(`got ${keys.length} legend entries`);
+  });
+
   console.log(`\n${pass} passed`);
+
+  function rgbToHex(c) {
+    const m = /rgb\((\d+),\s*(\d+),\s*(\d+)\)/.exec(c);
+    if (!m) return c;
+    return "#" + [1, 2, 3].map((i) => (+m[i]).toString(16).padStart(2, "0")).join("");
+  }
 })();

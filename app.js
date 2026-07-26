@@ -83,6 +83,13 @@ function renderBoard() {
   }
 }
 
+function renderLegend() {
+  $("legend").innerHTML =
+    state.boards.players
+      .map((p) => `<span class="k"><i style="background:${p.accent}"></i><b style="color:${p.accent}">${p.name}</b></span>`)
+      .join("") + `<span class="note">bold = on a board</span>`;
+}
+
 function renderSetlist() {
   const songs = state.setlist.songs || [];
   $("setlistCount").textContent = songs.length ? `${songs.length} songs` : "";
@@ -91,23 +98,42 @@ function renderSetlist() {
     body.innerHTML = `<p class="empty">Nothing played yet. Lights are still on. 🍩</p>`;
     return;
   }
-  // Which songs land on somebody's board?
-  const onBoard = new Set();
+  // Map each played song to the players whose board it hit, so the setlist can
+  // be colour-coded to match the scoreboard.
+  const owners = new Map(); // show-order -> [player, ...]
   for (const p of state.boards.players)
-    for (const c of p.cells) if (c.play) onBoard.add(c.play.order);
+    for (const c of p.cells)
+      if (c.play) {
+        if (!owners.has(c.play.order)) owners.set(c.play.order, []);
+        owners.get(c.play.order).push(p);
+      }
 
   const setName = (n) => (n >= 9 ? "Encore" : `Set ${n}`);
+  const esc = (s) => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;");
+  const sorted = songs.slice().sort((a, b) => a.order - b.order);
+
   let html = "";
   let cur = null;
-  songs
-    .slice()
-    .sort((a, b) => a.order - b.order)
-    .forEach((s, i, arr) => {
-      if (s.set !== cur) { cur = s.set; html += `<div class="setname">${setName(s.set)}</div>`; }
-      const cls = onBoard.has(s.order) ? "song board" : "song";
-      const last = i === arr.length - 1 || arr[i + 1].set !== s.set;
-      html += `<span class="${cls}">${s.name}</span>${last ? "" : `<span class="sep"> ${s.segue ? ">" : ","} </span>`}`;
-    });
+  sorted.forEach((s, i) => {
+    if (s.set !== cur) {
+      if (cur !== null) html += "</div>";
+      cur = s.set;
+      html += `<div class="setname">${setName(s.set)}</div><div class="setrow">`;
+    }
+    const who = owners.get(s.order) || [];
+    let style = "";
+    if (who.length === 1) {
+      style = ` style="color:${who[0].accent}"`;
+    } else if (who.length > 1) {
+      // Shared square (the YEM centre): blend every owner's colour across the text.
+      style = ` style="background-image:linear-gradient(96deg,${who.map((p) => p.accent).join(",")})"`;
+    }
+    const cls = "sl-song" + (who.length ? " sl-hit" : "") + (who.length > 1 ? " sl-multi" : "");
+    const last = i === sorted.length - 1 || sorted[i + 1].set !== s.set;
+    html += `<span class="${cls}"${style}>${esc(s.name)}</span>`;
+    if (!last) html += `<span class="sl-sep">${s.segue ? " &gt; " : ", "}</span>`;
+  });
+  if (cur !== null) html += "</div>";
   body.innerHTML = html;
 }
 
@@ -286,6 +312,7 @@ async function main() {
   $("showLine").textContent = boards.show.line;
   document.title = `Phish-Tac-Toe · ${boards.show.title}`;
   wireUp();
+  renderLegend();
   await loadSetlist();
   setInterval(loadSetlist, POLL_MS);
 }

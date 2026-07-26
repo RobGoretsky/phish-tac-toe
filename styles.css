@@ -148,11 +148,27 @@ main { max-width: 620px; margin: 0 auto; padding: 0 14px calc(28px + var(--safe-
 .setlist-head { display: flex; align-items: baseline; justify-content: space-between; }
 .setlist-head h3 { font-family: "Bebas Neue", sans-serif; letter-spacing: 1.4px; font-size: 19px; margin: 0; }
 .setlist-head span { font-size: 11px; color: var(--dim); }
-.setlist-body { margin-top: 8px; font-size: 13px; line-height: 1.65; }
-.setlist-body .setname { font: 700 10px/1 Inter, sans-serif; letter-spacing: 1.4px; text-transform: uppercase; color: var(--accent); margin: 10px 0 3px; }
-.setlist-body .song { color: var(--dim); }
-.setlist-body .song.board { color: var(--hit); font-weight: 700; }
-.setlist-body .sep { color: #4c4364; }
+.setlist-body { margin-top: 8px; font-size: 13px; line-height: 1.7; }
+.setlist-body .setname {
+  font: 700 10px/1 Inter, sans-serif; letter-spacing: 1.4px; text-transform: uppercase;
+  color: var(--accent); margin: 12px 0 3px;
+}
+/* NB: these are deliberately `sl-`prefixed. An earlier version marked matched
+ * songs with class "board", which collided with the tic-tac-toe grid's
+ * `.board { display: grid }` and turned every hit into a block-level box. */
+.setrow { display: block; }
+.sl-song { color: var(--dim); }
+.sl-hit { font-weight: 700; }
+.sl-multi {
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.sl-sep { color: #4c4364; }
+
+.legend { display: flex; gap: 10px; align-items: center; margin-top: 9px; flex-wrap: wrap; }
+.legend b { font: 700 9.5px/1 Inter, sans-serif; letter-spacing: .7px; text-transform: uppercase; }
+.legend .k { display: flex; align-items: center; gap: 4px; }
+.legend .k i { width: 8px; height: 8px; border-radius: 50%; display: block; }
+.legend .note { font-size: 9.5px; color: var(--dim); letter-spacing: .3px; }
 .empty { color: var(--dim); font-size: 13px; margin: 6px 0 0; }
 
 .foot { display: flex; gap: 8px; justify-content: center; margin-top: 20px; flex-wrap: wrap; }
