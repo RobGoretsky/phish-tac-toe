@@ -69,8 +69,8 @@ jobs:
           deadline=$(( $(date +%s) + MINUTES * 60 ))
           while [ "$(date +%s)" -lt "$deadline" ]; do
             python3 scripts/refresh_setlist.py || true
-            if ! git diff --quiet -- data/setlist.json; then
-              git add data/setlist.json
+            if ! git diff --quiet -- data/ || [ -n "$(git ls-files -o --exclude-standard data/)" ]; then
+              git add data/setlist.json data/feed-log.jsonl
               git commit -m "setlist: $(python3 -c "import json;print(json.load(open('data/setlist.json'))['count'])") songs"
               # Another run may have pushed between our fetch and now.
               for i in 1 2 3; do

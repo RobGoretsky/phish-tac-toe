@@ -128,6 +128,31 @@ scrapes the live page and will overtake the API automatically.
 
 Validate the key without waiting for a show: run the workflow with **`probe: true`**. It prints the
 response shape, the distinct `set` values and the parsed result, then exits without committing.
+Probe a *past* `show_date` to see real rows — a future date returns zero, which proves auth works
+but tells you nothing about the schema.
+
+### Provenance logging
+
+Every poll logs which feed supplied the data and how far behind the others were:
+
+```
+sources: phish.net-api=12 (410ms), phish.net-web=21 (281ms) -> WINNER phish.net-web with 21 | BEHIND: phish.net-api by 9
+```
+
+Actions logs expire, so the same information is appended to **`data/feed-log.jsonl`** and committed
+(one line per change, not per poll) and echoed to the job summary. After a show that file answers
+the question that decides the next show's config: *was the API keeping up?*
+
+```json
+{"t":"2026-07-27T23:41:02+00:00","showDate":"2026-07-27","winner":"phish.net-web",
+ "count":21,"counts":{"phish.net-api":12,"phish.net-web":21},"behind":{"phish.net-api":9}}
+```
+
+### The scraper is date-driven
+
+`phish.net/setlists/?d=YYYY-MM-DD` 302s to the canonical slug, so `phish.net-web` needs only
+`SHOW_DATE` — no hand-built URL. That makes it reusable for any future show (1996 night, next tour)
+by changing one input.
 
 Multi-source is safe because the feeds agree. Checked against nights 1–3 of this run, Phantasy Tour and
 phish.net reported **identical setlist lengths**, differing only in cosmetic naming — `Divided Sky`

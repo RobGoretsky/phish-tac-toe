@@ -116,7 +116,7 @@ def prefers_api_on_tie():
     R.SOURCES = [("phish.net-api", lambda: list(same), 0),
                  ("phantasy-tour", lambda: list(same), 1),
                  ("phish.net-web", lambda: list(same), 2)]
-    _, source, _ = R.collect()
+    _, source, _, _ = R.collect()
     assert source == "phish.net-api", f"tie went to {source}"
 
 
@@ -129,7 +129,7 @@ def longest_still_wins():
     two = one + [{"name": "Wilson", "set": 1, "pos": 2, "segue": False}]
     R.SOURCES = [("phish.net-api", lambda: list(one), 0),
                  ("phantasy-tour", lambda: list(two), 1)]
-    songs, source, _ = R.collect()
+    songs, source, _, _ = R.collect()
     assert source == "phantasy-tour" and len(songs) == 2, f"got {source}/{len(songs)}"
 
 

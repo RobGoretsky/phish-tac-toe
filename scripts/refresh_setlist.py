@@ -33,16 +33,18 @@ import os
 import pathlib
 import re
 import sys
+import time
 import urllib.parse
 import urllib.request
 from datetime import datetime, timezone
 
 SHOW_ID = int(os.environ.get("SHOW_ID", "62005"))          # Phantasy Tour id
 SHOW_DATE = os.environ.get("SHOW_DATE", "2026-07-27")      # phish.net key
-PNET_SLUG = os.environ.get(
-    "PNET_SLUG", "phish-july-27-2026-madison-square-garden-new-york-ny-usa")
+# Empty by default: the scraper resolves the URL from SHOW_DATE via a redirect.
+PNET_SLUG = os.environ.get("PNET_SLUG", "").strip()
 HEARTBEAT_SEC = int(os.environ.get("HEARTBEAT_SEC", "480"))
 OUT = pathlib.Path(__file__).resolve().parent.parent / "data" / "setlist.json"
+FEED_LOG = OUT.parent / "feed-log.jsonl"
 
 # Both hosts sit behind bot protection and 403 a bare urllib User-Agent.
 UA = {
@@ -157,8 +159,17 @@ def from_phishnet_api():
 
 
 def from_phishnet_html():
-    """Scrape the public setlist page — no key required."""
-    page = _get(f"https://phish.net/setlists/{PNET_SLUG}.html", as_json=False)
+    """Scrape the public setlist page — no key required.
+
+    The URL is resolved from the date: phish.net/setlists/?d=YYYY-MM-DD 302s to
+    the canonical slug, which urllib follows. That keeps this source reusable for
+    any show without hand-building a slug. PNET_SLUG overrides if ever needed.
+    """
+    if PNET_SLUG:
+        url = f"https://phish.net/setlists/{PNET_SLUG}.html"
+    else:
+        url = f"https://phish.net/setlists/?d={urllib.parse.quote(SHOW_DATE)}"
+    page = _get(url, as_json=False)
     i = page.find("setlist-body")
     if i < 0:
         return []
@@ -229,14 +240,17 @@ def collect():
     lights go down -- so it must count as a success, or the heartbeat never fires
     and the page reports a dead feed all evening.
     """
-    best, best_name, best_pref, counts = [], None, None, {}
+    best, best_name, best_pref, counts, timings = [], None, None, {}, {}
     for name, fn, pref in (SOURCES if SOURCES is not None else active_sources()):
+        t0 = time.monotonic()
         try:
             songs = fn()
         except Exception as e:                      # a dead source must not stop the others
             counts[name] = f"error: {type(e).__name__}"
+            timings[name] = round((time.monotonic() - t0) * 1000)
             print(f"  {name}: {e}", file=sys.stderr)
             continue
+        timings[name] = round((time.monotonic() - t0) * 1000)
         if songs is None:                           # deliberately skipped, not a success
             counts[name] = "skipped"
             continue
@@ -244,17 +258,66 @@ def collect():
         # Furthest ahead wins; on a tie the more trustworthy source wins.
         if best_name is None or (len(songs), -pref) > (len(best), -best_pref):
             best, best_name, best_pref = songs, name, pref
-    return best, best_name, counts
+    return best, best_name, counts, timings
+
+
+def log_provenance(source, counts, timings, n):
+    """Record which feed supplied the data, and how far behind the others were.
+
+    Actions logs expire, so this also appends to data/feed-log.jsonl, which gets
+    committed. After the show that file answers "was the API keeping up?" —
+    which is the question that decides the source config for the next show.
+    """
+    numeric = {k: v for k, v in counts.items() if isinstance(v, int)}
+    leader = max(numeric.values()) if numeric else 0
+    lag = {k: leader - v for k, v in numeric.items() if leader - v > 0}
+
+    detail = ", ".join(
+        f"{k}={v}" + (f" ({timings[k]}ms)" if k in timings else "")
+        for k, v in counts.items())
+    line = f"sources: {detail} -> WINNER {source} with {n}"
+    if lag:
+        line += " | BEHIND: " + ", ".join(f"{k} by {d}" for k, d in sorted(lag.items()))
+    print(line)
+
+    entry = {
+        "t": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+        "showDate": SHOW_DATE, "winner": source, "count": n,
+        "counts": counts, "ms": timings,
+    }
+    if lag:
+        entry["behind"] = lag
+    try:
+        prev_line = None
+        if FEED_LOG.exists():
+            tail = FEED_LOG.read_text().strip().splitlines()
+            prev_line = json.loads(tail[-1]) if tail else None
+        # Only append when something meaningful moved, so the file stays readable.
+        if not prev_line or (prev_line.get("winner"), prev_line.get("counts")) != (source, counts):
+            with FEED_LOG.open("a") as fh:
+                fh.write(json.dumps(entry) + "\n")
+    except (OSError, ValueError, json.JSONDecodeError) as e:
+        print(f"  (could not append feed log: {e})", file=sys.stderr)
+
+    summary = os.environ.get("GITHUB_STEP_SUMMARY")
+    if summary:
+        try:
+            with open(summary, "a") as fh:
+                fh.write(f"- `{entry['t']}` **{source}** → {n} songs "
+                         f"({detail})" + (f" — behind: {lag}" if lag else "") + "\n")
+        except OSError:
+            pass
 
 
 def main():
-    songs, source, counts = collect()
-    print("sources: " + ", ".join(f"{k}={v}" for k, v in counts.items()))
+    songs, source, counts, timings = collect()
 
     if source is None:
         # Every source raised — leave the last good file rather than blanking boards.
         print("all sources failed; leaving existing file untouched", file=sys.stderr)
         return 1
+
+    log_provenance(source, counts, timings, len(songs))
 
     payload = {
         "showId": SHOW_ID,
@@ -262,6 +325,7 @@ def main():
         "fetchedAt": datetime.now(timezone.utc).isoformat(timespec="seconds"),
         "source": source,
         "sourceCounts": counts,
+        "sourceMs": timings,
         "count": len(songs),
         "songs": songs,
     }
