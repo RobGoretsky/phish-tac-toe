@@ -182,10 +182,23 @@ main { max-width: 620px; margin: 0 auto; padding: 0 14px calc(28px + var(--safe-
   animation: up .26s cubic-bezier(.2,.9,.3,1);
 }
 @keyframes up { from { transform: translateY(28px); opacity: .4; } }
+/* Sticky, not absolute: .sheet is the scroll container, so an absolutely
+ * positioned close button scrolls out of reach on a long song sheet. */
 .close {
-  position: absolute; top: 12px; right: 12px; width: 32px; height: 32px; border-radius: 50%;
-  background: var(--card); border: 1px solid var(--line); color: var(--dim); font-size: 13px; cursor: pointer;
+  position: sticky; top: 0; float: right; z-index: 5;
+  width: 34px; height: 34px; border-radius: 50%; margin: -4px -4px 0 12px;
+  background: var(--card); border: 1px solid var(--line); color: var(--ink);
+  font-size: 14px; cursor: pointer; box-shadow: 0 4px 14px -4px rgba(0,0,0,.7);
 }
+.close:active { background: var(--line); }
+
+/* Guaranteed way out after scrolling, whatever the sticky button does. */
+.sheet-done {
+  display: block; width: 100%; clear: both; margin: 24px 0 0; padding: 15px;
+  border-radius: 12px; background: var(--card); border: 1px solid var(--line);
+  color: var(--ink); font: 700 14px Inter, sans-serif; letter-spacing: .4px; cursor: pointer;
+}
+.sheet-done:active { background: var(--line); }
 .sheet h3 { font-family: "Bebas Neue", sans-serif; letter-spacing: 1.4px; font-size: 22px; margin: 0 0 8px; }
 
 .songtitle { font-family: "Bebas Neue", sans-serif; font-size: 34px; letter-spacing: 1px; line-height: 1.05; margin: 0 34px 4px 0; }

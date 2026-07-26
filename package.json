@@ -1,0 +1,8 @@
+{
+  "name": "phish-tac-toe",
+  "private": true,
+  "scripts": {
+    "test": "node scripts/test_logic.js && node scripts/test_dom.js"
+  },
+  "devDependencies": { "jsdom": "^24.0.0" }
+}

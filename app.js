@@ -250,6 +250,9 @@ function wireUp() {
   for (const id of ["sheetWrap", "manualWrap", "aboutWrap"]) {
     $(id).addEventListener("click", (e) => { if (e.target.id === id) hide(id); });
   }
+  for (const b of document.querySelectorAll(".sheet-done")) {
+    b.onclick = (e) => hide(e.target.closest(".sheet-wrap").id);
+  }
   document.addEventListener("keydown", (e) => {
     if (e.key === "ArrowLeft") move(-1);
     if (e.key === "ArrowRight") move(1);

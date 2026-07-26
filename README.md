@@ -143,10 +143,17 @@ scripts/
 ```
 
 ```bash
-node scripts/test_logic.js     # 20 assertions over the scoring engine
+node scripts/test_logic.js     # 22 assertions: scoring engine, data integrity, markup/CSS
+npm i && node scripts/test_dom.js   # 17 assertions: drives the real UI in jsdom
 python3 scripts/build_data.py  # regenerate data/ from analysis/
 python3 -m http.server 8000    # then open http://localhost:8000
 ```
+
+`test_dom.js` loads the actual `index.html`, `logic.js` and `app.js` into jsdom with `fetch`
+stubbed against the local data files, then clicks through squares, sheets and board navigation.
+It exists because both bugs that reached production were presentation bugs the pure-logic tests
+couldn't see: overlay sheets pinned open by a `display` rule beating `[hidden]`, and a close
+button that scrolled out of reach inside its own scroll container.
 
 Song bios, lyrics and 1995 facts were researched against [phish.net](https://phish.net) and
 cross-checked against the independently computed Phantasy Tour play counts.
