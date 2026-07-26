@@ -162,6 +162,29 @@ const ok = (name, fn) => {
         throw new Error(`${id}: bottom Close should be inside the scroll area`);
     }
   });
+  ok("sheet heights use dvh, not bare vh", () => {
+    // On iOS `vh` is the LARGEST viewport, so a bottom-anchored 88vh sheet hangs
+    // above the visible area and clips its own title behind the URL bar.
+    const css = fs.readFileSync(path.join(ROOT, "styles.css"), "utf8");
+    for (const sel of ["sheet-wrap", "sheet"]) {
+      const rule = new RegExp(`\\.${sel}\\s*\\{([^}]*)\\}`).exec(css);
+      if (!rule) throw new Error(`.${sel} rule missing`);
+      const heights = rule[1].match(/(?:max-)?height\s*:\s*[^;]+/g) || [];
+      if (!heights.length) throw new Error(`.${sel} sets no height`);
+      if (!heights.some((h) => /dvh/.test(h)))
+        throw new Error(`.${sel} sizes with ${heights.join(", ")} — needs a dvh value`);
+    }
+  });
+
+  ok("the song sheet scroll position resets between songs", () => {
+    const scroll = $("sheetScroll");
+    if (!scroll) throw new Error("no #sheetScroll");
+    scroll.scrollTop = 120;
+    click(cells()[0]);
+    if (scroll.scrollTop !== 0) throw new Error(`opened at scrollTop ${scroll.scrollTop}`);
+    click($("sheetClose"));
+  });
+
   ok(".sheet-scroll can actually shrink and scroll", () => {
     // Without min-height:0 a flex item won't shrink below its content size, so
     // the sheet's overflow:hidden clips the top of long songs instead of scrolling.

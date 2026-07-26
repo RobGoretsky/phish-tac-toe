@@ -175,6 +175,7 @@ function openSong(key) {
     ${song.fact95 ? `<div class="label">1995 factoid</div><p class="body">${song.fact95}</p>` : ""}
     <p class="onboards">On ${owners.map((o) => `<b style="color:${o.accent}">${o.name}</b>`).join(" · ")}${owners.length > 1 ? "'s boards" : "'s board"}.</p>
   `;
+  $("sheetScroll").scrollTop = 0;   // the container is reused between songs
   show("sheetWrap");
 }
 

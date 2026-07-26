@@ -187,6 +187,12 @@ main { max-width: 620px; margin: 0 auto; padding: 0 14px calc(28px + var(--safe-
 
 .sheet-wrap {
   position: fixed; inset: 0; z-index: 60; display: flex; align-items: flex-end; justify-content: center;
+  /* iOS measures `vh` against the LARGEST viewport (browser chrome hidden), so a
+   * 100vh box is taller than what's visible and a bottom-anchored sheet pushes
+   * its own top off-screen behind the URL bar. `dvh` tracks the visible
+   * viewport; the vh line stays first as a fallback. */
+  height: 100vh;
+  height: 100dvh;
   background: rgba(6,4,12,.72); backdrop-filter: blur(3px);
   animation: fade .18s ease;
 }
@@ -195,7 +201,9 @@ main { max-width: 620px; margin: 0 auto; padding: 0 14px calc(28px + var(--safe-
  * close button in a fixed layer, out of reach of both the scroll and the
  * rounded corner that was clipping it. */
 .sheet {
-  position: relative; width: 100%; max-width: 620px; max-height: 88vh;
+  position: relative; width: 100%; max-width: 620px;
+  max-height: 88vh;
+  max-height: 88dvh;
   display: flex; flex-direction: column; overflow: hidden;
   background: var(--bg2); border: 1px solid var(--line); border-bottom: 0;
   border-radius: 20px 20px 0 0; padding: 0;
