@@ -126,15 +126,24 @@ def from_phishnet_html():
         setno = SET_LABELS.get(label)
         if setno is None:
             continue
-        # Capture each song plus the text after it, so we can spot "->" / ">".
+        # Take the name from the anchor's TEXT, never its title attribute: songs
+        # that appear in phish.net's jam charts carry data-toggle="tooltip" and
+        # their title holds annotation prose instead of the song name. Lookaheads
+        # so attribute order doesn't matter.
         toks = re.findall(
-            r"<a\b[^>]*class=['\"]setlist-song['\"][^>]*title=\"([^\"]*)\"[^>]*>.*?</a>"
+            r"<a\b(?=[^>]*href=['\"]/song/)(?=[^>]*class=['\"]setlist-song['\"])[^>]*>"
+            r"(.*?)</a>"
             r"([^<]*(?:<sup[^>]*>.*?</sup>)?[^<]*)",
             parts[k + 1], re.S)
-        for pos, (title, tail) in enumerate(toks, 1):
+        pos = 0
+        for inner, tail in toks:
+            name = html_mod.unescape(re.sub(r"<[^>]+>", "", inner)).strip()
+            if not name:
+                continue
+            pos += 1
             tail_txt = re.sub(r"<[^>]+>", "", tail)
             out.append({
-                "name": html_mod.unescape(title).strip(),
+                "name": name,
                 "set": setno,
                 "pos": pos,
                 "segue": bool(re.search(r"->|>|&gt;", tail_txt)),
@@ -142,10 +151,13 @@ def from_phishnet_html():
     return out
 
 
+# (name, fetcher, preference) — lower preference wins a tie. phish.net is the
+# canonical database, and a structured API beats scraping the same site's HTML,
+# so the scrape is strictly a fallback for when the API is unavailable.
 SOURCES = [
-    ("phantasy-tour", from_phantasy_tour),
-    ("phish.net-api", from_phishnet_api),
-    ("phish.net-web", from_phishnet_html),
+    ("phish.net-api", from_phishnet_api, 0),
+    ("phantasy-tour", from_phantasy_tour, 1),
+    ("phish.net-web", from_phishnet_html, 2),
 ]
 
 
@@ -157,8 +169,8 @@ def collect():
     lights go down -- so it must count as a success, or the heartbeat never fires
     and the page reports a dead feed all evening.
     """
-    best, best_name, counts = [], None, {}
-    for name, fn in SOURCES:
+    best, best_name, best_pref, counts = [], None, None, {}
+    for name, fn, pref in SOURCES:
         try:
             songs = fn()
         except Exception as e:                      # a dead source must not stop the others
@@ -169,8 +181,9 @@ def collect():
             counts[name] = "skipped"
             continue
         counts[name] = len(songs)
-        if best_name is None or len(songs) > len(best):
-            best, best_name = songs, name
+        # Furthest ahead wins; on a tie the more trustworthy source wins.
+        if best_name is None or (len(songs), -pref) > (len(best), -best_pref):
+            best, best_name, best_pref = songs, name, pref
     return best, best_name, counts
 
 

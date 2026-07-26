@@ -129,6 +129,14 @@ Two failure modes are guarded explicitly, both found by testing rather than by r
 - **Setlists don't shrink.** If a poll returns fewer songs than the file already has *and* any
   source errored, the write is refused. With every source healthy a shrink is a real moderator
   correction and is allowed through.
+- **Song names come from the anchor text, not the `title` attribute.** Songs listed in phish.net's
+  jam charts render with `data-toggle="tooltip"` and a `title` holding *annotation prose* instead of
+  the song name. Reading the title silently dropped exactly those songs — on 10/31/95 it lost
+  Drowned and You Enjoy Myself, which would have cost someone a win. `scripts/test_parsers.py`
+  pins this with saved fixtures.
+
+Cross-checked: parsing 10/31/95 from phish.net and from Phantasy Tour independently produces the
+identical board outcome (Rob 3/9 and Dylan 4/9 both complete a line, Rob takes the tiebreak).
 
 ### Scheduling
 
@@ -170,8 +178,9 @@ scripts/
 ```
 
 ```bash
-node scripts/test_logic.js     # 22 assertions: scoring engine, data integrity, markup/CSS
-npm i && node scripts/test_dom.js   # 17 assertions: drives the real UI in jsdom
+node scripts/test_logic.js       # 22 assertions: scoring engine, data integrity, markup/CSS
+npm i && node scripts/test_dom.js     # 27 assertions: drives the real UI in jsdom
+python3 scripts/test_parsers.py  # 10 assertions: setlist parsers vs saved HTML fixtures
 python3 scripts/build_data.py  # regenerate data/ from analysis/
 python3 -m http.server 8000    # then open http://localhost:8000
 ```
