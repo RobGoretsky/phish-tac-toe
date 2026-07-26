@@ -175,18 +175,26 @@ main { max-width: 620px; margin: 0 auto; padding: 0 14px calc(28px + var(--safe-
   animation: fade .18s ease;
 }
 @keyframes fade { from { opacity: 0; } }
+/* The sheet itself never scrolls: an inner .sheet-scroll does. That keeps the
+ * close button in a fixed layer, out of reach of both the scroll and the
+ * rounded corner that was clipping it. */
 .sheet {
-  position: relative; width: 100%; max-width: 620px; max-height: 88vh; overflow-y: auto;
+  position: relative; width: 100%; max-width: 620px; max-height: 88vh;
+  display: flex; flex-direction: column; overflow: hidden;
   background: var(--bg2); border: 1px solid var(--line); border-bottom: 0;
-  border-radius: 20px 20px 0 0; padding: 22px 20px calc(26px + var(--safe-b));
+  border-radius: 20px 20px 0 0; padding: 0;
   animation: up .26s cubic-bezier(.2,.9,.3,1);
 }
+.sheet-scroll {
+  overflow-y: auto; -webkit-overflow-scrolling: touch;
+  padding: 22px 20px calc(26px + var(--safe-b));
+}
 @keyframes up { from { transform: translateY(28px); opacity: .4; } }
-/* Sticky, not absolute: .sheet is the scroll container, so an absolutely
- * positioned close button scrolls out of reach on a long song sheet. */
+/* Absolute is safe again now that .sheet no longer scrolls. Inset far enough
+ * from the corner that the 20px border-radius cannot clip it. */
 .close {
-  position: sticky; top: 0; float: right; z-index: 5;
-  width: 34px; height: 34px; border-radius: 50%; margin: -4px -4px 0 12px;
+  position: absolute; top: 14px; right: 16px; z-index: 10;
+  width: 34px; height: 34px; border-radius: 50%;
   background: var(--card); border: 1px solid var(--line); color: var(--ink);
   font-size: 14px; cursor: pointer; box-shadow: 0 4px 14px -4px rgba(0,0,0,.7);
 }

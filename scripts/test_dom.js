@@ -134,20 +134,41 @@ const ok = (name, fn) => {
       if (!$(id).hidden) throw new Error(`${id} bottom Close did not dismiss`);
     }
   });
-  ok("the bottom Close is the LAST thing in each sheet", () => {
+  ok("the bottom Close is the LAST thing you scroll to", () => {
     for (const id of ["sheetWrap", "manualWrap", "aboutWrap"]) {
-      const sheet = $(id).querySelector(".sheet");
-      const last = [...sheet.children].filter((n) => n.nodeType === 1).pop();
+      const scroll = $(id).querySelector(".sheet-scroll");
+      const last = [...scroll.children].filter((n) => n.nodeType === 1).pop();
       if (!last.classList.contains("sheet-done"))
-        throw new Error(`${id} ends with .${last.className}, not the Close button`);
+        throw new Error(`${id} scroll area ends with .${last.className}, not the Close button`);
     }
   });
-  ok("the X button is sticky, not absolute", () => {
+  ok("the X sits outside the scrolling area", () => {
+    // It used to live inside .sheet while .sheet was the scroll container, so it
+    // scrolled away — and once pinned with sticky, the 20px border-radius clipped it.
+    for (const id of ["sheetWrap", "manualWrap", "aboutWrap"]) {
+      const x = $(id).querySelector(".close");
+      if (!x) throw new Error(`${id} has no close button`);
+      if (x.closest(".sheet-scroll"))
+        throw new Error(`${id}: .close is inside .sheet-scroll and will scroll away`);
+      if (x.parentElement !== $(id).querySelector(".sheet"))
+        throw new Error(`${id}: .close should be a direct child of .sheet`);
+    }
+  });
+  ok("all sheet content lives inside .sheet-scroll", () => {
+    for (const id of ["sheetWrap", "manualWrap", "aboutWrap"]) {
+      const scroll = $(id).querySelector(".sheet-scroll");
+      if (!scroll) throw new Error(`${id} has no .sheet-scroll`);
+      if (!scroll.querySelector(".sheet-done"))
+        throw new Error(`${id}: bottom Close should be inside the scroll area`);
+    }
+  });
+  ok("only .sheet-scroll scrolls, never .sheet", () => {
     const css = fs.readFileSync(path.join(ROOT, "styles.css"), "utf8");
-    const rule = /\.close\s*\{[^}]*\}/.exec(css)[0];
-    if (/position\s*:\s*absolute/.test(rule))
-      throw new Error("`.close` is absolute; it scrolls out of reach inside .sheet");
-    if (!/position\s*:\s*sticky/.test(rule)) throw new Error("`.close` should be sticky");
+    const sheet = /\.sheet\s*\{[^}]*\}/.exec(css)[0];
+    if (/overflow-y\s*:\s*auto/.test(sheet))
+      throw new Error(".sheet scrolls again — the close button will scroll out of reach");
+    if (!/\.sheet-scroll\s*\{[^}]*overflow-y\s*:\s*auto/.test(css))
+      throw new Error(".sheet-scroll must be the scroll container");
   });
 
   console.log(`\n${pass} passed`);
