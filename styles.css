@@ -201,8 +201,15 @@ main { max-width: 620px; margin: 0 auto; padding: 0 14px calc(28px + var(--safe-
   border-radius: 20px 20px 0 0; padding: 0;
   animation: up .26s cubic-bezier(.2,.9,.3,1);
 }
+/* `flex: 1 1 auto; min-height: 0` is load-bearing. A flex item's automatic
+ * minimum size is its content size, so without min-height:0 this refuses to
+ * shrink below the full content height, overflows the max-height:88vh parent and
+ * gets CLIPPED by its overflow:hidden instead of scrolling. The sheet is
+ * bottom-aligned, so the clipped part is the top — the song title. */
 .sheet-scroll {
+  flex: 1 1 auto; min-height: 0;
   overflow-y: auto; -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
   padding: 22px 20px calc(26px + var(--safe-b));
 }
 @keyframes up { from { transform: translateY(28px); opacity: .4; } }

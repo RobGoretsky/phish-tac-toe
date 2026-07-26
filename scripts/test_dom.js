@@ -162,6 +162,18 @@ const ok = (name, fn) => {
         throw new Error(`${id}: bottom Close should be inside the scroll area`);
     }
   });
+  ok(".sheet-scroll can actually shrink and scroll", () => {
+    // Without min-height:0 a flex item won't shrink below its content size, so
+    // the sheet's overflow:hidden clips the top of long songs instead of scrolling.
+    const css = fs.readFileSync(path.join(ROOT, "styles.css"), "utf8");
+    const rule = /\.sheet-scroll\s*\{([^}]*)\}/.exec(css);
+    if (!rule) throw new Error(".sheet-scroll rule missing");
+    if (!/min-height\s*:\s*0/.test(rule[1]))
+      throw new Error(".sheet-scroll needs min-height:0 or long sheets clip at the top");
+    if (!/flex\s*:/.test(rule[1]))
+      throw new Error(".sheet-scroll needs an explicit flex so it fills the sheet");
+  });
+
   ok("only .sheet-scroll scrolls, never .sheet", () => {
     const css = fs.readFileSync(path.join(ROOT, "styles.css"), "utf8");
     const sheet = /\.sheet\s*\{[^}]*\}/.exec(css)[0];
