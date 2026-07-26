@@ -92,7 +92,10 @@ function renderLegend() {
 
 function renderSetlist() {
   const songs = state.setlist.songs || [];
-  $("setlistCount").textContent = songs.length ? `${songs.length} songs` : "";
+  const src = state.setlist.source;
+  $("setlistCount").textContent =
+    (songs.length ? `${songs.length} songs` : "") +
+    (src && src !== "none" ? `${songs.length ? " · " : ""}via ${src}` : "");
   const body = $("setlistBody");
   if (!songs.length) {
     body.innerHTML = `<p class="empty">Nothing played yet. Lights are still on. 🍩</p>`;

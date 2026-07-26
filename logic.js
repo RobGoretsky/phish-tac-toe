@@ -14,7 +14,7 @@
   const norm = (s) =>
     (s || "")
       .toLowerCase()
-      .replace(/[’'`]/g, "")
+      .replace(/[’'`.]/g, "")      // drop apostrophes AND periods: N.I.C.U. -> nicu
       .replace(/[^a-z0-9]+/g, " ")
       .replace(/^the /, "")
       .trim();

@@ -96,14 +96,41 @@ reproduce that setlist.
 
 ## How it stays live
 
-The browser can't call Phantasy Tour directly — the API sends no CORS headers, and no free CORS
-proxy reaches it. So a GitHub Action does the fetching:
+The browser can't call either setlist source directly — neither sends CORS headers, and no free
+CORS proxy reaches them. So a GitHub Action does the fetching:
 
 ```
-Phantasy Tour API  ──▶  scripts/refresh_setlist.py  ──▶  commit data/setlist.json  ──▶  Pages
-                                                                                        │
-                                                    page re-fetches every 45s  ◀─────────┘
+Phantasy Tour API  ─┐
+phish.net API v5   ─┼─▶ scripts/refresh_setlist.py ─▶ commit data/setlist.json ─▶ Pages
+phish.net web page ─┘        (longest wins)                                        │
+                                              page re-fetches every 45s  ◀─────────┘
 ```
+
+### Three sources, longest wins
+
+The one night this has to work is the night it can't be debugged, so there are three independent
+feeds. Whichever returns the most songs wins, and the winner is displayed in the setlist header.
+
+This is safe because the feeds agree. Checked against nights 1–3 of this run, Phantasy Tour and
+phish.net reported **identical setlist lengths**, differing only in cosmetic naming — `Divided Sky`
+vs `The Divided Sky`, `My Friend, My Friend` vs `My Friend My Friend`, `Run Like an Antelope` vs
+`Run Like An Antelope` — all of which the app's title normaliser already collapses. So "longest
+wins" tracks whichever source is furthest ahead rather than oscillating between them.
+
+`PHISHNET_API_KEY` is an optional repo secret (phish.net's **private** key — never the public one,
+since this repo is world-readable). Without it that source is skipped and the other two carry the
+show.
+
+Two failure modes are guarded explicitly, both found by testing rather than by reasoning:
+
+- **A skipped source must not win.** The phish.net API returns `None` when unconfigured, not `[]`.
+  Returning an empty list made it look like a successful fetch of an empty setlist, so with the
+  two real feeds down it "won" with zero songs and overwrote a full setlist — blanking every board.
+- **Setlists don't shrink.** If a poll returns fewer songs than the file already has *and* any
+  source errored, the write is refused. With every source healthy a shrink is a real moderator
+  correction and is allowed through.
+
+### Scheduling
 
 GitHub's cron is best-effort and can fire late, so **each run polls in an 8-minute internal loop**
 at 30-second intervals rather than once; with a `*/10` schedule that leaves no gap, and a
