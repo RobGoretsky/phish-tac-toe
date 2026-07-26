@@ -106,20 +106,38 @@ phish.net web page ─┘        (longest wins)                                 
                                               page re-fetches every 45s  ◀─────────┘
 ```
 
-### Three sources, longest wins
+### One live feed, two parked backups
 
-The one night this has to work is the night it can't be debugged, so there are three independent
-feeds. Whichever returns the most songs wins, and the winner is displayed in the setlist header.
+**`phish.net-api` is the only source that runs.** It's the canonical database and a structured API.
+Two more are implemented and tested but idle:
 
-This is safe because the feeds agree. Checked against nights 1–3 of this run, Phantasy Tour and
+| source | key needed | status |
+|--------|-----------|--------|
+| `phish.net-api` | `PHISHNET_API_KEY` | **active** |
+| `phantasy-tour` | no | parked |
+| `phish.net-web` | no | parked |
+
+Bring a backup online without touching code — set the workflow's `sources` input (or
+`SETLIST_SOURCES`) to e.g. `phish.net-api,phish.net-web`. With several active, the one furthest
+ahead wins and ties go to the API; the winner is shown in the setlist header.
+
+⚠️ **Known risk.** phish.net's docs say API responses are *"cached for a short period"* and that
+embedding data from an *in-progress show* requires a special method that is *"forthcoming"*. That's
+exactly this use case. If the boards lag during the show, add `phish.net-web` to `sources` — it
+scrapes the live page and will overtake the API automatically.
+
+Validate the key without waiting for a show: run the workflow with **`probe: true`**. It prints the
+response shape, the distinct `set` values and the parsed result, then exits without committing.
+
+Multi-source is safe because the feeds agree. Checked against nights 1–3 of this run, Phantasy Tour and
 phish.net reported **identical setlist lengths**, differing only in cosmetic naming — `Divided Sky`
 vs `The Divided Sky`, `My Friend, My Friend` vs `My Friend My Friend`, `Run Like an Antelope` vs
 `Run Like An Antelope` — all of which the app's title normaliser already collapses. So "longest
 wins" tracks whichever source is furthest ahead rather than oscillating between them.
 
-`PHISHNET_API_KEY` is an optional repo secret (phish.net's **private** key — never the public one,
-since this repo is world-readable). Without it that source is skipped and the other two carry the
-show.
+`PHISHNET_API_KEY` is a repo secret (phish.net's **private** key — never the public one, since this
+repo is world-readable). Without it the API source reports `skipped` and, with the backups parked,
+nothing updates — so the secret is required for the default configuration.
 
 Two failure modes are guarded explicitly, both found by testing rather than by reasoning:
 
@@ -180,7 +198,8 @@ scripts/
 ```bash
 node scripts/test_logic.js       # 22 assertions: scoring engine, data integrity, markup/CSS
 npm i && node scripts/test_dom.js     # 27 assertions: drives the real UI in jsdom
-python3 scripts/test_parsers.py  # 10 assertions: setlist parsers vs saved HTML fixtures
+python3 scripts/test_parsers.py  # 19 assertions: both setlist parsers + source selection
+python3 scripts/refresh_setlist.py --probe   # validate the phish.net API (needs the key)
 python3 scripts/build_data.py  # regenerate data/ from analysis/
 python3 -m http.server 8000    # then open http://localhost:8000
 ```

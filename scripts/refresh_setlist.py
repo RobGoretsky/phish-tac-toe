@@ -5,17 +5,24 @@ Runs from a GitHub Action during the show. The browser can't fetch either source
 directly (no CORS headers), so this is the bridge: fetch server-side, commit the
 JSON, let GitHub Pages serve it.
 
-Three independent sources, because the one night this has to work is the one
-night we can't debug it:
+Only ONE feed runs by default -- the phish.net API v5 (needs PHISHNET_API_KEY).
+Two more are implemented, tested and parked as backups:
 
-  1. Phantasy Tour API      — no key needed
-  2. phish.net API v5       — needs PHISHNET_API_KEY; skipped silently if unset
-  3. phish.net setlist page — no key needed, scraped from HTML
+  * phantasy-tour  — Phantasy Tour API, no key needed
+  * phish.net-web  — scrapes the public phish.net setlist page, no key needed
 
-Whichever returns the most songs wins. The two feeds were verified to agree
-exactly on nights 1-3 of this run (same lengths, only cosmetic name differences
-that the app's matcher already normalises away), so "longest wins" tracks
-whichever source is furthest ahead rather than flip-flopping between them.
+Enable them by setting SETLIST_SOURCES (or the workflow's `sources` input), e.g.
+SETLIST_SOURCES="phish.net-api,phish.net-web". No code change required.
+
+When more than one is active, whichever returns the most songs wins; ties go to
+the lower-preference source (API over scrape). The feeds were verified to agree
+exactly on nights 1-3 of this run -- same lengths, and parsing 10/31/95 through
+phish.net and Phantasy Tour independently produced the identical board outcome.
+
+CAVEAT: phish.net's docs state API responses are "cached for a short period" and
+that embedding data from an in-progress show needs a special method that is
+"forthcoming". If the API proves laggy mid-show, add phish.net-web to
+SETLIST_SOURCES -- it reads the live page and will overtake the API.
 
 Idempotent: the file is rebuilt from scratch each run, so a re-run converges.
 """
@@ -71,46 +78,82 @@ def from_phantasy_tour():
     return out
 
 
-def from_phishnet_api():
-    """phish.net API v5. Returns None (= skipped) when no key is configured.
-
-    It must NOT return [] here: an empty list looks like a successful fetch of an
-    empty setlist, which would let this source "win" while the real feeds are
-    down and blank the boards.
-    """
+def phishnet_api_raw():
+    """Raw phish.net API v5 setlist rows, or None when no key is configured."""
     key = os.environ.get("PHISHNET_API_KEY", "").strip()
     if not key:
         return None
     url = ("https://api.phish.net/v5/setlists/showdate/"
            f"{urllib.parse.quote(SHOW_DATE)}.json?apikey={urllib.parse.quote(key)}")
     d = _get(url)
-    if d.get("error"):
-        raise RuntimeError(f"phish.net api error: {d.get('error_message')}")
-    rows = d.get("data") or []
+    # v5 sends error as false/0 when fine, or a numeric code plus a message.
+    err = d.get("error")
+    if err not in (None, False, 0, "0", "false"):
+        raise RuntimeError(f"phish.net api error {err}: {d.get('error_message')}")
+    return d.get("data") or []
+
+
+def parse_phishnet_rows(rows):
+    """Turn v5 setlist rows into our song list.
+
+    Schema per phish.net's own sample app (github.com/phishnet/api-v5,
+    scripts/setlist.js): each row carries `song`, `set`, `trans_mark`,
+    `artist_name`, `isjamchart`, `jamchart_description`, `slug`.
+
+      * `set` is 1..4 for sets and 'e' / 'e2' / 'e3' for encores.
+      * `trans_mark` is the separator AFTER the song (", ", " > ", " -> ").
+      * `song` is always the clean title -- unlike the website's HTML, where
+        jam-charted songs put annotation prose in the title attribute.
+
+    Row order is the setlist order (the sample app just iterates), so position is
+    derived from order rather than trusting a `position` field.
+
+    No `id` is emitted: phish.net song ids live in a different namespace from
+    Phantasy Tour's and could collide, producing a false match on a board square.
+    The app's title matching covers every board song (verified).
+    """
     out = []
+    per_set = {}
     for r in rows:
+        artist = str(r.get("artist_name") or "").strip()
+        artistid = str(r.get("artistid") or "")
         # The showdate endpoint can include side projects; keep Phish proper.
-        artist = str(r.get("artist_name") or r.get("artistid") or "1")
-        if artist not in ("Phish", "1"):
+        if artist and artist.lower() != "phish":
+            continue
+        if not artist and artistid and artistid != "1":
             continue
         name = (r.get("song") or "").strip()
         if not name:
             continue
-        raw_set = str(r.get("set") or "1").strip().upper()
-        setno = 9 if raw_set.startswith("E") else (int(raw_set) if raw_set.isdigit() else 1)
-        trans = str(r.get("trans_mark") or r.get("transmark") or "")
+        raw_set = str(r.get("set") if r.get("set") is not None else "1").strip().lower()
+        if raw_set.startswith("e"):
+            setno = 9
+        elif raw_set.isdigit():
+            setno = int(raw_set)
+        else:
+            setno = 1
+        per_set[setno] = per_set.get(setno, 0) + 1
+        trans = str(r.get("trans_mark") or "")
         out.append({
-            "id": int(r.get("songid") or 0) * -1 or None,   # negative: not a PT id
             "name": name,
             "set": setno,
-            "pos": int(r.get("position") or len(out) + 1),
+            "pos": per_set[setno],
             "segue": ">" in trans,
         })
-    out.sort(key=lambda s: (s["set"], s["pos"]))
-    for s in out:
-        if s["id"] is None:
-            del s["id"]
     return out
+
+
+def from_phishnet_api():
+    """phish.net API v5. Returns None (= skipped) when no key is configured.
+
+    It must NOT return [] when unconfigured: an empty list looks like a
+    successful fetch of an empty setlist, which would let this source "win"
+    while the real feeds are down and blank the boards.
+    """
+    rows = phishnet_api_raw()
+    if rows is None:
+        return None
+    return parse_phishnet_rows(rows)
 
 
 def from_phishnet_html():
@@ -152,13 +195,30 @@ def from_phishnet_html():
 
 
 # (name, fetcher, preference) — lower preference wins a tie. phish.net is the
-# canonical database, and a structured API beats scraping the same site's HTML,
-# so the scrape is strictly a fallback for when the API is unavailable.
-SOURCES = [
+# canonical database, and a structured API beats scraping the same site's HTML.
+ALL_SOURCES = [
     ("phish.net-api", from_phishnet_api, 0),
     ("phantasy-tour", from_phantasy_tour, 1),
     ("phish.net-web", from_phishnet_html, 2),
 ]
+
+# Only these actually run. phantasy-tour and phish.net-web stay implemented and
+# tested as parked backups: add them to SETLIST_SOURCES (or the workflow's
+# `sources` input) to bring them back without a code change.
+DEFAULT_SOURCES = "phish.net-api"
+
+
+def active_sources():
+    wanted = [w.strip() for w in
+              os.environ.get("SETLIST_SOURCES", DEFAULT_SOURCES).split(",") if w.strip()]
+    known = {name for name, _, _ in ALL_SOURCES}
+    unknown = [w for w in wanted if w not in known]
+    if unknown:
+        raise SystemExit(f"unknown source(s) {unknown}; known: {sorted(known)}")
+    return [s for s in ALL_SOURCES if s[0] in wanted]
+
+
+SOURCES = None   # resolved at call time so tests can override
 
 
 def collect():
@@ -170,7 +230,7 @@ def collect():
     and the page reports a dead feed all evening.
     """
     best, best_name, best_pref, counts = [], None, None, {}
-    for name, fn, pref in SOURCES:
+    for name, fn, pref in (SOURCES if SOURCES is not None else active_sources()):
         try:
             songs = fn()
         except Exception as e:                      # a dead source must not stop the others
@@ -242,5 +302,40 @@ def main():
     return 0
 
 
+
+
+def probe():
+    """`python3 scripts/refresh_setlist.py --probe` — validate the phish.net API.
+
+    Prints the response shape and the parsed result so the API contract can be
+    verified from a CI log. Never prints the key or full response bodies.
+    """
+    print(f"probing phish.net API for showdate={SHOW_DATE}")
+    try:
+        rows = phishnet_api_raw()
+    except Exception as e:
+        print(f"  FAILED: {type(e).__name__}: {e}")
+        return 1
+    if rows is None:
+        print("  SKIPPED: PHISHNET_API_KEY is not set in this environment")
+        return 1
+    print(f"  rows returned: {len(rows)}")
+    if rows:
+        print(f"  fields present: {sorted(rows[0].keys())}")
+        for r in rows[:3]:
+            print(f"    set={r.get('set')!r} song={r.get('song')!r} "
+                  f"trans_mark={r.get('trans_mark')!r} artist={r.get('artist_name')!r} "
+                  f"isjamchart={r.get('isjamchart')!r}")
+        sets = sorted({str(r.get("set")) for r in rows})
+        print(f"  distinct set values: {sets}")
+    parsed = parse_phishnet_rows(rows)
+    print(f"  parsed to {len(parsed)} songs; sets={sorted({s['set'] for s in parsed})}")
+    print("  first 8: " + ", ".join(f"{s['name']}{'>' if s['segue'] else ''}" for s in parsed[:8]))
+    if rows and not parsed:
+        print("  WARNING: rows returned but none parsed — check artist filtering")
+        return 1
+    return 0
+
+
 if __name__ == "__main__":
-    sys.exit(main())
+    sys.exit(probe() if "--probe" in sys.argv else main())

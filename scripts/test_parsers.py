@@ -135,4 +135,114 @@ def longest_still_wins():
 
 ok("the source furthest ahead still wins", longest_still_wins)
 
+API_ROWS = [
+    # Shape per phishnet/api-v5 scripts/setlist.js
+    {"artist_name": "Phish", "set": "1", "song": "Free", "trans_mark": " > ",
+     "isjamchart": 1, "jamchart_description": "Big version with a long jam.", "slug": "free"},
+    {"artist_name": "Phish", "set": "1", "song": "Wilson", "trans_mark": ", ", "isjamchart": 0},
+    {"artist_name": "Phish", "set": "2", "song": "You Enjoy Myself", "trans_mark": " -> "},
+    {"artist_name": "Phish", "set": "e", "song": "A Day in the Life", "trans_mark": ""},
+    {"artist_name": "Phish", "set": "e2", "song": "Tweezer Reprise", "trans_mark": ""},
+    {"artist_name": "Trey Anastasio Band", "set": "1", "song": "Push On Til the Day"},
+    {"artist_name": "Phish", "set": "1", "song": "", "trans_mark": ", "},
+]
+
+
+def api_names():
+    got = R.parse_phishnet_rows(API_ROWS)
+    assert [s["name"] for s in got] == [
+        "Free", "Wilson", "You Enjoy Myself", "A Day in the Life", "Tweezer Reprise"], got
+
+
+ok("API rows parse to the right songs", api_names)
+
+
+def api_jamchart_uses_song_field():
+    """The API exposes annotations separately, so `song` must be used."""
+    got = R.parse_phishnet_rows(API_ROWS)
+    assert got[0]["name"] == "Free", f"jam-charted row became {got[0]['name']!r}"
+
+
+ok("API jam-chart rows use `song`, not the description", api_jamchart_uses_song_field)
+
+
+def api_sets_and_encores():
+    got = R.parse_phishnet_rows(API_ROWS)
+    assert [s["set"] for s in got] == [1, 1, 2, 9, 9], [s["set"] for s in got]
+    assert [s["pos"] for s in got] == [1, 2, 1, 1, 2], [s["pos"] for s in got]
+
+
+ok("API 'e'/'e2' map to the encore and positions reset per set", api_sets_and_encores)
+
+
+def api_segues():
+    got = R.parse_phishnet_rows(API_ROWS)
+    assert [s["segue"] for s in got] == [True, False, True, False, False], got
+
+
+ok("API trans_mark drives the segue flag", api_segues)
+
+
+def api_filters_side_projects():
+    names = [s["name"] for s in R.parse_phishnet_rows(API_ROWS)]
+    assert "Push On Til the Day" not in names, "side project leaked in"
+
+
+ok("API filters non-Phish artists", api_filters_side_projects)
+
+
+def api_emits_no_ids():
+    """phish.net song ids share no namespace with Phantasy Tour's, so emitting
+    them as `id` could false-match a board square."""
+    for s in R.parse_phishnet_rows(API_ROWS):
+        assert "id" not in s, f"phish.net row emitted an id: {s}"
+
+
+ok("API rows carry no id (avoids cross-source id collision)", api_emits_no_ids)
+
+
+def api_rows_match_the_boards():
+    """End-to-end: API-shaped names must hit the real board squares."""
+    import json
+    songs = json.loads((ROOT / "data" / "songs.json").read_text())
+    parsed = R.parse_phishnet_rows(API_ROWS)
+    norm = lambda t: (t.lower().replace("'", "").replace(".", "")
+                      .replace("  ", " ").removeprefix("the ").strip())
+    titles = {norm(v["title"]) for v in songs.values()}
+    for want in ("Free", "Wilson", "You Enjoy Myself", "A Day in the Life"):
+        assert norm(want) in titles, f"{want} is not a board song?"
+    hit = [s["name"] for s in parsed if norm(s["name"]) in titles]
+    assert len(hit) == 4, f"only matched {hit}"
+
+
+ok("API song names match board squares", api_rows_match_the_boards)
+
+
+def default_is_api_only():
+    import os
+    old = os.environ.pop("SETLIST_SOURCES", None)
+    try:
+        R.SOURCES = None
+        assert [n for n, _, _ in R.active_sources()] == ["phish.net-api"], \
+            "default should be phish.net-api only"
+    finally:
+        if old is not None:
+            os.environ["SETLIST_SOURCES"] = old
+
+
+ok("only phish.net-api runs by default", default_is_api_only)
+
+
+def backups_still_available():
+    import os
+    os.environ["SETLIST_SOURCES"] = "phish.net-api,phantasy-tour,phish.net-web"
+    try:
+        got = [n for n, _, _ in R.active_sources()]
+        assert got == ["phish.net-api", "phantasy-tour", "phish.net-web"], got
+    finally:
+        os.environ.pop("SETLIST_SOURCES", None)
+
+
+ok("parked backups can be re-enabled without a code change", backups_still_available)
+
 print(f"\n{passed} passed")

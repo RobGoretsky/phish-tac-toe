@@ -14,8 +14,17 @@ on:
         description: "How long this run should keep polling (minutes)"
         default: "8"
       show_id:
-        description: "Phantasy Tour show id"
+        description: "Phantasy Tour show id (only used if phantasy-tour is enabled)"
         default: "62005"
+      show_date:
+        description: "phish.net show date (YYYY-MM-DD)"
+        default: "2026-07-27"
+      sources:
+        description: "Comma-separated feeds. Backups: phantasy-tour, phish.net-web"
+        default: "phish.net-api"
+      probe:
+        description: "Set to 'true' to just validate the phish.net API and exit"
+        default: "false"
   schedule:
     # 1995 night: Mon 2026-07-27 19:00 ET == 23:00 UTC. Cover 22:40 UTC Mon
     # through 06:00 UTC Tue, which is doors through a very long encore.
@@ -44,11 +53,17 @@ jobs:
       - name: Poll and commit
         env:
           SHOW_ID: ${{ github.event.inputs.show_id || '62005' }}
+          SHOW_DATE: ${{ github.event.inputs.show_date || '2026-07-27' }}
           MINUTES: ${{ github.event.inputs.minutes || '8' }}
-          # Optional. Without it the script silently skips the phish.net API and
-          # relies on the Phantasy Tour API + the phish.net web scrape.
+          # phish.net API v5 is the only live feed by default. phantasy-tour and
+          # phish.net-web stay implemented and tested as parked backups.
+          SETLIST_SOURCES: ${{ github.event.inputs.sources || 'phish.net-api' }}
           PHISHNET_API_KEY: ${{ secrets.PHISHNET_API_KEY }}
         run: |
+          if [ "${{ github.event.inputs.probe }}" = "true" ]; then
+            python3 scripts/refresh_setlist.py --probe
+            exit $?
+          fi
           git config user.name  "phish-tac-toe bot"
           git config user.email "actions@github.com"
           deadline=$(( $(date +%s) + MINUTES * 60 ))
