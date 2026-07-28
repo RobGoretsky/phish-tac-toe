@@ -1,17 +1,17 @@
 {
  "showId": 62005,
  "showDate": "2026-07-27",
- "fetchedAt": "2026-07-28T02:51:15+00:00",
- "source": "phish.net-api",
+ "fetchedAt": "2026-07-28T02:52:47+00:00",
+ "source": "phish.net-web",
  "sourceCounts": {
   "phish.net-api": 14,
-  "phish.net-web": 14
+  "phish.net-web": 15
  },
  "sourceMs": {
-  "phish.net-api": 235,
-  "phish.net-web": 285
+  "phish.net-api": 138,
+  "phish.net-web": 288
  },
- "count": 14,
+ "count": 15,
  "songs": [
   {
    "name": "Wilson",
@@ -95,6 +95,12 @@
    "name": "Drowned",
    "set": 2,
    "pos": 3,
+   "segue": true
+  },
+  {
+   "name": "Billy Breathes",
+   "set": 2,
+   "pos": 4,
    "segue": false
   }
  ]
