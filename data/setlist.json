@@ -1,16 +1,23 @@
 {
  "showId": 62005,
  "showDate": "2026-07-27",
- "fetchedAt": "2026-07-27T23:57:19+00:00",
+ "fetchedAt": "2026-07-28T00:03:58+00:00",
  "source": "phish.net-api",
  "sourceCounts": {
-  "phish.net-api": 0,
-  "phish.net-web": 0
+  "phish.net-api": 1,
+  "phish.net-web": 1
  },
  "sourceMs": {
-  "phish.net-api": 228,
-  "phish.net-web": 254
+  "phish.net-api": 152,
+  "phish.net-web": 313
  },
- "count": 0,
- "songs": []
+ "count": 1,
+ "songs": [
+  {
+   "name": "Wilson",
+   "set": 1,
+   "pos": 1,
+   "segue": false
+  }
+ ]
 }
