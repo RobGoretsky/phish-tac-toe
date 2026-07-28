@@ -1,17 +1,17 @@
 {
  "showId": 62005,
  "showDate": "2026-07-27",
- "fetchedAt": "2026-07-28T01:14:41+00:00",
+ "fetchedAt": "2026-07-28T01:21:55+00:00",
  "source": "phish.net-api",
  "sourceCounts": {
-  "phish.net-api": 10,
-  "phish.net-web": 10
+  "phish.net-api": 11,
+  "phish.net-web": 11
  },
  "sourceMs": {
-  "phish.net-api": 142,
-  "phish.net-web": 545
+  "phish.net-api": 197,
+  "phish.net-web": 184
  },
- "count": 10,
+ "count": 11,
  "songs": [
   {
    "name": "Wilson",
@@ -71,6 +71,12 @@
    "name": "Funky Bitch",
    "set": 1,
    "pos": 10,
+   "segue": false
+  },
+  {
+   "name": "Taste",
+   "set": 1,
+   "pos": 11,
    "segue": false
   }
  ]
