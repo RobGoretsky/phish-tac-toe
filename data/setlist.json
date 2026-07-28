@@ -1,15 +1,15 @@
 {
  "showId": 62005,
  "showDate": "2026-07-27",
- "fetchedAt": "2026-07-28T03:51:43+00:00",
+ "fetchedAt": "2026-07-28T05:33:11+00:00",
  "source": "phish.net-api",
  "sourceCounts": {
   "phish.net-api": 20,
   "phish.net-web": 20
  },
  "sourceMs": {
-  "phish.net-api": 144,
-  "phish.net-web": 303
+  "phish.net-api": 228,
+  "phish.net-web": 352
  },
  "count": 20,
  "songs": [
@@ -53,7 +53,7 @@
    "name": "The Man Who Stepped Into Yesterday",
    "set": 1,
    "pos": 7,
-   "segue": false
+   "segue": true
   },
   {
    "name": "Avenu Malkenu",
