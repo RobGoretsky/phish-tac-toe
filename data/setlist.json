@@ -1,17 +1,17 @@
 {
  "showId": 62005,
  "showDate": "2026-07-27",
- "fetchedAt": "2026-07-28T02:57:30+00:00",
+ "fetchedAt": "2026-07-28T03:34:41+00:00",
  "source": "phish.net-web",
  "sourceCounts": {
-  "phish.net-api": 15,
-  "phish.net-web": 16
+  "phish.net-api": 19,
+  "phish.net-web": 20
  },
  "sourceMs": {
-  "phish.net-api": 149,
-  "phish.net-web": 335
+  "phish.net-api": 229,
+  "phish.net-web": 522
  },
- "count": 16,
+ "count": 20,
  "songs": [
   {
    "name": "Wilson",
@@ -107,6 +107,30 @@
    "name": "It's Ice",
    "set": 2,
    "pos": 5,
+   "segue": false
+  },
+  {
+   "name": "Johnny B. Goode",
+   "set": 2,
+   "pos": 6,
+   "segue": false
+  },
+  {
+   "name": "Free",
+   "set": 2,
+   "pos": 7,
+   "segue": false
+  },
+  {
+   "name": "Strange Design",
+   "set": 9,
+   "pos": 1,
+   "segue": false
+  },
+  {
+   "name": "Loving Cup",
+   "set": 9,
+   "pos": 2,
    "segue": false
   }
  ]
