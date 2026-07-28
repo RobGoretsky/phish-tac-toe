@@ -1,17 +1,17 @@
 {
  "showId": 62005,
  "showDate": "2026-07-27",
- "fetchedAt": "2026-07-28T02:54:56+00:00",
- "source": "phish.net-api",
+ "fetchedAt": "2026-07-28T02:57:30+00:00",
+ "source": "phish.net-web",
  "sourceCounts": {
   "phish.net-api": 15,
-  "phish.net-web": 15
+  "phish.net-web": 16
  },
  "sourceMs": {
-  "phish.net-api": 143,
-  "phish.net-web": 164
+  "phish.net-api": 149,
+  "phish.net-web": 335
  },
- "count": 15,
+ "count": 16,
  "songs": [
   {
    "name": "Wilson",
@@ -101,6 +101,12 @@
    "name": "Billy Breathes",
    "set": 2,
    "pos": 4,
+   "segue": true
+  },
+  {
+   "name": "It's Ice",
+   "set": 2,
+   "pos": 5,
    "segue": false
   }
  ]
