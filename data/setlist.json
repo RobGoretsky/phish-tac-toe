@@ -1,15 +1,15 @@
 {
  "showId": 62005,
  "showDate": "2026-07-27",
- "fetchedAt": "2026-07-28T02:52:47+00:00",
- "source": "phish.net-web",
+ "fetchedAt": "2026-07-28T02:54:56+00:00",
+ "source": "phish.net-api",
  "sourceCounts": {
-  "phish.net-api": 14,
+  "phish.net-api": 15,
   "phish.net-web": 15
  },
  "sourceMs": {
-  "phish.net-api": 138,
-  "phish.net-web": 288
+  "phish.net-api": 143,
+  "phish.net-web": 164
  },
  "count": 15,
  "songs": [
