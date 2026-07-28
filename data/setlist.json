@@ -1,17 +1,17 @@
 {
  "showId": 62005,
  "showDate": "2026-07-27",
- "fetchedAt": "2026-07-28T00:34:19+00:00",
+ "fetchedAt": "2026-07-28T00:51:23+00:00",
  "source": "phish.net-api",
  "sourceCounts": {
-  "phish.net-api": 5,
-  "phish.net-web": 5
+  "phish.net-api": 6,
+  "phish.net-web": 6
  },
  "sourceMs": {
-  "phish.net-api": 220,
-  "phish.net-web": 613
+  "phish.net-api": 106,
+  "phish.net-web": 191
  },
- "count": 5,
+ "count": 6,
  "songs": [
   {
    "name": "Wilson",
@@ -41,6 +41,12 @@
    "name": "Theme from the Bottom",
    "set": 1,
    "pos": 5,
+   "segue": false
+  },
+  {
+   "name": "Halley's Comet",
+   "set": 1,
+   "pos": 6,
    "segue": false
   }
  ]
