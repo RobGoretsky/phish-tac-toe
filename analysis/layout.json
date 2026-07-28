@@ -1,69 +1,69 @@
 {
  "show": {
-  "id": 62005,
-  "date": "2026-07-27",
+  "id": 62006,
+  "date": "2026-07-29",
   "venue": "Madison Square Garden",
-  "title": "1995 Night",
-  "line": "Mon Jul 27 · MSG · 1995 Night"
+  "title": "1996 Night",
+  "line": "Wed Jul 29 · MSG · 1996 Night"
  },
- "about": "\n<h3>Phish-Tac-Toe</h3>\n<p class=\"body\">Three boards, nine songs each. A square lights up when Phish plays that\nsong tonight. <b>First to three in a row</b> — across, down or diagonal — wins. If more than\none board completes a line, the winner is whoever's line finished <b>earlier in the show</b>,\nwhich the app works out from the actual setlist order.</p>\n\n<div class=\"label\">Why these 25 songs</div>\n<p class=\"body\">Every setlist Phish played in 1995 (83 shows) and every show since Jan 2023\n(164 shows) was pulled from the Phantasy Tour API. Each candidate got two numbers: how core it\nwas to <b>1995</b>, and how often the band <b>still</b> plays it. The score blends them, weighted\n0.4 / 0.8 — meaning current rotation actually matters a bit more than era authenticity.</p>\n\n<div class=\"label\">Everything already played is gone</div>\n<p class=\"body\">Phish doesn't repeat inside a run. Nights 1–3 (1992, 1993, 1994) burned 66 songs,\nincluding 20 of the 30 most-played songs of 1995 — Stash, Reba, Bowie, Antelope, Maze, Chalk Dust,\nHarry Hood, Sample in a Jar. That's <b>62% of the probability weight</b> already spent, which is\nexactly why night 4 is more predictable than night 1 was. Tweezer would have ranked #3 tonight\nif they hadn't burned it Saturday.</p>\n\n<div class=\"label\">Does the model actually work?</div>\n<p class=\"body\">It was backtested against this run's first three nights — scoring each night with\nthat year's own play rates, and excluding whatever the earlier nights had used. It put about\n<b>half</b> of each night's real setlist in its top picks, against roughly 17% for guessing at\nrandom. The percentages on the squares are calibrated: squares marked 30% hit about 30% of the\ntime in that test.</p>\n\n<div class=\"label\">The center square</div>\n<p class=\"body\">You Enjoy Myself is the center of all three boards on purpose. It's the one\nmonster left unburned — the 21-minute centerpiece of <i>A Live One</i>, Phish's 1995 album — and\nthe model ranked it a top pick on all three previous nights and was wrong every time. They are\nsaving it. Making it shared means nobody gets an unfair edge from the single most likely song,\nand all three boards light up together when it drops.</p>\n\n<div class=\"label\">Fairness</div>\n<p class=\"body\">The other 24 were placed by an optimizer that simulated 8,000 possible versions of\ntonight and balanced the thing that actually matters — <b>who wins the game</b>, not just who gets a\nline. Checked against 60,000 further simulated shows on a separate random seed:</p>\n<table class=\"fair\"><tr><th>board</th><th>wins</th><th>gets a line</th><th>avg score</th></tr>\n<tr><td>Rob</td><td>28.0%</td><td>47.8%</td><td>4.03</td></tr>\n<tr><td>Dylan</td><td>28.2%</td><td>48.7%</td><td>4.04</td></tr>\n<tr><td>Justin</td><td>28.3%</td><td>51.2%</td><td>4.04</td></tr></table>\n<p class=\"body\">A 0.3-point spread on winning and effectively identical average scores. Somebody\nwins about 84% of the time.</p>\n\n<div class=\"label\">The one square the model didn't pick</div>\n<p class=\"body\"><b>Drowned</b> is on here by choice, not by score. Phish learned The Who's entire\n<i>Quadrophenia</i> album for Halloween 1995 and it's the only song from that night they ever kept\n— it was a centerpiece of 12/31/95 at this building. On raw play counts it rates just 9%, and the\nsquare says so. We tested whether landmark-show songs deserve a systematic boost and the backtest\nsaid no: precision stayed flat at 51–52% however hard we leaned on it. So Drowned gets its honest\n9% and a good story, rather than a number we couldn't justify.</p>\n\n<div class=\"label\">If the feed lags</div>\n<p class=\"body\">The setlist comes from Phantasy Tour, updated by fans during the show, and is\nre-checked about every 30 seconds. If it falls behind, hit <b>Manual entry</b> and mark squares\nyourself — those marks stay on your own phone and can only add hits, never remove one.</p>\n\n<p class=\"fine\" style=\"margin-top:18px\">Odds are one model's opinion, not gospel. Phish will do\nwhatever Phish wants. That's the entire point.</p>\n",
+ "about": "\n<h3>Phish-Tac-Toe</h3>\n<p class=\"body\">Three boards, nine songs each. A square lights up when Phish plays that\nsong tonight. <b>First to three in a row</b> — across, down or diagonal — wins. If more than\none board completes a line, the winner is whoever's line finished <b>earlier in the show</b>,\nwhich the app works out from the actual setlist order.</p>\n\n<div class=\"label\">Why these 25 songs</div>\n<p class=\"body\">Every setlist Phish played in 1996 (71 shows) and every show since Jan 2023\n(165 shows) was pulled from the Phantasy Tour API. Each candidate got two numbers: how core it\nwas to <b>1996</b>, and how often the band <b>still</b> plays it. The score blends them, weighted\n0.4 / 0.8 — meaning current rotation actually matters a bit more than era authenticity.</p>\n\n<div class=\"label\">Everything already played is gone</div>\n<p class=\"body\">Phish doesn't repeat inside a run, and this is night five: the first four nights\n(1992, 1993, 1994, 1995) burned <b>86 songs</b>, including almost the entire 1996 core — Divided\nSky, Runaway Jim, Split Open and Melt, Stash, Simple, Down with Disease, Taste, Theme, Free,\nSample. Tonight is played from what's left, which makes the leftovers weirdly predictable: the\nmodel is more confident about tonight than about any other night of the run.</p>\n\n<div class=\"label\">Does the model actually work?</div>\n<p class=\"body\">It was backtested against this run's first three nights — scoring each night with\nthat year's own play rates, and excluding whatever the earlier nights had used. It put about\n<b>half</b> of each night's real setlist in its top picks, against roughly 17% for guessing at\nrandom. The percentages on the squares are calibrated: squares marked 30% hit about 30% of the\ntime in that test.</p>\n\n<div class=\"label\">The center square</div>\n<p class=\"body\">Character Zero is the center of all three boards on purpose. It's the single\nlikeliest song left — the <i>Billy Breathes</i> rocker that 1996 minted as a set-closer, and\nthey've played it 94% of the nights of this run's era. When it drops, all three boards\nlight up together and nobody gets an edge from the one near-certainty. (You Enjoy Myself, the\nmodel's white whale, is finally down to one board — it flagged YEM as a top pick on every night\nof this run and has been wrong all four times.)</p>\n\n<div class=\"label\">Fairness</div>\n<p class=\"body\">The other 24 were placed by an optimizer that simulated 8,000 possible versions of\ntonight and balanced the thing that actually matters — <b>who wins the game</b>, not just who gets a\nline. Checked against 60,000 further simulated shows on a separate random generator:</p>\n<table class=\"fair\"><tr><th>board</th><th>wins</th><th>gets a line</th><th>avg score</th></tr>\n<tr><td>Rob</td><td>31.4%</td><td>57.8%</td><td>4.51</td></tr><tr><td>Dylan</td><td>31.2%</td><td>61.5%</td><td>4.47</td></tr><tr><td>Justin</td><td>30.3%</td><td>62.1%</td><td>4.50</td></tr></table>\n<p class=\"body\">Somebody wins about 93% of the time.</p>\n\n<div class=\"label\">The one square the model didn't pick</div>\n<p class=\"body\"><b>Hello My Baby</b> is on here by choice, not by score. The 1903 barbershop\nnumber was 1996's running gag — the band sang it a cappella at 17 of the year's 71 shows,\nincluding the Clifford Ball. It hasn't been in rotation for years (zero shows since Jan 2023),\nwhich is exactly why its square says 24% and not something flattering. The other story square earned its spot honestly:\n<b>Crosseyed and Painless</b>, from the <i>Remain in Light</i> Halloween costume, is back in\nheavy rotation and rates 50% on the numbers alone.</p>\n\n<div class=\"label\">If the feed lags</div>\n<p class=\"body\">The setlist feed is re-checked about every 30 seconds during the show. If it\nfalls behind, hit <b>Manual entry</b> and mark squares yourself — those marks stay on your own\nphone and can only add hits, never remove one.</p>\n\n<p class=\"fine\" style=\"margin-top:18px\">Odds are one model's opinion, not gospel. Phish will do\nwhatever Phish wants. That's the entire point.</p>\n",
  "players": [
   {
    "id": "rob",
    "name": "Rob",
    "accent": "#ffcf4a",
    "squares": [
-    "Wilson",
-    "Cars Trucks Buses",
-    "It's Ice",
-    "Theme from the Bottom",
+    "I Didn't Know",
     "You Enjoy Myself",
-    "McGrupp and the Watchful Hosemasters",
-    "Buried Alive",
     "Poor Heart",
-    "Drowned"
+    "Buried Alive",
+    "Character Zero",
+    "Ginseng Sullivan",
+    "Frankenstein",
+    "Hello My Baby",
+    "McGrupp and the Watchful Hosemasters"
    ],
-   "pwin": 0.4783,
-   "expected": 4.032,
-   "share": 0.2821
+   "pwin": 0.5776,
+   "expected": 4.506,
+   "share": 0.3143
   },
   {
    "id": "dylan",
    "name": "Dylan",
    "accent": "#6ce5ff",
    "squares": [
-    "A Day in the Life",
-    "Colonel Forbin's Ascent",
-    "Funky Bitch",
-    "Ya Mar",
-    "You Enjoy Myself",
-    "Strange Design",
-    "Timber (Jerry the Mule)",
-    "Loving Cup",
-    "Free"
+    "If I Could",
+    "Old Home Place",
+    "Guyute",
+    "Esther",
+    "Character Zero",
+    "Horn",
+    "Fee",
+    "Waste",
+    "A Day in the Life"
    ],
-   "pwin": 0.4868,
-   "expected": 4.032,
-   "share": 0.2785
+   "pwin": 0.6154,
+   "expected": 4.471,
+   "share": 0.312
   },
   {
    "id": "justin",
    "name": "Justin",
    "accent": "#ff7ad9",
    "squares": [
-    "Prince Caspian",
-    "Fee",
-    "NICU",
-    "Taste",
-    "You Enjoy Myself",
-    "Guyute",
-    "Halley's Comet",
-    "Acoustic Army",
-    "Scent of a Mule"
+    "Crosseyed and Painless",
+    "The Mango Song",
+    "Rocky Top",
+    "Lawn Boy",
+    "Character Zero",
+    "Fire",
+    "Ya Mar",
+    "Cars Trucks Buses",
+    "Train Song"
    ],
-   "pwin": 0.5116,
-   "expected": 4.041,
-   "share": 0.2831
+   "pwin": 0.6212,
+   "expected": 4.497,
+   "share": 0.3027
   }
  ]
 }

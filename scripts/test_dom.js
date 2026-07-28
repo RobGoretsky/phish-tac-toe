@@ -207,8 +207,8 @@ const ok = (name, fn) => {
   });
 
   console.log("setlist rendering");
-  // Load a real 31-song 1995 setlist (10/31/95 Quadrophenia) into the page.
-  const real = JSON.parse(fs.readFileSync(path.join(__dirname, "fixtures/setlist-1995-10-31.json")));
+  // Load a real 20-song 1996 setlist (the 6/6/96 Joyous Lake warm-up) into the page.
+  const real = JSON.parse(fs.readFileSync(path.join(__dirname, "fixtures/setlist-1996-06-06.json")));
   window.fetch = async (u) => {
     const clean = String(u).split("?")[0];
     const body = clean.endsWith("setlist.json") ? JSON.stringify(real) : read(clean);
@@ -257,10 +257,10 @@ const ok = (name, fn) => {
       if (!accents.has(hex)) throw new Error(`${h.textContent} coloured ${col}, not a player accent`);
     }
   });
-  ok("You Enjoy Myself is marked as shared by all three", () => {
-    const yem = slSongs().find((e) => e.textContent === "You Enjoy Myself");
-    if (!yem) throw new Error("YEM not in this setlist");
-    if (!yem.classList.contains("sl-multi")) throw new Error("YEM should be .sl-multi");
+  ok("Character Zero is marked as shared by all three", () => {
+    const cz = slSongs().find((e) => e.textContent === "Character Zero");
+    if (!cz) throw new Error("Character Zero not in this setlist");
+    if (!cz.classList.contains("sl-multi")) throw new Error("Character Zero should be .sl-multi");
   });
   ok("non-hits stay dim and unstyled", () => {
     const miss = slSongs().filter((e) => !e.classList.contains("sl-hit"));

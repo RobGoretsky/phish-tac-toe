@@ -38,8 +38,8 @@ import urllib.parse
 import urllib.request
 from datetime import datetime, timezone
 
-SHOW_ID = int(os.environ.get("SHOW_ID", "62005"))          # Phantasy Tour id
-SHOW_DATE = os.environ.get("SHOW_DATE", "2026-07-27")      # phish.net key
+SHOW_ID = int(os.environ.get("SHOW_ID", "62006"))          # Phantasy Tour id
+SHOW_DATE = os.environ.get("SHOW_DATE", "2026-07-29")      # phish.net key
 # Empty by default: the scraper resolves the URL from SHOW_DATE via a redirect.
 PNET_SLUG = os.environ.get("PNET_SLUG", "").strip()
 HEARTBEAT_SEC = int(os.environ.get("HEARTBEAT_SEC", "480"))

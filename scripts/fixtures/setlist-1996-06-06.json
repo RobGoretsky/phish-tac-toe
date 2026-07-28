@@ -1,0 +1,148 @@
+{
+ "showId": 2750,
+ "fetchedAt": "1996-06-06T23:00:00+00:00",
+ "note": "6/6/96 Joyous Lake, Woodstock NY — the club warm-up where Character Zero and Waste debuted. Test fixture only.",
+ "count": 20,
+ "songs": [
+  {
+   "id": 977,
+   "name": "Split Open and Melt",
+   "set": 1,
+   "pos": 1,
+   "segue": false
+  },
+  {
+   "id": 906,
+   "name": "Poor Heart",
+   "set": 1,
+   "pos": 2,
+   "segue": false
+  },
+  {
+   "id": 934,
+   "name": "Runaway Jim",
+   "set": 1,
+   "pos": 3,
+   "segue": false
+  },
+  {
+   "id": 727,
+   "name": "Funky Bitch",
+   "set": 1,
+   "pos": 4,
+   "segue": false
+  },
+  {
+   "id": 1028,
+   "name": "Theme from the Bottom",
+   "set": 1,
+   "pos": 5,
+   "segue": false
+  },
+  {
+   "id": 579,
+   "name": "Big Black Furry Creature from Mars",
+   "set": 1,
+   "pos": 6,
+   "segue": false
+  },
+  {
+   "id": 944,
+   "name": "Scent of a Mule",
+   "set": 1,
+   "pos": 7,
+   "segue": false
+  },
+  {
+   "id": 765,
+   "name": "Highway to Hell",
+   "set": 1,
+   "pos": 8,
+   "segue": false
+  },
+  {
+   "id": 557,
+   "name": "AC/DC Bag",
+   "set": 2,
+   "pos": 1,
+   "segue": false
+  },
+  {
+   "id": 1089,
+   "name": "You Enjoy Myself",
+   "set": 2,
+   "pos": 2,
+   "segue": false
+  },
+  {
+   "id": 637,
+   "name": "Chalk Dust Torture",
+   "set": 2,
+   "pos": 3,
+   "segue": false
+  },
+  {
+   "id": 974,
+   "name": "Sparkle",
+   "set": 2,
+   "pos": 4,
+   "segue": false
+  },
+  {
+   "id": 982,
+   "name": "Stash",
+   "set": 2,
+   "pos": 5,
+   "segue": false
+  },
+  {
+   "id": 1057,
+   "name": "Waste",
+   "set": 2,
+   "pos": 6,
+   "segue": false
+  },
+  {
+   "id": 640,
+   "name": "Character Zero",
+   "set": 2,
+   "pos": 7,
+   "segue": false
+  },
+  {
+   "id": 665,
+   "name": "David Bowie",
+   "set": 2,
+   "pos": 8,
+   "segue": false
+  },
+  {
+   "id": 703,
+   "name": "Fee",
+   "set": 2,
+   "pos": 9,
+   "segue": false
+  },
+  {
+   "id": 938,
+   "name": "Sample in a Jar",
+   "set": 2,
+   "pos": 10,
+   "segue": false
+  },
+  {
+   "id": 1087,
+   "name": "Ya Mar",
+   "set": 9,
+   "pos": 1,
+   "segue": false
+  },
+  {
+   "id": 706,
+   "name": "Fire",
+   "set": 9,
+   "pos": 2,
+   "segue": false
+  }
+ ]
+}

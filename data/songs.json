@@ -7,32 +7,13 @@
   "aliases": [],
   "bio": "The Beatles classic from Sgt. Pepper's (1967). Page sings John's dreamy verses, Trey takes Paul's \"woke up, fell out of bed\" bit, and the band builds that giant crashing orchestra swell all by itself.",
   "lyric": "I read the news today oh boy",
-  "why95": "1995 is literally this song's year: Phish debuted it 6/10/95 at Red Rocks and played it more times that year than in any year since.",
+  "why96": "The Beatles habit carried straight into 1996: 15 of the year's 71 shows, from the April Jazz Fest date through the December run.",
   "debut": "1995-06-10, Red Rocks Amphitheatre, Morrison CO",
-  "fact95": "On 12/8/95 in Cleveland they encored with Come Together > A Day in the Life, marking 15 years since John Lennon's death on that date.",
-  "n95": 24,
+  "fact96": "It was played deep into night two of the Clifford Ball on 8/17/96, right before Possum — the giant orchestral swell over a decommissioned Air Force base.",
+  "n96": 15,
   "nMod": 3,
-  "p": 0.3076,
+  "p": 0.4272,
   "cover": true
- },
- "Acoustic Army": {
-  "title": "Acoustic Army",
-  "ptIds": [
-   558,
-   810
-  ],
-  "aliases": [
-   "Keyboard Army"
-  ],
-  "bio": "The whole band abandons their instruments, sits on four stools with four acoustic guitars, and weaves four separate guitar lines into one gentle instrumental. No drums, no singing, no electricity.",
-  "lyric": null,
-  "why95": "The purest 1995 song there is: every single performance happened in 1995, and it has never been played again since 12/8/95.",
-  "debut": "1995-06-07, BSU Pavilion, Boise ID",
-  "fact95": "It debuted at the summer '95 tour opener, and its success led the band to try a \"Keyboard Army\" variant on the fall '95 tour — this square counts either one.",
-  "n95": 39,
-  "nMod": 0,
-  "p": 0.1898,
-  "cover": false
  },
  "Buried Alive": {
   "title": "Buried Alive",
@@ -42,12 +23,12 @@
   "aliases": [],
   "bio": "A short, frantic Phish instrumental — zero lyrics, just Trey shredding. The panicked pace is meant to sound like someone clawing their way out of a grave, which makes it a killer set-opener.",
   "lyric": null,
-  "why95": "It was already fading by 1995 with only 5 plays, but phish.net still lists the 12/28/95 Worcester version among its recommended versions.",
+  "why96": "Nearly extinct in 1996 — just 2 plays all year — but the modern band loves it again (12 shows since 2023), and that current-rotation weight is what earns its square.",
   "debut": "1990-09-13, Wetlands Preserve, New York NY",
-  "fact95": "On 12/28/95 in Worcester it was sandwiched between Wilson and Tweezer; a Buried Alive tease also turned up inside the 10/11/95 Julius.",
-  "n95": 5,
+  "fact96": "One of its two 1996 outings was 10/16/96 at the Olympic Center in Lake Placid — the arena built for the 1980 'Miracle on Ice' Olympic hockey final.",
+  "n96": 2,
   "nMod": 12,
-  "p": 0.3685,
+  "p": 0.4483,
   "cover": false
  },
  "Cars Trucks Buses": {
@@ -58,44 +39,60 @@
   "aliases": [],
   "bio": "A short, bouncy instrumental written by Page — named after the rest-stop sign — built around his clavinet. No lyrics at all, just a tight two-minute keyboard workout, usually in the first set.",
   "lyric": null,
-  "why95": "Pure fall-1995: it debuted on the opening night of that tour, 9/27/95 in Sacramento, and immediately appeared at 20 of the year's shows.",
+  "why96": "1996 put it on the map: 19 of the year's 71 shows, plus track five on Billy Breathes, released that October. The band barely touches it now, which is exactly what makes it a theme-night special.",
   "debut": "1995-09-27, Cal Expo Amphitheater, Sacramento CA",
-  "fact95": "It went on to become the fifth track on Billy Breathes and one of the most-played songs Page has written.",
-  "n95": 20,
+  "fact96": "Played early on night two of the Clifford Ball and again in the first set of the 12/31/96 New Year's show in Boston — Page's little rest-stop tune had a very good year.",
+  "n96": 19,
   "nMod": 5,
-  "p": 0.3619,
+  "p": 0.5512,
   "cover": false
  },
- "Colonel Forbin's Ascent": {
-  "title": "Colonel Forbin's Ascent",
+ "Character Zero": {
+  "title": "Character Zero",
   "ptIds": [
-   647
+   640
   ],
   "aliases": [],
-  "bio": "Gamehendge chapter five: Colonel Forbin drags himself up a sacred mountain to beg the god Icculus for help against the evil King Wilson. Trey narrates a made-up story over the music, different every time.",
-  "lyric": "And he climbed so slowly",
-  "why95": "It launched the centerpiece of the legendary 12/31/95 MSG show: Forbin's > Fly Famous Mockingbird > Shine > Mockingbird.",
-  "debut": "1988-03-12, Nectar's, Burlington VT",
-  "fact95": "Played only three times in all of 1995 — 10/5 Portland, 12/1 Hershey, and 12/31 at MSG — and every one segued into Mockingbird.",
-  "n95": 3,
-  "nMod": 2,
-  "p": 0.1293,
+  "bio": "The Billy Breathes rocker that 1996 minted: a big, blunt, riff-driven anthem that closes sets, with Trey wailing over one of the band's simplest and most effective grooves. Loosely inspired by the Kurt Vonnegut line about being what you pretend to be.",
+  "lyric": "I was taught a month ago to bide my time and take it slow",
+  "why96": "The definitive 1996 song — it debuted that June, appeared at 21 of the year's 71 shows, and it's still the band's go-to closer: 31 shows since 2023 make it the single likeliest song left unburned.",
+  "debut": "1996-06-06, Joyous Lake, Woodstock NY",
+  "fact96": "It debuted at a tiny club warm-up gig at the Joyous Lake in Woodstock before the band left to tour Europe with Santana, then bookended the year: played at the Remain in Light Halloween show and again on 12/31/96 in Boston.",
+  "n96": 21,
+  "nMod": 31,
+  "p": 0.9442,
   "cover": false
  },
- "Drowned": {
-  "title": "Drowned",
+ "Crosseyed and Painless": {
+  "title": "Crosseyed and Painless",
   "ptIds": [
-   689
+   657
   ],
   "aliases": [],
-  "bio": "A cover from The Who's rock opera Quadrophenia — Page's pounding piano intro, Mike singing way up high, and then it cracks open into one of the biggest jams Phish has. Not really a Who song anymore.",
-  "lyric": "I wanna drown in cold water",
-  "why95": "Phish learned it for their 10/31/95 Halloween costume — the entire Quadrophenia album — and it's the only song from that night they ever kept.",
-  "debut": "1995-10-31, Rosemont Horizon, Rosemont IL",
-  "fact95": "phish.net: the only Quadrophenia song ever played more than three times. It was a centerpiece of the legendary 12/31/95 MSG show, complete with a much-argued-about Fire on the Mountain tease.",
-  "n95": 2,
-  "nMod": 1,
-  "p": 0.0905,
+  "bio": "A Talking Heads song from Remain in Light (1980), the album Phish performed start to finish as their 1996 Halloween costume. The nervous funk groove fit the band so well that the cover outlived the costume and became a jam vehicle in its own right.",
+  "lyric": "Lost my shape, trying to act casual",
+  "why96": "THE 1996 story song: the Remain in Light costume is the single most famous thing Phish did that year, and unlike most costume tracks this one earned a permanent place — 15 shows since 2023. Its square needs no charity.",
+  "debut": "1996-10-31, The Omni, Atlanta GA",
+  "fact96": "Santana's percussionist Karl Perazzo sat in for the whole Halloween set. The song's \"still waiting…\" refrain became a permanent piece of Phish vocabulary, teased inside other jams for the next thirty years.",
+  "n96": 2,
+  "nMod": 15,
+  "p": 0.5009,
+  "cover": true
+ },
+ "Esther": {
+  "title": "Esther",
+  "ptIds": [
+   694
+  ],
+  "aliases": [],
+  "bio": "A dark storybook epic from Junta about a girl given an enchanted marionette at a traveling circus, and the mob that chases her to a grim watery ending. Composed, creepy, and almost never played.",
+  "lyric": "It was late one fall night at a fairground near town",
+  "why96": "Only three shows in 1996 — but one of them was the Clifford Ball, and the modern band has revived it (6 shows since 2023), so the puppet is officially back.",
+  "debut": null,
+  "fact96": "Esther at the Clifford Ball, 8/16/96: a ten-minute gothic fairy tale for 70,000 people at an Air Force base, fifth song of the festival.",
+  "n96": 3,
+  "nMod": 6,
+  "p": 0.3555,
   "cover": false
  },
  "Fee": {
@@ -106,44 +103,60 @@
   "aliases": [],
   "bio": "Trey's storybook original from Junta about Fee the Buddhist weasel, a singer named Millie Grace, and Floyd the villainous chimpanzee. The tell is the megaphone: Trey sings the verses through it for a tinny, far-off sound.",
   "lyric": "A weasel named Fee",
-  "why95": "1995 was peak megaphone — of Fee's 14 shows that year, phish.net flags the megaphone on 13 of them.",
+  "why96": "Ten shows in 1996, from the Joyous Lake warm-up in June through the fall tour — a steady deep-cut presence all year.",
   "debut": "1987-08-09, Nectar's, Burlington VT",
-  "fact95": "Twice in June 1995 it fed straight into Uncle Pen (6/10 Red Rocks, 6/17 Nissan Pavilion), and on 9/28/95 it segued into The Fog That Surrounds.",
-  "n95": 14,
+  "fact96": "Played on night two of the Clifford Ball, megaphone and all, in front of the biggest audience the song has ever had.",
+  "n96": 10,
   "nMod": 6,
-  "p": 0.3527,
+  "p": 0.5001,
   "cover": false
  },
- "Free": {
-  "title": "Free",
+ "Fire": {
+  "title": "Fire",
   "ptIds": [
-   722
+   706
   ],
   "aliases": [],
-  "bio": "A Trey/Tom Marshall song about a man out on a boat contemplating throwing his wife overboard. Live it opens with a swirling guitar intro, drops into Mike's enormous distorted bass, and often breaks down into a drum-and-percussion section.",
-  "lyric": "I feel the feeling I forgot",
-  "why95": "One of six Phish originals that debuted at the 5/16/95 Lowell benefit — and the single most-played song of 1995, at 32 of the year's 83 shows.",
-  "debut": "1995-05-16, Lowell Memorial Auditorium, Lowell MA",
-  "fact95": "On 6/26/95 at SPAC it anchored a 40-minute second-set opening combo out of Down With Disease — the first time Free was really jammed.",
-  "n95": 32,
-  "nMod": 29,
-  "p": 0.8329,
-  "cover": false
+  "bio": "The Jimi Hendrix Experience classic, played fast and unhinged — Fishman's double-time drumming chasing Trey's solo. A show-closer by design: three minutes of gasoline.",
+  "lyric": "Let me stand next to your fire",
+  "why96": "Eight 1996 shows, and it's back in the modern deck too — the exact profile of a one-song encore on a theme night.",
+  "debut": null,
+  "fact96": "It CLOSED the 6/6/96 Joyous Lake warm-up — the tiny Woodstock club gig that launched the whole 1996 campaign — and kept turning up through the fall.",
+  "n96": 8,
+  "nMod": 2,
+  "p": 0.3055,
+  "cover": true
  },
- "Funky Bitch": {
-  "title": "Funky Bitch",
+ "Frankenstein": {
+  "title": "Frankenstein",
   "ptIds": [
-   727
+   720
   ],
   "aliases": [],
-  "bio": "A Chicago blues cover — bluesman Son Seals wrote it for his 1978 album Live and Burning. Mike sings lead and everyone takes a solo; Seals himself sat in with Phish twice in 1999.",
-  "lyric": "Every time I see her",
-  "why95": "Played 7 times in 1995, usually as the encore, and on 7/1/95 Trey riffed onstage about how relentlessly fans requested it.",
-  "debut": "1986-12-06, The Ranch, Shelburne VT",
-  "fact95": "On 12/11/95 in Portland, Maine, Warren Haynes sat in on guitar for Funky Bitch.",
-  "n95": 7,
-  "nMod": 11,
-  "p": 0.3886,
+  "bio": "The Edgar Winter Group's 1973 #1 instrumental, all monster riff and synth freakout. It's the one song where Page straps on the keytar and comes out from behind the rig to duel Trey at the front of the stage.",
+  "lyric": null,
+  "why96": "Eight 1996 shows — it entered the repertoire's front line that August and hung around all fall, and the keytar still comes out most tours.",
+  "debut": null,
+  "fact96": "Played on night two of the Clifford Ball on 8/17/96, deep in the day's final set — Page, a keytar, and 70,000 people.",
+  "n96": 8,
+  "nMod": 3,
+  "p": 0.3535,
+  "cover": true
+ },
+ "Ginseng Sullivan": {
+  "title": "Ginseng Sullivan",
+  "ptIds": [
+   732
+  ],
+  "aliases": [],
+  "bio": "A Norman Blake bluegrass tune about a Mississippi ginseng digger dreaming of getting back home to the delta. Mike sings it; the band has treated it as their acoustic-flavored breather since 1993.",
+  "lyric": "It's a long way from the delta to the north Georgia mountains",
+  "why96": "Six shows in the fall of 1996 alone — it came roaring back on the October leg and stayed through the New Year's run.",
+  "debut": "1993-08-11, Club Eastbrook, Grand Rapids MI",
+  "fact96": "All six 1996 versions came after 10/21 — it was purely a fall-tour toy that year, capped by a 12/28/96 appearance in the Boston year-end run.",
+  "n96": 6,
+  "nMod": 3,
+  "p": 0.3233,
   "cover": true
  },
  "Guyute": {
@@ -154,61 +167,93 @@
   "aliases": [],
   "bio": "A four-movement mini-symphony about an ugly pig who dances a jig, pulls weapons from his coat, and lectures the narrator in a strange language. Trey wrote it alongside My Friend My Friend while in Ireland.",
   "lyric": "Guyute was the ugly pig",
-  "why95": "Still brand new in 1995 — barely a year old — and it turned up at 7 shows that year while the band was still figuring it out.",
+  "why96": "Six shows in 1996, starting on the European summer tour, as the band kept polishing its knottiest composition on the road.",
   "debut": "1994-10-07, Stabler Arena, Lehigh University, Bethlehem PA",
-  "fact95": "Its high-wire time and key changes are so intricate that many fans assumed Trey had written it years earlier and shelved it.",
-  "n95": 7,
+  "fact96": "Its last 1996 outing was 12/30/96 in Boston, the night before New Year's — a ten-minute composed epic dropped into an arena run.",
+  "n96": 6,
   "nMod": 5,
-  "p": 0.2582,
+  "p": 0.4004,
   "cover": false
  },
- "Halley's Comet": {
-  "title": "Halley's Comet",
+ "Hello My Baby": {
+  "title": "Hello My Baby",
   "ptIds": [
-   750
+   758
   ],
   "aliases": [],
-  "bio": "Written by Richard \"Nancy\" Wright, a friend of the band, who stitched together two of his own songs and let Phish cover it. Short and goofy, and it usually launches straight into something much bigger.",
-  "lyric": null,
-  "why95": "The one square where the modern band plays it more than 1995 did — 6 shows that year, but it's a regular launchpad now.",
-  "debut": "1986-05-17, Goddard College, Plainfield VT",
-  "fact95": "On 12/14/95 in Binghamton it opened the run Halley's > NICU > Slave to the Traffic Light, released officially as LivePhish 01.",
-  "n95": 6,
-  "nMod": 16,
-  "p": 0.4526,
-  "cover": false
- },
- "It's Ice": {
-  "title": "It's Ice",
-  "ptIds": [
-   799
-  ],
-  "aliases": [],
-  "bio": "A twisty Phish original from 1993's Rift, sung by Page, about a skater battling his own reflection trapped under the ice. Live it collapses into a woozy breakdown where Fishman dances on his drum stool.",
-  "lyric": "Are they worms or are they serpents?",
-  "why95": "A 1995 workhorse: Phish played it at 18 shows that year, including 12/30/95 right here at Madison Square Garden.",
-  "debut": "1991-09-25, The Colonial Theatre, Keene NH",
-  "fact95": "At MSG on 12/30/95 they sandwiched another song inside it — It's Ice > Kung > It's Ice — in the first set.",
-  "n95": 18,
-  "nMod": 11,
-  "p": 0.5082,
-  "cover": false
- },
- "Loving Cup": {
-  "title": "Loving Cup",
-  "ptIds": [
-   838
-  ],
-  "aliases": [],
-  "bio": "A Rolling Stones cover from 1972's Exile on Main St., sung by Page and Trey over a big piano intro. Phish saves it for encores, and the whole crowd bellows the \"beautiful buzz\" part.",
-  "lyric": "What a beautiful buzz",
-  "why95": "A genuine rarity that year — only 4 plays in 1995, two of them encores, with 12/9/95 Albany listed by phish.net as a recommended version.",
-  "debut": "1993-02-03, Portland Expo, Portland ME",
-  "fact95": "Both 1995 encore versions came in the fall: 11/9/95 at Atlanta's Fox Theatre and 12/9/95 at Albany's Knickerbocker Arena.",
-  "n95": 4,
-  "nMod": 11,
-  "p": 0.3287,
+  "bio": "The 1899 Tin Pan Alley number — yes, the singing-frog song from the Looney Tunes cartoon — arranged for four-part barbershop harmony. The band gathers around one mic, no instruments, and hams it up.",
+  "lyric": "Hello my baby, hello my honey, hello my ragtime gal",
+  "why96": "This is the story square: 17 of 1996's 71 shows sang it, including the Clifford Ball — it was that year's running a cappella gag. It hasn't been in rotation for years, and the square honestly says so.",
+  "debut": "1995-09-27, Cal Expo Amphitheater, Sacramento CA",
+  "fact96": "Sung at the Clifford Ball on 8/16/96: four guys, one microphone, an 1899 barbershop tune, and the largest rock audience in North America that year.",
+  "n96": 17,
+  "nMod": 0,
+  "p": 0.2441,
   "cover": true
+ },
+ "Horn": {
+  "title": "Horn",
+  "ptIds": [
+   768
+  ],
+  "aliases": [],
+  "bio": "A short, chiming Trey original from Rift — a single bright guitar line over a lilting groove, in and out in four minutes. One of the prettiest small songs in the catalogue, with no jam and no ambitions beyond the melody.",
+  "lyric": null,
+  "why96": "A four-play rarity in 1996 that the current band has picked back up (6 shows since 2023) — exactly the kind of small song a theme night makes room for.",
+  "debut": null,
+  "fact96": "Its 1996 return came 7/12/96 at the Melkweg, the legendary ~1,500-capacity Amsterdam club, during the strangest tour Phish ever did.",
+  "n96": 4,
+  "nMod": 6,
+  "p": 0.3864,
+  "cover": false
+ },
+ "I Didn't Know": {
+  "title": "I Didn't Know",
+  "ptIds": [
+   771
+  ],
+  "aliases": [],
+  "bio": "A goofy barbershop-flavored singalong from the earliest days of the band, and the classic excuse to introduce Fishman on vacuum cleaner: Trey presents \"the Greasy Fizeek,\" Fish steps out from the kit, and solos into a running Electrolux.",
+  "lyric": null,
+  "why96": "Six 1996 shows, starting 7/11/96 at London's Shepherd's Bush Empire — and it's back in the modern rotation whenever Fishman needs a vacuum feature.",
+  "debut": null,
+  "fact96": "Every version is really a Fishman delivery mechanism: in 1996 it meant vacuum solos for European club crowds who had no idea what they were looking at.",
+  "n96": 6,
+  "nMod": 4,
+  "p": 0.3637,
+  "cover": false
+ },
+ "If I Could": {
+  "title": "If I Could",
+  "ptIds": [
+   793
+  ],
+  "aliases": [],
+  "bio": "The prettiest thing on Hoist — a slow, aching Trey/Tom Marshall ballad that the band almost never plays. Alison Krauss sang harmony on the studio version.",
+  "lyric": null,
+  "why96": "Just two 1996 performances — but one was Red Rocks — and the modern band has quietly brought it back (5 shows since 2023), which is what lifts a two-play rarity onto a board.",
+  "debut": "1994-04-04, The Flynn Theatre, Burlington VT",
+  "fact96": "Both 1996 versions came on the Santana summer: 7/21/96 in Europe and 8/5/96 at Red Rocks, and then it vanished again for years.",
+  "n96": 2,
+  "nMod": 5,
+  "p": 0.2891,
+  "cover": false
+ },
+ "Lawn Boy": {
+  "title": "Lawn Boy",
+  "ptIds": [
+   814
+  ],
+  "aliases": [],
+  "bio": "The title track of the 1990 album and Page's lounge-lizard showcase: he steps out front and croons it like a Vegas act while the band vamps cocktail jazz behind him, then hands it back with a flourish.",
+  "lyric": null,
+  "why96": "Four shows in 1996 — including the infamous Red Rocks stand — and still a semi-regular treat today, so the crooner odds are real.",
+  "debut": null,
+  "fact96": "Played 8/7/96 on the final night of the Red Rocks residency — the last night of Phish the town of Morrison, Colorado ever allowed.",
+  "n96": 4,
+  "nMod": 4,
+  "p": 0.3215,
+  "cover": false
  },
  "McGrupp and the Watchful Hosemasters": {
   "title": "McGrupp and the Watchful Hosemasters",
@@ -221,31 +266,31 @@
   ],
   "bio": "An ancient Phish original built from a Tom Marshall poem — McGrupp is Colonel Forbin's dog in the Gamehendge story. After the weird lyrics it opens into an instrumental suite and a long Page piano solo.",
   "lyric": "But he looks too much like… Dave",
-  "why95": "Played 5 times in 1995, and phish.net singles out the 12/29/95 Worcester version as a standout — a plausible deep cut for a 1995 night.",
+  "why96": "A four-play rarity in 1996 that the modern band has quietly revived — 8 shows since 2023 — which is the profile of a sneaky theme-night pick.",
   "debut": "1985-04-06, Finbar's, Burlington VT",
-  "fact95": "On 10/11/95 in Chandler, Arizona, they dropped it right inside Mike's Groove: Mike's Song > McGrupp > Weekapaug Groove.",
-  "n95": 5,
+  "fact96": "Its 1996 return came 7/23/96 at the Markthalle in Hamburg, on the strange summer tour where Phish played European clubs and festivals while opening stadium dates for Santana.",
+  "n96": 4,
   "nMod": 8,
-  "p": 0.2958,
+  "p": 0.4424,
   "cover": false
  },
- "NICU": {
-  "title": "NICU",
+ "Old Home Place": {
+  "title": "Old Home Place",
   "ptIds": [
-   882
+   879
   ],
   "aliases": [
-   "N.I.C.U."
+   "The Old Home Place"
   ],
-  "bio": "A bouncy Trey/Tom Marshall original with a reggae-flavored groove and a rare Phish sing-along chorus. Trey introduced it at its debut as \"In an Intensive Care Unit\"; live it's Page's organ showcase.",
-  "lyric": "I'm peering out through your opacity",
-  "why95": "1995 is the year NICU stuck — phish.net says the 12/14/95 Binghamton version is where the song finally found its place in the repertoire.",
-  "debut": "1992-03-06, The Music Hall, Portsmouth NH",
-  "fact95": "The 12/14/95 Binghamton version (Halley's Comet > NICU > Slave to the Traffic Light) was officially released as LivePhish 01.",
-  "n95": 9,
-  "nMod": 11,
-  "p": 0.4183,
-  "cover": false
+  "bio": "A bluegrass standard written by The Dillards' Mitch Jayne and Dean Webb and made famous by J.D. Crowe — a man trades the family homestead for a girl and a job, and loses all three. Phish plays it straight, harmonies and all.",
+  "lyric": "It's been ten long years since I left my home",
+  "why96": "Five shows in 1996, and the modern band still reaches for it (6 since 2023) whenever they want two minutes of real bluegrass.",
+  "debut": "1994-06-26, Municipal Auditorium, Charleston WV",
+  "fact96": "It OPENED night two of the Clifford Ball on 8/17/96 — seventy thousand people, and Phish walks out and starts with a Dillards bluegrass number.",
+  "n96": 5,
+  "nMod": 6,
+  "p": 0.4121,
+  "cover": true
  },
  "Poor Heart": {
   "title": "Poor Heart",
@@ -255,132 +300,76 @@
   "aliases": [],
   "bio": "A Mike Gordon original from A Picture of Nectar, written after someone stole his four-track tape recorder. It's a breakneck two-minute bluegrass burner that Mike sings at full speed.",
   "lyric": "You won't steal my poor heart again",
-  "why95": "One of the most-played songs of 1995 with 25 shows, and the year the band invented a joke slow-motion arrangement of it.",
+  "why96": "One of the most-played songs of 1996 at 21 of 71 shows — the band's favorite way to reset a set with two minutes of bluegrass panic.",
   "debut": "1988-08-04, The Roma, Telluride CO",
-  "fact95": "A deliberately slow arrangement debuted 11/19/95 in Charlotte; at Hampton they played it slower each time, then asked the crowd \"Get it?\" Béla Fleck guested on banjo 11/29/95.",
-  "n95": 25,
+  "fact96": "It was the second song of the 6/6/96 Joyous Lake club gig that opened the year's touring — the little Woodstock bar show where Character Zero and Waste debuted.",
+  "n96": 21,
   "nMod": 3,
-  "p": 0.3117,
+  "p": 0.4706,
   "cover": false
  },
- "Prince Caspian": {
-  "title": "Prince Caspian",
+ "Rocky Top": {
+  "title": "Rocky Top",
   "ptIds": [
-   909
+   931
   ],
   "aliases": [],
-  "bio": "Borrowed from C.S. Lewis's Narnia book — the lyrics are about a man who wishes he were the boy prince. A slow, big-swelling arena anthem that fans have argued about for thirty years.",
-  "lyric": "Afloat upon the waves",
-  "why95": "A genuine 1995 baby: it debuted 6/8/95 in Salt Lake City and turned up at 17 shows before the year was out.",
-  "debut": "1995-06-08, The Delta Center, Salt Lake City UT",
-  "fact95": "The jam and false ending everyone knows weren't added until summer 1996 — a 1995-night version would be the shorter, stranger original.",
-  "n95": 17,
-  "nMod": 22,
-  "p": 0.6787,
-  "cover": false
- },
- "Scent of a Mule": {
-  "title": "Scent of a Mule",
-  "ptIds": [
-   944
-  ],
-  "aliases": [],
-  "bio": "Mike's story about aliens landing on Kitty's farm instead of a city, and being told to mind their manners or else. Live it detours into a piano solo that turns into a klezmer hoedown, with Mike and Page duelling.",
-  "lyric": "You'll smell my mule",
-  "why95": "A 1995 staple they've almost entirely retired: 23 shows that year, and barely a handful in the three years since 2023.",
-  "debut": "1994-04-04, The Flynn Theatre, Burlington VT",
-  "fact95": "The third verse is literally the chorus played backwards — the same chords and syllables in reverse. Béla Fleck plays banjo on the Hoist studio version.",
-  "n95": 23,
-  "nMod": 1,
-  "p": 0.2121,
-  "cover": false
- },
- "Strange Design": {
-  "title": "Strange Design",
-  "ptIds": [
-   985
-  ],
-  "aliases": [],
-  "bio": "A gentle, drifting Tom Marshall ballad, usually sung by Page, about letting go and just relaxing into things. Short, quiet, and completely unlike anything around it in a setlist.",
-  "lyric": "Dripping in this strange design",
-  "why95": "The strongest 1995 signal on the whole board: 28 of its plays came in 1995 alone, and it has barely surfaced in the years since.",
-  "debut": "1995-05-16, Lowell Memorial Auditorium, Lowell MA",
-  "fact95": "It debuted at the Voters for Choice benefit in Lowell, a show played for victims of the 12/30/94 Brookline family-planning clinic shootings.",
-  "n95": 28,
-  "nMod": 2,
-  "p": 0.2781,
-  "cover": false
- },
- "Taste": {
-  "title": "Taste",
-  "ptIds": [
-   1000,
-   1010,
-   1211
-  ],
-  "aliases": [
-   "The Fog That Surrounds",
-   "Taste That Surrounds"
-  ],
-  "bio": "A rare Phish song where Page and Trey trade full solos — Page on the baby grand, Trey on guitar — over a knotty, restless groove. It stays inside its own structure rather than opening into a free jam.",
-  "lyric": null,
-  "why95": "The most 1995 song on the board: for most of that year it was performed under a completely different name, The Fog That Surrounds.",
-  "debut": "1995-06-07, BSU Pavilion, Boise ID",
-  "fact95": "Written with the 5/16/95 Lowell batch but the only one of them not played that night. This square also counts The Fog That Surrounds, which is what they called it from 9/28/95 onward.",
-  "n95": 33,
-  "nMod": 19,
-  "p": 0.7342,
-  "cover": false
- },
- "Theme from the Bottom": {
-  "title": "Theme from the Bottom",
-  "ptIds": [
-   1028
-  ],
-  "aliases": [],
-  "bio": "A Trey/Tom Marshall song sung from the point of view of a fish on the bottom of the tank, living off whatever the fish at the top drops. It builds slowly and then opens into one of Phish's prettiest guitar peaks.",
-  "lyric": "I feed from the bottom",
-  "why95": "Another of the summer-1995 debuts, and one of the year's workhorses at 27 of 83 shows — while still being in heavy rotation today.",
-  "debut": "1995-05-16, Lowell Memorial Auditorium, Lowell MA",
-  "fact95": "It came out of the same batch of new songs as Free, Billy Breathes, Taste and the very rare Spock's Brain, all previewed at Fishman's house on 5/14/95.",
-  "n95": 27,
-  "nMod": 27,
-  "p": 0.7952,
-  "cover": false
- },
- "Timber (Jerry the Mule)": {
-  "title": "Timber (Jerry the Mule)",
-  "ptIds": [
-   1032,
-   6812
-  ],
-  "aliases": [
-   "Timber"
-  ],
-  "bio": "A 1930s work song by Josh White and Sam Gary about hauling lumber with a stubborn Arkansas mule named Jerry. Phish makes it dark and spacey, Trey singing lead before it often blasts into a jam.",
-  "lyric": "Timber, ho! This timber's gotta roll",
-  "why95": "1995 is the year it came back: a three-year-gap bust-out on 7/3/95 kicked off a dozen performances that year.",
-  "debut": "1987-04-29, Nectar's, Burlington VT",
-  "fact95": "On 12/14/95 in Binghamton they sandwiched it inside Tweezer. The 7/3/95 bust-out happened because two fans held up a \"Timber Ho!\" sign.",
-  "n95": 12,
-  "nMod": 13,
-  "p": 0.4931,
+  "bio": "The Osborne Brothers' bluegrass standard (and one of Tennessee's official state songs), written by Boudleaux and Felice Bryant in ten minutes in 1967. Phish rips through it in two minutes flat.",
+  "lyric": "Good ol' Rocky Top, Rocky Top Tennessee",
+  "why96": "Seven 1996 shows, from the Hamburg Markthalle in July to the December arenas — the band's default encore-sized bluegrass blast that year.",
+  "debut": null,
+  "fact96": "1996 took Rocky Top to Europe: its first outing of the year was 7/23/96 in a Hamburg market hall, about as far from Tennessee as the song has ever been.",
+  "n96": 7,
+  "nMod": 3,
+  "p": 0.3392,
   "cover": true
  },
- "Wilson": {
-  "title": "Wilson",
+ "The Mango Song": {
+  "title": "The Mango Song",
   "ptIds": [
-   1078
+   1016
   ],
   "aliases": [],
-  "bio": "The evil king of Gamehendge, who stole the Helping Friendly Book from the Lizards and rules by force. The famous part isn't sung by the band at all: the whole arena shouts \"WIL-SON!\" in rhythm over the opening chords.",
+  "bio": "A Lawn Boy-era oddity with one of the great absurdist Phish lyrics — hands and feet turning into mangos, newspapers, genius. Tricky interlocking parts disguised as a breezy island tune.",
+  "lyric": "Your hands and feet are mangos, you're gonna be a genius anyway",
+  "why96": "Four 1996 shows, and its comeback that August happened at Red Rocks — plus 5 shows since 2023 keeps it plausibly in the deck tonight.",
+  "debut": null,
+  "fact96": "Its 1996 return came 8/4/96 at Red Rocks, the first night of a four-show stand so oversold and chaotic that the town of Morrison never let Phish back.",
+  "n96": 4,
+  "nMod": 5,
+  "p": 0.3552,
+  "cover": false
+ },
+ "Train Song": {
+  "title": "Train Song",
+  "ptIds": [
+   1038
+  ],
+  "aliases": [],
+  "bio": "A quiet Mike Gordon ballad from Billy Breathes, barely two minutes long, written with Vermont songwriter Robert Linitz. Three-part harmony over a gentle sway — the kind of breather the band drops between monsters.",
   "lyric": null,
-  "why95": "One of only three A Live One tracks left unplayed this run, and it appeared at 13 shows in 1995.",
-  "debut": "1986-10-12, Haybarn Theater, Goddard College, Plainfield VT",
-  "fact95": "On 12/28/95 in Worcester it ran straight into Buried Alive and then Tweezer.",
-  "n95": 13,
-  "nMod": 16,
-  "p": 0.5559,
+  "why96": "A genuine 1996 baby: it debuted that July in Europe and racked up 15 of the year's 71 shows as the band worked the Billy Breathes material in.",
+  "debut": null,
+  "fact96": "Played at the Clifford Ball on 8/16/96, two months before Billy Breathes came out — the crowd of 70,000 was hearing an unreleased song.",
+  "n96": 15,
+  "nMod": 3,
+  "p": 0.4272,
+  "cover": false
+ },
+ "Waste": {
+  "title": "Waste",
+  "ptIds": [
+   1057
+  ],
+  "aliases": [],
+  "bio": "The gentlest song on Billy Breathes — a quiet Trey/Tom Marshall love song that the arena sings back word for word. It floats where most Phish songs churn, and it's become a beloved encore and jam-landing pad.",
+  "lyric": "Come waste your time with me",
+  "why96": "Born in 1996: it debuted at the June club warm-up, appeared at 17 of the year's 71 shows, and unlike most of that list it never left the rotation.",
+  "debut": "1996-06-06, Joyous Lake, Woodstock NY",
+  "fact96": "Played mid-set at the Clifford Ball in front of ~70,000 people — the biggest rock concert in North America that year — three months before Billy Breathes was even released.",
+  "n96": 17,
+  "nMod": 13,
+  "p": 0.7565,
   "cover": false
  },
  "Ya Mar": {
@@ -391,12 +380,12 @@
   "aliases": [],
   "bio": "A calypso cover by Bahamian musician Cyril Ferguson, sung by Mike, and one of Phish's bounciest dance tunes. Trey hollers \"Play it, Leo!\" to hand Page a piano solo — which is where Page's nickname came from.",
   "lyric": "Play it, Leo!",
-  "why95": "A 1995 workhorse with 18 plays that year, including the first set of the Halloween Quadrophenia show and 12/30/95 right here at MSG.",
+  "why96": "A 1996 workhorse at 19 of 71 shows, from the New Orleans Jazz Fest date in April to the year-end run, and still a live regular today.",
   "debut": "1987-02-21, University of Vermont, Burlington VT",
-  "fact95": "Played in set one of 10/31/95 at Rosemont Horizon — the night Phish covered The Who's Quadrophenia — and again 12/30/95 at MSG with an Auld Lang Syne tease.",
-  "n95": 18,
+  "fact96": "It was the third song of the first Clifford Ball set on 8/16/96 — sunshine, 70,000 people, and a calypso tune from a Bahamian bar band's repertoire.",
+  "n96": 19,
   "nMod": 12,
-  "p": 0.5292,
+  "p": 0.7525,
   "cover": true
  },
  "You Enjoy Myself": {
@@ -407,12 +396,12 @@
   "aliases": [],
   "bio": "Trey wrote it in 1985 while busking through Europe, and it's now the most-played song Phish has. Twenty-odd minutes: a long composed section, Trey and Mike bouncing in sync on trampolines, a Mike bass solo, then a wordless vocal jam.",
   "lyric": "Boy! Man! God! Shit!",
-  "why95": "It's the 21-minute centerpiece of A Live One, Phish's 1995 live album — and the last unburned monster on that record.",
+  "why96": "Played at 23 of 1996's 71 shows — including Halloween — and the model's white whale: it flagged YEM as a top pick on all four previous nights of this run and has been wrong every single time. If they're ever playing it, it's tonight.",
   "debut": "1986-02-03, Hunt's, Burlington VT",
-  "fact95": "The model ranked YEM a top pick on all three previous nights of this run and was wrong every time. Nine of A Live One's twelve tracks are already spent; only Montana, Wilson and YEM remain.",
-  "n95": 23,
+  "fact96": "On 10/31/96 in Atlanta it anchored the first set of the Remain in Light Halloween show. Tonight is the last chance of the run — after this there is no more saving it.",
+  "n96": 23,
   "nMod": 24,
-  "p": 0.7443,
+  "p": 0.9156,
   "cover": false
  }
 }

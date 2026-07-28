@@ -2,8 +2,8 @@
 """Assemble data/songs.json + data/boards.json from the analysis + blurbs.
 
 Inputs (all committed under analysis/):
-  analysis/ranked95.json   per-song 1995 rate, current rate, calibrated odds
-  analysis/blurbs.json     researched bio / lyric / why95 / debut / fact95
+  analysis/ranked96.json   per-song 1996 rate, current rate, calibrated odds
+  analysis/blurbs.json     researched bio / lyric / why96 / debut / fact96
   analysis/layout.json     which song sits in which square of whose board
 
 Re-running this is a pure function of those three files, so the generated data
@@ -19,26 +19,19 @@ DATA = ROOT / "data"
 
 # Phantasy Tour carries duplicate / renamed rows for the same tune. A square
 # hits on ANY of these ids, and the app also falls back to normalised titles.
-EXTRA_IDS = {
-    "Taste": [1000, 1010, 1211],            # + "The Fog That Surrounds" (its 1995 name)
-    "Acoustic Army": [558, 810],            # + the fall-'95 "Keyboard Army" variant
-    "Timber (Jerry the Mule)": [1032, 6812],
-}
+EXTRA_IDS = {}
 ALIASES = {
-    "Taste": ["The Fog That Surrounds", "Taste That Surrounds"],
-    "Acoustic Army": ["Keyboard Army"],
-    "Timber (Jerry the Mule)": ["Timber"],
     "McGrupp and the Watchful Hosemasters": ["McGrupp and the Watchful Hosemaster", "McGrupp"],
-    "NICU": ["N.I.C.U."],
+    "Old Home Place": ["The Old Home Place"],
 }
 COVERS = {
-    "Ya Mar", "Timber (Jerry the Mule)", "Funky Bitch", "Loving Cup",
-    "A Day in the Life", "Hello My Baby",
+    "Ya Mar", "A Day in the Life", "Hello My Baby", "Crosseyed and Painless",
+    "Old Home Place", "Frankenstein", "Rocky Top", "Ginseng Sullivan", "Fire",
 }
 
 
 def main():
-    ranked = {r["name"]: r for r in json.loads((ANALYSIS / "ranked95.json").read_text())}
+    ranked = {r["name"]: r for r in json.loads((ANALYSIS / "ranked96.json").read_text())}
     blurbs = {b["song"]: b for b in json.loads((ANALYSIS / "blurbs.json").read_text())}
     layout = json.loads((ANALYSIS / "layout.json").read_text())
 
@@ -57,10 +50,10 @@ def main():
             "aliases": ALIASES.get(title, []),
             "bio": b["bio"],
             "lyric": b.get("lyric"),
-            "why95": b["why95"],
+            "why96": b["why96"],
             "debut": b.get("debut"),
-            "fact95": b.get("fact95"),
-            "n95": r["n95"],
+            "fact96": b.get("fact96"),
+            "n96": r["n96"],
             "nMod": r["nMod"],
             "p": r["p"],
             "cover": title in COVERS,

@@ -1,0 +1,632 @@
+[
+ {
+  "id": 640,
+  "name": "Character Zero",
+  "n96": 21,
+  "nMod": 31,
+  "p": 0.9442
+ },
+ {
+  "id": 1089,
+  "name": "You Enjoy Myself",
+  "n96": 23,
+  "nMod": 24,
+  "p": 0.9156
+ },
+ {
+  "id": 1057,
+  "name": "Waste",
+  "n96": 17,
+  "nMod": 13,
+  "p": 0.7565
+ },
+ {
+  "id": 1087,
+  "name": "Ya Mar",
+  "n96": 19,
+  "nMod": 12,
+  "p": 0.7525
+ },
+ {
+  "id": 632,
+  "name": "Cars Trucks Buses",
+  "n96": 19,
+  "nMod": 5,
+  "p": 0.5512
+ },
+ {
+  "id": 657,
+  "name": "Crosseyed and Painless",
+  "n96": 2,
+  "nMod": 15,
+  "p": 0.5009
+ },
+ {
+  "id": 703,
+  "name": "Fee",
+  "n96": 10,
+  "nMod": 6,
+  "p": 0.5001
+ },
+ {
+  "id": 906,
+  "name": "Poor Heart",
+  "n96": 21,
+  "nMod": 3,
+  "p": 0.4706
+ },
+ {
+  "id": 622,
+  "name": "Buried Alive",
+  "n96": 2,
+  "nMod": 12,
+  "p": 0.4483
+ },
+ {
+  "id": 847,
+  "name": "McGrupp and the Watchful Hosemasters",
+  "n96": 4,
+  "nMod": 8,
+  "p": 0.4424
+ },
+ {
+  "id": 1038,
+  "name": "Train Song",
+  "n96": 15,
+  "nMod": 3,
+  "p": 0.4272
+ },
+ {
+  "id": 556,
+  "name": "A Day in the Life",
+  "n96": 15,
+  "nMod": 3,
+  "p": 0.4272
+ },
+ {
+  "id": 879,
+  "name": "Old Home Place",
+  "n96": 5,
+  "nMod": 6,
+  "p": 0.4121
+ },
+ {
+  "id": 748,
+  "name": "Guyute",
+  "n96": 6,
+  "nMod": 5,
+  "p": 0.4004
+ },
+ {
+  "id": 768,
+  "name": "Horn",
+  "n96": 4,
+  "nMod": 6,
+  "p": 0.3864
+ },
+ {
+  "id": 771,
+  "name": "I Didn't Know",
+  "n96": 6,
+  "nMod": 4,
+  "p": 0.3637
+ },
+ {
+  "id": 694,
+  "name": "Esther",
+  "n96": 3,
+  "nMod": 6,
+  "p": 0.3555
+ },
+ {
+  "id": 1016,
+  "name": "The Mango Song",
+  "n96": 4,
+  "nMod": 5,
+  "p": 0.3552
+ },
+ {
+  "id": 720,
+  "name": "Frankenstein",
+  "n96": 8,
+  "nMod": 3,
+  "p": 0.3535
+ },
+ {
+  "id": 931,
+  "name": "Rocky Top",
+  "n96": 7,
+  "nMod": 3,
+  "p": 0.3392
+ },
+ {
+  "id": 732,
+  "name": "Ginseng Sullivan",
+  "n96": 6,
+  "nMod": 3,
+  "p": 0.3233
+ },
+ {
+  "id": 814,
+  "name": "Lawn Boy",
+  "n96": 4,
+  "nMod": 4,
+  "p": 0.3215
+ },
+ {
+  "id": 706,
+  "name": "Fire",
+  "n96": 8,
+  "nMod": 2,
+  "p": 0.3055
+ },
+ {
+  "id": 793,
+  "name": "If I Could",
+  "n96": 2,
+  "nMod": 5,
+  "p": 0.2891
+ },
+ {
+  "id": 700,
+  "name": "Fast Enough For You",
+  "n96": 4,
+  "nMod": 3,
+  "p": 0.2847
+ },
+ {
+  "id": 870,
+  "name": "Mound",
+  "n96": 4,
+  "nMod": 3,
+  "p": 0.2847
+ },
+ {
+  "id": 1024,
+  "name": "The Sloth",
+  "n96": 6,
+  "nMod": 2,
+  "p": 0.2785
+ },
+ {
+  "id": 1098,
+  "name": "HYHU",
+  "n96": 6,
+  "nMod": 2,
+  "p": 0.2785
+ },
+ {
+  "id": 902,
+  "name": "Peaches en Regalia",
+  "n96": 3,
+  "nMod": 3,
+  "p": 0.2601
+ },
+ {
+  "id": 999,
+  "name": "Talk",
+  "n96": 8,
+  "nMod": 1,
+  "p": 0.2511
+ },
+ {
+  "id": 650,
+  "name": "Contact",
+  "n96": 4,
+  "nMod": 2,
+  "p": 0.2442
+ },
+ {
+  "id": 758,
+  "name": "Hello My Baby",
+  "n96": 17,
+  "nMod": 0,
+  "p": 0.2441
+ },
+ {
+  "id": 983,
+  "name": "Steep",
+  "n96": 13,
+  "nMod": 0,
+  "p": 0.2227
+ },
+ {
+  "id": 993,
+  "name": "Swept Away",
+  "n96": 13,
+  "nMod": 0,
+  "p": 0.2227
+ },
+ {
+  "id": 819,
+  "name": "Life On Mars",
+  "n96": 10,
+  "nMod": 0,
+  "p": 0.2034
+ },
+ {
+  "id": 964,
+  "name": "Sleeping Monkey",
+  "n96": 2,
+  "nMod": 2,
+  "p": 0.1956
+ },
+ {
+  "id": 1001,
+  "name": "Tela",
+  "n96": 2,
+  "nMod": 2,
+  "p": 0.1956
+ },
+ {
+  "id": 715,
+  "name": "Fly Famous Mockingbird",
+  "n96": 2,
+  "nMod": 2,
+  "p": 0.1956
+ },
+ {
+  "id": 647,
+  "name": "Colonel Forbin's Ascent",
+  "n96": 2,
+  "nMod": 2,
+  "p": 0.1956
+ },
+ {
+  "id": 1026,
+  "name": "The Star Spangled Banner",
+  "n96": 8,
+  "nMod": 0,
+  "p": 0.1882
+ },
+ {
+  "id": 1007,
+  "name": "The Curtain",
+  "n96": 8,
+  "nMod": 0,
+  "p": 0.1882
+ },
+ {
+  "id": 574,
+  "name": "Auld Lang Syne",
+  "n96": 1,
+  "nMod": 3,
+  "p": 0.1869
+ },
+ {
+  "id": 671,
+  "name": "Dinner and a Movie",
+  "n96": 1,
+  "nMod": 3,
+  "p": 0.1869
+ },
+ {
+  "id": 752,
+  "name": "Harpua",
+  "n96": 3,
+  "nMod": 1,
+  "p": 0.1811
+ },
+ {
+  "id": 805,
+  "name": "Jesus Just Left Chicago",
+  "n96": 3,
+  "nMod": 1,
+  "p": 0.1811
+ },
+ {
+  "id": 1048,
+  "name": "Uncle Pen",
+  "n96": 7,
+  "nMod": 0,
+  "p": 0.1797
+ },
+ {
+  "id": 566,
+  "name": "Amazing Grace",
+  "n96": 6,
+  "nMod": 0,
+  "p": 0.1703
+ },
+ {
+  "id": 616,
+  "name": "Brother",
+  "n96": 5,
+  "nMod": 0,
+  "p": 0.1599
+ },
+ {
+  "id": 608,
+  "name": "Bold as Love",
+  "n96": 1,
+  "nMod": 2,
+  "p": 0.1588
+ },
+ {
+  "id": 940,
+  "name": "Sanity",
+  "n96": 1,
+  "nMod": 2,
+  "p": 0.1588
+ },
+ {
+  "id": 878,
+  "name": "My Mind's Got a Mind of its Own",
+  "n96": 2,
+  "nMod": 1,
+  "p": 0.1586
+ },
+ {
+  "id": 803,
+  "name": "Jam",
+  "n96": 4,
+  "nMod": 0,
+  "p": 0.148
+ },
+ {
+  "id": 563,
+  "name": "All Things Reconsidered",
+  "n96": 4,
+  "nMod": 0,
+  "p": 0.148
+ },
+ {
+  "id": 971,
+  "name": "Somewhere Over the Rainbow",
+  "n96": 3,
+  "nMod": 0,
+  "p": 0.1341
+ },
+ {
+  "id": 631,
+  "name": "Carolina",
+  "n96": 1,
+  "nMod": 1,
+  "p": 0.1282
+ },
+ {
+  "id": 654,
+  "name": "Cracklin' Rosie",
+  "n96": 1,
+  "nMod": 1,
+  "p": 0.1282
+ },
+ {
+  "id": 675,
+  "name": "Dog Faced Boy",
+  "n96": 1,
+  "nMod": 1,
+  "p": 0.1282
+ },
+ {
+  "id": 893,
+  "name": "The Oh Kee Pa Ceremony",
+  "n96": 1,
+  "nMod": 1,
+  "p": 0.1282
+ },
+ {
+  "id": 986,
+  "name": "Suspicious Minds",
+  "n96": 2,
+  "nMod": 0,
+  "p": 0.1171
+ },
+ {
+  "id": 591,
+  "name": "Bike",
+  "n96": 2,
+  "nMod": 0,
+  "p": 0.1171
+ },
+ {
+  "id": 607,
+  "name": "Bohemian Rhapsody",
+  "n96": 1,
+  "nMod": 0,
+  "p": 0.0942
+ },
+ {
+  "id": 959,
+  "name": "Sixteen Candles",
+  "n96": 1,
+  "nMod": 0,
+  "p": 0.0942
+ },
+ {
+  "id": 638,
+  "name": "Champagne Supernova",
+  "n96": 1,
+  "nMod": 0,
+  "p": 0.0942
+ },
+ {
+  "id": 629,
+  "name": "Caravan",
+  "n96": 1,
+  "nMod": 0,
+  "p": 0.0942
+ },
+ {
+  "id": 1214,
+  "name": "Rotation Jam",
+  "n96": 1,
+  "nMod": 0,
+  "p": 0.0942
+ },
+ {
+  "id": 1205,
+  "name": "Digital Delay Loop Jam",
+  "n96": 1,
+  "nMod": 0,
+  "p": 0.0942
+ },
+ {
+  "id": 1203,
+  "name": "Cowboy's Sweetheart",
+  "n96": 1,
+  "nMod": 0,
+  "p": 0.0942
+ },
+ {
+  "id": 1202,
+  "name": "Wildwood Weed",
+  "n96": 1,
+  "nMod": 0,
+  "p": 0.0942
+ },
+ {
+  "id": 567,
+  "name": "Amazing Grace Jam",
+  "n96": 1,
+  "nMod": 0,
+  "p": 0.0942
+ },
+ {
+  "id": 1218,
+  "name": "Sweet Emotion Jam",
+  "n96": 1,
+  "nMod": 0,
+  "p": 0.0942
+ },
+ {
+  "id": 1225,
+  "name": "Midnight on the Highway",
+  "n96": 1,
+  "nMod": 0,
+  "p": 0.0942
+ },
+ {
+  "id": 1060,
+  "name": "We're an American Band",
+  "n96": 1,
+  "nMod": 0,
+  "p": 0.0942
+ },
+ {
+  "id": 848,
+  "name": "Mean Mr. Mustard",
+  "n96": 1,
+  "nMod": 0,
+  "p": 0.0942
+ },
+ {
+  "id": 668,
+  "name": "Demand",
+  "n96": 1,
+  "nMod": 0,
+  "p": 0.0942
+ },
+ {
+  "id": 899,
+  "name": "Once in a Lifetime",
+  "n96": 1,
+  "nMod": 0,
+  "p": 0.0942
+ },
+ {
+  "id": 1011,
+  "name": "The Great Curve",
+  "n96": 1,
+  "nMod": 0,
+  "p": 0.0942
+ },
+ {
+  "id": 946,
+  "name": "Seen and Not Seen",
+  "n96": 1,
+  "nMod": 0,
+  "p": 0.0942
+ },
+ {
+  "id": 610,
+  "name": "Born Under Punches",
+  "n96": 1,
+  "nMod": 0,
+  "p": 0.0942
+ },
+ {
+  "id": 769,
+  "name": "Houses in Motion",
+  "n96": 1,
+  "nMod": 0,
+  "p": 0.0942
+ },
+ {
+  "id": 824,
+  "name": "Listening Wind",
+  "n96": 1,
+  "nMod": 0,
+  "p": 0.0942
+ },
+ {
+  "id": 1017,
+  "name": "The Overload",
+  "n96": 1,
+  "nMod": 0,
+  "p": 0.0942
+ },
+ {
+  "id": 560,
+  "name": "All Along the Watchtower",
+  "n96": 1,
+  "nMod": 0,
+  "p": 0.0942
+ },
+ {
+  "id": 1066,
+  "name": "Whipping Post",
+  "n96": 1,
+  "nMod": 0,
+  "p": 0.0942
+ },
+ {
+  "id": 555,
+  "name": "99 Years",
+  "n96": 1,
+  "nMod": 0,
+  "p": 0.0942
+ },
+ {
+  "id": 678,
+  "name": "Doin' My Time",
+  "n96": 1,
+  "nMod": 0,
+  "p": 0.0942
+ },
+ {
+  "id": 1217,
+  "name": "Hold to a Dream",
+  "n96": 1,
+  "nMod": 0,
+  "p": 0.0942
+ },
+ {
+  "id": 1209,
+  "name": "Gypsy Queen",
+  "n96": 1,
+  "nMod": 0,
+  "p": 0.0942
+ },
+ {
+  "id": 1216,
+  "name": "Star Trek Theme",
+  "n96": 1,
+  "nMod": 0,
+  "p": 0.0942
+ },
+ {
+  "id": 1003,
+  "name": "Terrapin",
+  "n96": 1,
+  "nMod": 0,
+  "p": 0.0942
+ },
+ {
+  "id": 1215,
+  "name": "Phish's set was rained out",
+  "n96": 1,
+  "nMod": 0,
+  "p": 0.0942
+ }
+]

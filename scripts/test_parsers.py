@@ -137,9 +137,9 @@ ok("the source furthest ahead still wins", longest_still_wins)
 
 API_ROWS = [
     # Shape per phishnet/api-v5 scripts/setlist.js
-    {"artist_name": "Phish", "set": "1", "song": "Free", "trans_mark": " > ",
-     "isjamchart": 1, "jamchart_description": "Big version with a long jam.", "slug": "free"},
-    {"artist_name": "Phish", "set": "1", "song": "Wilson", "trans_mark": ", ", "isjamchart": 0},
+    {"artist_name": "Phish", "set": "1", "song": "Character Zero", "trans_mark": " > ",
+     "isjamchart": 1, "jamchart_description": "Big version with a long jam.", "slug": "character-zero"},
+    {"artist_name": "Phish", "set": "1", "song": "Waste", "trans_mark": ", ", "isjamchart": 0},
     {"artist_name": "Phish", "set": "2", "song": "You Enjoy Myself", "trans_mark": " -> "},
     {"artist_name": "Phish", "set": "e", "song": "A Day in the Life", "trans_mark": ""},
     {"artist_name": "Phish", "set": "e2", "song": "Tweezer Reprise", "trans_mark": ""},
@@ -151,7 +151,7 @@ API_ROWS = [
 def api_names():
     got = R.parse_phishnet_rows(API_ROWS)
     assert [s["name"] for s in got] == [
-        "Free", "Wilson", "You Enjoy Myself", "A Day in the Life", "Tweezer Reprise"], got
+        "Character Zero", "Waste", "You Enjoy Myself", "A Day in the Life", "Tweezer Reprise"], got
 
 
 ok("API rows parse to the right songs", api_names)
@@ -160,7 +160,7 @@ ok("API rows parse to the right songs", api_names)
 def api_jamchart_uses_song_field():
     """The API exposes annotations separately, so `song` must be used."""
     got = R.parse_phishnet_rows(API_ROWS)
-    assert got[0]["name"] == "Free", f"jam-charted row became {got[0]['name']!r}"
+    assert got[0]["name"] == "Character Zero", f"jam-charted row became {got[0]['name']!r}"
 
 
 ok("API jam-chart rows use `song`, not the description", api_jamchart_uses_song_field)
@@ -209,7 +209,7 @@ def api_rows_match_the_boards():
     norm = lambda t: (t.lower().replace("'", "").replace(".", "")
                       .replace("  ", " ").removeprefix("the ").strip())
     titles = {norm(v["title"]) for v in songs.values()}
-    for want in ("Free", "Wilson", "You Enjoy Myself", "A Day in the Life"):
+    for want in ("Character Zero", "Waste", "You Enjoy Myself", "A Day in the Life"):
         assert norm(want) in titles, f"{want} is not a board song?"
     hit = [s["name"] for s in parsed if norm(s["name"]) in titles]
     assert len(hit) == 4, f"only matched {hit}"

@@ -27,38 +27,32 @@ const players = () => JSON.parse(JSON.stringify(boards.players));
 
 console.log("matching");
 ok("exact title matches", () => {
-  const r = PTT.evaluate(players(), songs, setlist(["You Enjoy Myself"]), null);
+  const r = PTT.evaluate(players(), songs, setlist(["Character Zero"]), null);
   assert.strictEqual(r.players[0].score, 1);
   assert.strictEqual(r.players[1].score, 1);
   assert.strictEqual(r.players[2].score, 1, "shared centre should hit every board");
 });
 
-ok("1995-era rename matches (The Fog That Surrounds -> Taste)", () => {
-  const r = PTT.evaluate(players(), songs, setlist(["The Fog That Surrounds"]), null);
+ok("a Phantasy Tour short name matches via alias (McGrupp)", () => {
+  const r = PTT.evaluate(players(), songs, setlist(["McGrupp"]), null);
   const hit = r.players.flatMap((p) => p.cells).filter((c) => c.hit).map((c) => c.key);
-  assert.deepStrictEqual(hit, ["Taste"]);
-});
-
-ok("Keyboard Army counts for the Acoustic Army square", () => {
-  const r = PTT.evaluate(players(), songs, setlist(["Keyboard Army"]), null);
-  const hit = r.players.flatMap((p) => p.cells).filter((c) => c.hit).map((c) => c.key);
-  assert.deepStrictEqual(hit, ["Acoustic Army"]);
+  assert.deepStrictEqual(hit, ["McGrupp and the Watchful Hosemasters"]);
 });
 
 ok("punctuation and articles are ignored", () => {
-  const r = PTT.evaluate(players(), songs, setlist(["Halleys Comet", "Its Ice"]), null);
+  const r = PTT.evaluate(players(), songs, setlist(["I Didnt Know", "The Old Home Place"]), null);
   const hit = r.players.flatMap((p) => p.cells).filter((c) => c.hit).map((c) => c.key);
-  assert.ok(hit.includes("Halley's Comet"), "Halley's Comet");
-  assert.ok(hit.includes("It's Ice"), "It's Ice");
+  assert.ok(hit.includes("I Didn't Know"), "I Didn't Know");
+  assert.ok(hit.includes("Old Home Place"), "Old Home Place");
 });
 
 ok("a duplicate Phantasy Tour id still matches by name", () => {
   // Night 1 used id 14800 for Hold Your Head Up while the catalogue's main row
   // is 1098 — the name fallback is what saves us from that class of bug.
-  const s = { songs: [{ id: 999999, name: "Free", set: 1, pos: 1, order: 0 }] };
+  const s = { songs: [{ id: 999999, name: "Waste", set: 1, pos: 1, order: 0 }] };
   const r = PTT.evaluate(players(), songs, s, null);
   const hit = r.players.flatMap((p) => p.cells).filter((c) => c.hit).map((c) => c.key);
-  assert.deepStrictEqual(hit, ["Free"]);
+  assert.deepStrictEqual(hit, ["Waste"]);
 });
 
 ok("an unrelated song hits nothing", () => {
@@ -99,7 +93,7 @@ ok("earlier line wins the tiebreak", () => {
   // Dylan's row completes at position 3, Rob's only at position 6.
   const names = [dyl.squares[0], dyl.squares[1], dyl.squares[2],
                  rob.squares[0], rob.squares[1], rob.squares[2]]
-    .filter((n) => n !== "You Enjoy Myself");
+    .filter((n) => n !== "Character Zero");
   const r = PTT.evaluate(p, songs, setlist(names), null);
   assert.ok(r.players.find((x) => x.name === "Rob").won && r.players.find((x) => x.name === "Dylan").won,
     "both should have a line");
@@ -116,7 +110,7 @@ ok("manual marks add hits", () => {
 
 ok("manual marks never clear a feed hit", () => {
   const p = players();
-  const r = PTT.evaluate(p, songs, setlist(["You Enjoy Myself"]), new Set());
+  const r = PTT.evaluate(p, songs, setlist(["Character Zero"]), new Set());
   assert.ok(r.players.every((x) => x.cells[4].hit));
 });
 
@@ -152,7 +146,7 @@ ok("boards are 9 squares with a shared centre and no internal repeats", () => {
   for (const p of boards.players) {
     assert.strictEqual(p.squares.length, 9);
     assert.strictEqual(new Set(p.squares).size, 9, `${p.name} repeats a song`);
-    assert.strictEqual(p.squares[4], "You Enjoy Myself");
+    assert.strictEqual(p.squares[4], "Character Zero");
   }
 });
 
@@ -166,16 +160,16 @@ ok("no song appears on two boards except the centre", () => {
     });
 });
 
-ok("Drowned is on a board and matches by name", () => {
-  assert.ok(songs["Drowned"], "Drowned should be a board song");
-  const r = PTT.evaluate(players(), songs, setlist(["Drowned"]), null);
+ok("Hello My Baby (the story square) is on a board and matches by name", () => {
+  assert.ok(songs["Hello My Baby"], "Hello My Baby should be a board song");
+  const r = PTT.evaluate(players(), songs, setlist(["Hello My Baby"]), null);
   const hit = r.players.flatMap((p) => p.cells).filter((c) => c.hit).map((c) => c.key);
-  assert.deepStrictEqual(hit, ["Drowned"]);
+  assert.deepStrictEqual(hit, ["Hello My Baby"]);
 });
 
 ok("every square's displayed odds match the analysis", () => {
   const ranked = Object.fromEntries(
-    JSON.parse(fs.readFileSync(path.join(ROOT, "analysis/ranked95.json"))).map((r) => [r.name, r.p]));
+    JSON.parse(fs.readFileSync(path.join(ROOT, "analysis/ranked96.json"))).map((r) => [r.name, r.p]));
   for (const key of Object.keys(songs))
     assert.strictEqual(songs[key].p, ranked[key], `${key} odds drifted from the model`);
 });

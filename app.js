@@ -1,4 +1,4 @@
-/* Phish-Tac-Toe — 1995 Night at MSG
+/* Phish-Tac-Toe — 1996 Night at MSG
  *
  * Source of truth is data/setlist.json, refreshed by a GitHub Action that polls
  * the Phantasy Tour API. The page re-fetches it every POLL_MS. Manual marks are
@@ -165,14 +165,14 @@ function openSong(key) {
     ${song.lyric ? `<div class="lyric">“${song.lyric}”</div>` : ""}
     <div class="label">What it is</div>
     <p class="body">${song.bio}</p>
-    <div class="label">Why it could drop on 1995 night</div>
-    <p class="body">${song.why95}</p>
+    <div class="label">Why it could drop on 1996 night</div>
+    <p class="body">${song.why96}</p>
     <div class="statgrid">
-      <div class="stat"><b>${song.n95}</b><span>of 83 shows<br>in 1995</span></div>
-      <div class="stat"><b>${song.nMod}</b><span>of 164 shows<br>since 2023</span></div>
+      <div class="stat"><b>${song.n96}</b><span>of 71 shows<br>in 1996</span></div>
+      <div class="stat"><b>${song.nMod}</b><span>of 165 shows<br>since 2023</span></div>
       <div class="stat"><b>${Math.round(song.p * 100)}%</b><span>our odds<br>for tonight</span></div>
     </div>
-    ${song.fact95 ? `<div class="label">1995 factoid</div><p class="body">${song.fact95}</p>` : ""}
+    ${song.fact96 ? `<div class="label">1996 factoid</div><p class="body">${song.fact96}</p>` : ""}
     <p class="onboards">On ${owners.map((o) => `<b style="color:${o.accent}">${o.name}</b>`).join(" · ")}${owners.length > 1 ? "'s boards" : "'s board"}.</p>
   `;
   $("sheetScroll").scrollTop = 0;   // the container is reused between songs
