@@ -1,17 +1,17 @@
 {
  "showId": 62005,
  "showDate": "2026-07-27",
- "fetchedAt": "2026-07-28T00:28:57+00:00",
- "source": "phish.net-api",
+ "fetchedAt": "2026-07-28T00:33:01+00:00",
+ "source": "phish.net-web",
  "sourceCounts": {
   "phish.net-api": 4,
-  "phish.net-web": 4
+  "phish.net-web": 5
  },
  "sourceMs": {
-  "phish.net-api": 113,
-  "phish.net-web": 241
+  "phish.net-api": 84,
+  "phish.net-web": 228
  },
- "count": 4,
+ "count": 5,
  "songs": [
   {
    "name": "Wilson",
@@ -35,6 +35,12 @@
    "name": "Scent of a Mule",
    "set": 1,
    "pos": 4,
+   "segue": false
+  },
+  {
+   "name": "Theme from the Bottom",
+   "set": 1,
+   "pos": 5,
    "segue": false
   }
  ]
