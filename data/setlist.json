@@ -1,157 +1,18 @@
 {
- "showId": 62005,
- "showDate": "2026-07-27",
- "fetchedAt": "2026-07-28T13:11:31+00:00",
+ "showId": 62006,
+ "showDate": "2026-07-29",
+ "fetchedAt": "2026-07-28T13:12:39+00:00",
  "source": "phantasy-tour",
  "sourceCounts": {
-  "phantasy-tour": 20,
-  "phish.net-web": 20
+  "phish.net-api": "skipped",
+  "phantasy-tour": 0,
+  "phish.net-web": 0
  },
  "sourceMs": {
-  "phantasy-tour": 98,
-  "phish.net-web": 150
+  "phish.net-api": 0,
+  "phantasy-tour": 80,
+  "phish.net-web": 391
  },
- "count": 20,
- "songs": [
-  {
-   "id": 1078,
-   "name": "Wilson",
-   "set": 1,
-   "pos": 1,
-   "segue": false
-  },
-  {
-   "id": 1032,
-   "name": "Timber (Jerry the Mule)",
-   "set": 1,
-   "pos": 2,
-   "segue": false
-  },
-  {
-   "id": 749,
-   "name": "Ha Ha Ha",
-   "set": 1,
-   "pos": 3,
-   "segue": false
-  },
-  {
-   "id": 944,
-   "name": "Scent of a Mule",
-   "set": 1,
-   "pos": 4,
-   "segue": false
-  },
-  {
-   "id": 1028,
-   "name": "Theme from the Bottom",
-   "set": 1,
-   "pos": 5,
-   "segue": false
-  },
-  {
-   "id": 750,
-   "name": "Halley's Comet",
-   "set": 1,
-   "pos": 6,
-   "segue": false
-  },
-  {
-   "id": 996,
-   "name": "The Man Who Stepped Into Yesterday",
-   "set": 1,
-   "pos": 7,
-   "segue": false
-  },
-  {
-   "id": 575,
-   "name": "Avenu Malkenu",
-   "set": 1,
-   "pos": 8,
-   "segue": false
-  },
-  {
-   "id": 882,
-   "name": "NICU",
-   "set": 1,
-   "pos": 9,
-   "segue": false
-  },
-  {
-   "id": 727,
-   "name": "Funky Bitch",
-   "set": 1,
-   "pos": 10,
-   "segue": false
-  },
-  {
-   "id": 1000,
-   "name": "Taste",
-   "set": 1,
-   "pos": 11,
-   "segue": false
-  },
-  {
-   "id": 1132,
-   "name": "The Curtain With",
-   "set": 2,
-   "pos": 1,
-   "segue": false
-  },
-  {
-   "id": 909,
-   "name": "Prince Caspian",
-   "set": 2,
-   "pos": 2,
-   "segue": false
-  },
-  {
-   "id": 689,
-   "name": "Drowned",
-   "set": 2,
-   "pos": 3,
-   "segue": false
-  },
-  {
-   "id": 592,
-   "name": "Billy Breathes",
-   "set": 2,
-   "pos": 4,
-   "segue": false
-  },
-  {
-   "id": 799,
-   "name": "It's Ice",
-   "set": 2,
-   "pos": 5,
-   "segue": false
-  },
-  {
-   "id": 806,
-   "name": "Johnny B Goode",
-   "set": 2,
-   "pos": 6,
-   "segue": false
-  },
-  {
-   "id": 722,
-   "name": "Free",
-   "set": 2,
-   "pos": 7,
-   "segue": false
-  },
-  {
-   "id": 985,
-   "name": "Strange Design",
-   "set": 9,
-   "pos": 1,
-   "segue": false
-  },
-  {
-   "id": 838,
-   "name": "Loving Cup",
-   "set": 9,
-   "pos": 2,
-   "segue": false
-  }
- ]
+ "count": 0,
+ "songs": []
 }
