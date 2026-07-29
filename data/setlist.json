@@ -1,159 +1,16 @@
 {
- "showId": 2796,
- "showDate": "1996-11-24",
- "fetchedAt": "2026-07-29T02:04:31+00:00",
- "source": "phantasy-tour",
+ "showId": 62006,
+ "showDate": "2026-07-29",
+ "fetchedAt": "2026-07-29T02:08:12+00:00",
+ "source": "phish.net-web",
  "sourceCounts": {
   "phish.net-api": "skipped",
-  "phantasy-tour": 20,
-  "phish.net-web": 20
+  "phish.net-web": 0
  },
  "sourceMs": {
   "phish.net-api": 0,
-  "phantasy-tour": 101,
-  "phish.net-web": 288
+  "phish.net-web": 347
  },
- "count": 20,
- "songs": [
-  {
-   "id": 906,
-   "name": "Poor Heart",
-   "set": 1,
-   "pos": 1,
-   "segue": false
-  },
-  {
-   "id": 557,
-   "name": "AC/DC Bag",
-   "set": 1,
-   "pos": 2,
-   "segue": false
-  },
-  {
-   "id": 563,
-   "name": "All Things Reconsidered",
-   "set": 1,
-   "pos": 3,
-   "segue": false
-  },
-  {
-   "id": 612,
-   "name": "Bouncing Around the Room",
-   "set": 1,
-   "pos": 4,
-   "segue": false
-  },
-  {
-   "id": 916,
-   "name": "Reba",
-   "set": 1,
-   "pos": 5,
-   "segue": false
-  },
-  {
-   "id": 640,
-   "name": "Character Zero",
-   "set": 1,
-   "pos": 6,
-   "segue": false
-  },
-  {
-   "id": 985,
-   "name": "Strange Design",
-   "set": 1,
-   "pos": 7,
-   "segue": false
-  },
-  {
-   "id": 1000,
-   "name": "Taste",
-   "set": 1,
-   "pos": 8,
-   "segue": false
-  },
-  {
-   "id": 771,
-   "name": "I Didn't Know",
-   "set": 1,
-   "pos": 9,
-   "segue": false
-  },
-  {
-   "id": 938,
-   "name": "Sample in a Jar",
-   "set": 1,
-   "pos": 10,
-   "segue": false
-  },
-  {
-   "id": 572,
-   "name": "Run Like An Antelope",
-   "set": 1,
-   "pos": 11,
-   "segue": false
-  },
-  {
-   "id": 564,
-   "name": "Also Sprach Zarathustra",
-   "set": 2,
-   "pos": 1,
-   "segue": false
-  },
-  {
-   "id": 974,
-   "name": "Sparkle",
-   "set": 2,
-   "pos": 2,
-   "segue": false
-  },
-  {
-   "id": 665,
-   "name": "David Bowie",
-   "set": 2,
-   "pos": 3,
-   "segue": false
-  },
-  {
-   "id": 556,
-   "name": "A Day in the Life",
-   "set": 2,
-   "pos": 4,
-   "segue": false
-  },
-  {
-   "id": 1089,
-   "name": "You Enjoy Myself",
-   "set": 2,
-   "pos": 5,
-   "segue": false
-  },
-  {
-   "id": 838,
-   "name": "Loving Cup",
-   "set": 2,
-   "pos": 6,
-   "segue": false
-  },
-  {
-   "id": 987,
-   "name": "Suzy Greenberg",
-   "set": 2,
-   "pos": 7,
-   "segue": false
-  },
-  {
-   "id": 732,
-   "name": "Ginseng Sullivan",
-   "set": 9,
-   "pos": 1,
-   "segue": false
-  },
-  {
-   "id": 635,
-   "name": "Cavern",
-   "set": 9,
-   "pos": 2,
-   "segue": false
-  }
- ]
+ "count": 0,
+ "songs": []
 }
