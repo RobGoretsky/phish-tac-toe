@@ -108,8 +108,11 @@ const ok = (name, fn) => {
     if ($("boardName").textContent === before) throw new Error("board did not change");
   });
   ok("scoreboard tiles switch boards", () => {
+    // Read the expected name from the data -- who sits at which board changes
+    // between shows (Jayme and Justin swapped seats for 1996 night).
+    const third = JSON.parse(read("data/boards.json")).players[2].name;
     click(window.document.querySelectorAll(".score")[2]);
-    if (!$("boardName").textContent.includes("Justin")) throw new Error($("boardName").textContent);
+    if (!$("boardName").textContent.includes(third)) throw new Error($("boardName").textContent);
   });
   ok("a manual mark increments the score and persists", () => {
     click($("manualBtn"));

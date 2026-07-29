@@ -1,0 +1,650 @@
+{
+ "show": {
+  "id": 62005,
+  "date": "2026-07-27",
+  "venue": "Madison Square Garden",
+  "title": "1995 Night",
+  "line": "Mon Jul 27 · MSG · 1995 Night",
+  "year": "1995",
+  "final": true
+ },
+ "players": [
+  {
+   "id": "rob",
+   "name": "Rob",
+   "accent": "#ffcf4a",
+   "squares": [
+    "Wilson",
+    "Cars Trucks Buses",
+    "It's Ice",
+    "Theme from the Bottom",
+    "You Enjoy Myself",
+    "McGrupp and the Watchful Hosemasters",
+    "Buried Alive",
+    "Poor Heart",
+    "Drowned"
+   ],
+   "pwin": 0.4783,
+   "expected": 4.032,
+   "share": 0.2821
+  },
+  {
+   "id": "dylan",
+   "name": "Dylan",
+   "accent": "#6ce5ff",
+   "squares": [
+    "A Day in the Life",
+    "Colonel Forbin's Ascent",
+    "Funky Bitch",
+    "Ya Mar",
+    "You Enjoy Myself",
+    "Strange Design",
+    "Timber (Jerry the Mule)",
+    "Loving Cup",
+    "Free"
+   ],
+   "pwin": 0.4868,
+   "expected": 4.032,
+   "share": 0.2785
+  },
+  {
+   "id": "justin",
+   "name": "Justin",
+   "accent": "#ff7ad9",
+   "squares": [
+    "Prince Caspian",
+    "Fee",
+    "NICU",
+    "Taste",
+    "You Enjoy Myself",
+    "Guyute",
+    "Halley's Comet",
+    "Acoustic Army",
+    "Scent of a Mule"
+   ],
+   "pwin": 0.5116,
+   "expected": 4.041,
+   "share": 0.2831
+  }
+ ],
+ "about": "\n<h3>Phish-Tac-Toe</h3>\n<p class=\"body\">Three boards, nine songs each. A square lights up when Phish plays that\nsong tonight. <b>First to three in a row</b> — across, down or diagonal — wins. If more than\none board completes a line, the winner is whoever's line finished <b>earlier in the show</b>,\nwhich the app works out from the actual setlist order.</p>\n\n<div class=\"label\">Why these 25 songs</div>\n<p class=\"body\">Every setlist Phish played in 1995 (83 shows) and every show since Jan 2023\n(164 shows) was pulled from the Phantasy Tour API. Each candidate got two numbers: how core it\nwas to <b>1995</b>, and how often the band <b>still</b> plays it. The score blends them, weighted\n0.4 / 0.8 — meaning current rotation actually matters a bit more than era authenticity.</p>\n\n<div class=\"label\">Everything already played is gone</div>\n<p class=\"body\">Phish doesn't repeat inside a run. Nights 1–3 (1992, 1993, 1994) burned 66 songs,\nincluding 20 of the 30 most-played songs of 1995 — Stash, Reba, Bowie, Antelope, Maze, Chalk Dust,\nHarry Hood, Sample in a Jar. That's <b>62% of the probability weight</b> already spent, which is\nexactly why night 4 is more predictable than night 1 was. Tweezer would have ranked #3 tonight\nif they hadn't burned it Saturday.</p>\n\n<div class=\"label\">Does the model actually work?</div>\n<p class=\"body\">It was backtested against this run's first three nights — scoring each night with\nthat year's own play rates, and excluding whatever the earlier nights had used. It put about\n<b>half</b> of each night's real setlist in its top picks, against roughly 17% for guessing at\nrandom. The percentages on the squares are calibrated: squares marked 30% hit about 30% of the\ntime in that test.</p>\n\n<div class=\"label\">The center square</div>\n<p class=\"body\">You Enjoy Myself is the center of all three boards on purpose. It's the one\nmonster left unburned — the 21-minute centerpiece of <i>A Live One</i>, Phish's 1995 album — and\nthe model ranked it a top pick on all three previous nights and was wrong every time. They are\nsaving it. Making it shared means nobody gets an unfair edge from the single most likely song,\nand all three boards light up together when it drops.</p>\n\n<div class=\"label\">Fairness</div>\n<p class=\"body\">The other 24 were placed by an optimizer that simulated 8,000 possible versions of\ntonight and balanced the thing that actually matters — <b>who wins the game</b>, not just who gets a\nline. Checked against 60,000 further simulated shows on a separate random seed:</p>\n<table class=\"fair\"><tr><th>board</th><th>wins</th><th>gets a line</th><th>avg score</th></tr>\n<tr><td>Rob</td><td>29.2%</td><td>48.7%</td><td>4.05</td></tr>\n<tr><td>Dylan</td><td>28.3%</td><td>49.2%</td><td>4.05</td></tr>\n<tr><td>Justin</td><td>27.7%</td><td>49.8%</td><td>4.05</td></tr></table>\n<p class=\"body\">Identical average scores, and a 1.5-point spread on winning — Rob's board completes\nits lines a hair earlier, which is as close to even as three different boards get. Somebody wins\n85% of the time.</p>\n\n<div class=\"label\">If the feed lags</div>\n<p class=\"body\">The setlist comes from Phantasy Tour, updated by fans during the show, and is\nre-checked about every 30 seconds. If it falls behind, hit <b>Manual entry</b> and mark squares\nyourself — those marks stay on your own phone and can only add hits, never remove one.</p>\n\n<p class=\"fine\" style=\"margin-top:18px\">Odds are one model's opinion, not gospel. Phish will do\nwhatever Phish wants. That's the entire point.</p>\n",
+ "songs": {
+  "A Day in the Life": {
+   "title": "A Day in the Life",
+   "ptIds": [
+    556
+   ],
+   "aliases": [],
+   "bio": "The Beatles classic from Sgt. Pepper's (1967). Page sings John's dreamy verses, Trey takes Paul's \"woke up, fell out of bed\" bit, and the band builds that giant crashing orchestra swell all by itself.",
+   "lyric": "I read the news today oh boy",
+   "debut": "1995-06-10, Red Rocks Amphitheatre, Morrison CO",
+   "nMod": 3,
+   "p": 0.3076,
+   "cover": true,
+   "why": "1995 is literally this song's year: Phish debuted it 6/10/95 at Red Rocks and played it more times that year than in any year since.",
+   "fact": "On 12/8/95 in Cleveland they encored with Come Together > A Day in the Life, marking 15 years since John Lennon's death on that date.",
+   "nYear": 24
+  },
+  "Acoustic Army": {
+   "title": "Acoustic Army",
+   "ptIds": [
+    558,
+    810
+   ],
+   "aliases": [
+    "Keyboard Army"
+   ],
+   "bio": "The whole band abandons their instruments, sits on four stools with four acoustic guitars, and weaves four separate guitar lines into one gentle instrumental. No drums, no singing, no electricity.",
+   "lyric": null,
+   "debut": "1995-06-07, BSU Pavilion, Boise ID",
+   "nMod": 0,
+   "p": 0.1898,
+   "cover": false,
+   "why": "The purest 1995 song there is: every single performance happened in 1995, and it has never been played again since 12/8/95.",
+   "fact": "It debuted at the summer '95 tour opener, and its success led the band to try a \"Keyboard Army\" variant on the fall '95 tour — this square counts either one.",
+   "nYear": 39
+  },
+  "Buried Alive": {
+   "title": "Buried Alive",
+   "ptIds": [
+    622
+   ],
+   "aliases": [],
+   "bio": "A short, frantic Phish instrumental — zero lyrics, just Trey shredding. The panicked pace is meant to sound like someone clawing their way out of a grave, which makes it a killer set-opener.",
+   "lyric": null,
+   "debut": "1990-09-13, Wetlands Preserve, New York NY",
+   "nMod": 12,
+   "p": 0.3685,
+   "cover": false,
+   "why": "It was already fading by 1995 with only 5 plays, but phish.net still lists the 12/28/95 Worcester version among its recommended versions.",
+   "fact": "On 12/28/95 in Worcester it was sandwiched between Wilson and Tweezer; a Buried Alive tease also turned up inside the 10/11/95 Julius.",
+   "nYear": 5
+  },
+  "Cars Trucks Buses": {
+   "title": "Cars Trucks Buses",
+   "ptIds": [
+    632
+   ],
+   "aliases": [],
+   "bio": "A short, bouncy instrumental written by Page — named after the rest-stop sign — built around his clavinet. No lyrics at all, just a tight two-minute keyboard workout, usually in the first set.",
+   "lyric": null,
+   "debut": "1995-09-27, Cal Expo Amphitheater, Sacramento CA",
+   "nMod": 5,
+   "p": 0.3619,
+   "cover": false,
+   "why": "Pure fall-1995: it debuted on the opening night of that tour, 9/27/95 in Sacramento, and immediately appeared at 20 of the year's shows.",
+   "fact": "It went on to become the fifth track on Billy Breathes and one of the most-played songs Page has written.",
+   "nYear": 20
+  },
+  "Colonel Forbin's Ascent": {
+   "title": "Colonel Forbin's Ascent",
+   "ptIds": [
+    647
+   ],
+   "aliases": [],
+   "bio": "Gamehendge chapter five: Colonel Forbin drags himself up a sacred mountain to beg the god Icculus for help against the evil King Wilson. Trey narrates a made-up story over the music, different every time.",
+   "lyric": "And he climbed so slowly",
+   "debut": "1988-03-12, Nectar's, Burlington VT",
+   "nMod": 2,
+   "p": 0.1293,
+   "cover": false,
+   "why": "It launched the centerpiece of the legendary 12/31/95 MSG show: Forbin's > Fly Famous Mockingbird > Shine > Mockingbird.",
+   "fact": "Played only three times in all of 1995 — 10/5 Portland, 12/1 Hershey, and 12/31 at MSG — and every one segued into Mockingbird.",
+   "nYear": 3
+  },
+  "Drowned": {
+   "title": "Drowned",
+   "ptIds": [
+    689
+   ],
+   "aliases": [],
+   "bio": "A cover from The Who's rock opera Quadrophenia — Page's pounding piano intro, Mike singing way up high, and then it cracks open into one of the biggest jams Phish has. Not really a Who song anymore.",
+   "lyric": "I wanna drown in cold water",
+   "debut": "1995-10-31, Rosemont Horizon, Rosemont IL",
+   "nMod": 1,
+   "p": 0.0905,
+   "cover": false,
+   "why": "Phish learned it for their 10/31/95 Halloween costume — the entire Quadrophenia album — and it's the only song from that night they ever kept.",
+   "fact": "phish.net: the only Quadrophenia song ever played more than three times. It was a centerpiece of the legendary 12/31/95 MSG show, complete with a much-argued-about Fire on the Mountain tease.",
+   "nYear": 2
+  },
+  "Fee": {
+   "title": "Fee",
+   "ptIds": [
+    703
+   ],
+   "aliases": [],
+   "bio": "Trey's storybook original from Junta about Fee the Buddhist weasel, a singer named Millie Grace, and Floyd the villainous chimpanzee. The tell is the megaphone: Trey sings the verses through it for a tinny, far-off sound.",
+   "lyric": "A weasel named Fee",
+   "debut": "1987-08-09, Nectar's, Burlington VT",
+   "nMod": 6,
+   "p": 0.3527,
+   "cover": false,
+   "why": "1995 was peak megaphone — of Fee's 14 shows that year, phish.net flags the megaphone on 13 of them.",
+   "fact": "Twice in June 1995 it fed straight into Uncle Pen (6/10 Red Rocks, 6/17 Nissan Pavilion), and on 9/28/95 it segued into The Fog That Surrounds.",
+   "nYear": 14
+  },
+  "Free": {
+   "title": "Free",
+   "ptIds": [
+    722
+   ],
+   "aliases": [],
+   "bio": "A Trey/Tom Marshall song about a man out on a boat contemplating throwing his wife overboard. Live it opens with a swirling guitar intro, drops into Mike's enormous distorted bass, and often breaks down into a drum-and-percussion section.",
+   "lyric": "I feel the feeling I forgot",
+   "debut": "1995-05-16, Lowell Memorial Auditorium, Lowell MA",
+   "nMod": 29,
+   "p": 0.8329,
+   "cover": false,
+   "why": "One of six Phish originals that debuted at the 5/16/95 Lowell benefit — and the single most-played song of 1995, at 32 of the year's 83 shows.",
+   "fact": "On 6/26/95 at SPAC it anchored a 40-minute second-set opening combo out of Down With Disease — the first time Free was really jammed.",
+   "nYear": 32
+  },
+  "Funky Bitch": {
+   "title": "Funky Bitch",
+   "ptIds": [
+    727
+   ],
+   "aliases": [],
+   "bio": "A Chicago blues cover — bluesman Son Seals wrote it for his 1978 album Live and Burning. Mike sings lead and everyone takes a solo; Seals himself sat in with Phish twice in 1999.",
+   "lyric": "Every time I see her",
+   "debut": "1986-12-06, The Ranch, Shelburne VT",
+   "nMod": 11,
+   "p": 0.3886,
+   "cover": true,
+   "why": "Played 7 times in 1995, usually as the encore, and on 7/1/95 Trey riffed onstage about how relentlessly fans requested it.",
+   "fact": "On 12/11/95 in Portland, Maine, Warren Haynes sat in on guitar for Funky Bitch.",
+   "nYear": 7
+  },
+  "Guyute": {
+   "title": "Guyute",
+   "ptIds": [
+    748
+   ],
+   "aliases": [],
+   "bio": "A four-movement mini-symphony about an ugly pig who dances a jig, pulls weapons from his coat, and lectures the narrator in a strange language. Trey wrote it alongside My Friend My Friend while in Ireland.",
+   "lyric": "Guyute was the ugly pig",
+   "debut": "1994-10-07, Stabler Arena, Lehigh University, Bethlehem PA",
+   "nMod": 5,
+   "p": 0.2582,
+   "cover": false,
+   "why": "Still brand new in 1995 — barely a year old — and it turned up at 7 shows that year while the band was still figuring it out.",
+   "fact": "Its high-wire time and key changes are so intricate that many fans assumed Trey had written it years earlier and shelved it.",
+   "nYear": 7
+  },
+  "Halley's Comet": {
+   "title": "Halley's Comet",
+   "ptIds": [
+    750
+   ],
+   "aliases": [],
+   "bio": "Written by Richard \"Nancy\" Wright, a friend of the band, who stitched together two of his own songs and let Phish cover it. Short and goofy, and it usually launches straight into something much bigger.",
+   "lyric": null,
+   "debut": "1986-05-17, Goddard College, Plainfield VT",
+   "nMod": 16,
+   "p": 0.4526,
+   "cover": false,
+   "why": "The one square where the modern band plays it more than 1995 did — 6 shows that year, but it's a regular launchpad now.",
+   "fact": "On 12/14/95 in Binghamton it opened the run Halley's > NICU > Slave to the Traffic Light, released officially as LivePhish 01.",
+   "nYear": 6
+  },
+  "It's Ice": {
+   "title": "It's Ice",
+   "ptIds": [
+    799
+   ],
+   "aliases": [],
+   "bio": "A twisty Phish original from 1993's Rift, sung by Page, about a skater battling his own reflection trapped under the ice. Live it collapses into a woozy breakdown where Fishman dances on his drum stool.",
+   "lyric": "Are they worms or are they serpents?",
+   "debut": "1991-09-25, The Colonial Theatre, Keene NH",
+   "nMod": 11,
+   "p": 0.5082,
+   "cover": false,
+   "why": "A 1995 workhorse: Phish played it at 18 shows that year, including 12/30/95 right here at Madison Square Garden.",
+   "fact": "At MSG on 12/30/95 they sandwiched another song inside it — It's Ice > Kung > It's Ice — in the first set.",
+   "nYear": 18
+  },
+  "Loving Cup": {
+   "title": "Loving Cup",
+   "ptIds": [
+    838
+   ],
+   "aliases": [],
+   "bio": "A Rolling Stones cover from 1972's Exile on Main St., sung by Page and Trey over a big piano intro. Phish saves it for encores, and the whole crowd bellows the \"beautiful buzz\" part.",
+   "lyric": "What a beautiful buzz",
+   "debut": "1993-02-03, Portland Expo, Portland ME",
+   "nMod": 11,
+   "p": 0.3287,
+   "cover": true,
+   "why": "A genuine rarity that year — only 4 plays in 1995, two of them encores, with 12/9/95 Albany listed by phish.net as a recommended version.",
+   "fact": "Both 1995 encore versions came in the fall: 11/9/95 at Atlanta's Fox Theatre and 12/9/95 at Albany's Knickerbocker Arena.",
+   "nYear": 4
+  },
+  "McGrupp and the Watchful Hosemasters": {
+   "title": "McGrupp and the Watchful Hosemasters",
+   "ptIds": [
+    847
+   ],
+   "aliases": [
+    "McGrupp and the Watchful Hosemaster",
+    "McGrupp"
+   ],
+   "bio": "An ancient Phish original built from a Tom Marshall poem — McGrupp is Colonel Forbin's dog in the Gamehendge story. After the weird lyrics it opens into an instrumental suite and a long Page piano solo.",
+   "lyric": "But he looks too much like… Dave",
+   "debut": "1985-04-06, Finbar's, Burlington VT",
+   "nMod": 8,
+   "p": 0.2958,
+   "cover": false,
+   "why": "Played 5 times in 1995, and phish.net singles out the 12/29/95 Worcester version as a standout — a plausible deep cut for a 1995 night.",
+   "fact": "On 10/11/95 in Chandler, Arizona, they dropped it right inside Mike's Groove: Mike's Song > McGrupp > Weekapaug Groove.",
+   "nYear": 5
+  },
+  "NICU": {
+   "title": "NICU",
+   "ptIds": [
+    882
+   ],
+   "aliases": [
+    "N.I.C.U."
+   ],
+   "bio": "A bouncy Trey/Tom Marshall original with a reggae-flavored groove and a rare Phish sing-along chorus. Trey introduced it at its debut as \"In an Intensive Care Unit\"; live it's Page's organ showcase.",
+   "lyric": "I'm peering out through your opacity",
+   "debut": "1992-03-06, The Music Hall, Portsmouth NH",
+   "nMod": 11,
+   "p": 0.4183,
+   "cover": false,
+   "why": "1995 is the year NICU stuck — phish.net says the 12/14/95 Binghamton version is where the song finally found its place in the repertoire.",
+   "fact": "The 12/14/95 Binghamton version (Halley's Comet > NICU > Slave to the Traffic Light) was officially released as LivePhish 01.",
+   "nYear": 9
+  },
+  "Poor Heart": {
+   "title": "Poor Heart",
+   "ptIds": [
+    906
+   ],
+   "aliases": [],
+   "bio": "A Mike Gordon original from A Picture of Nectar, written after someone stole his four-track tape recorder. It's a breakneck two-minute bluegrass burner that Mike sings at full speed.",
+   "lyric": "You won't steal my poor heart again",
+   "debut": "1988-08-04, The Roma, Telluride CO",
+   "nMod": 3,
+   "p": 0.3117,
+   "cover": false,
+   "why": "One of the most-played songs of 1995 with 25 shows, and the year the band invented a joke slow-motion arrangement of it.",
+   "fact": "A deliberately slow arrangement debuted 11/19/95 in Charlotte; at Hampton they played it slower each time, then asked the crowd \"Get it?\" Béla Fleck guested on banjo 11/29/95.",
+   "nYear": 25
+  },
+  "Prince Caspian": {
+   "title": "Prince Caspian",
+   "ptIds": [
+    909
+   ],
+   "aliases": [],
+   "bio": "Borrowed from C.S. Lewis's Narnia book — the lyrics are about a man who wishes he were the boy prince. A slow, big-swelling arena anthem that fans have argued about for thirty years.",
+   "lyric": "Afloat upon the waves",
+   "debut": "1995-06-08, The Delta Center, Salt Lake City UT",
+   "nMod": 22,
+   "p": 0.6787,
+   "cover": false,
+   "why": "A genuine 1995 baby: it debuted 6/8/95 in Salt Lake City and turned up at 17 shows before the year was out.",
+   "fact": "The jam and false ending everyone knows weren't added until summer 1996 — a 1995-night version would be the shorter, stranger original.",
+   "nYear": 17
+  },
+  "Scent of a Mule": {
+   "title": "Scent of a Mule",
+   "ptIds": [
+    944
+   ],
+   "aliases": [],
+   "bio": "Mike's story about aliens landing on Kitty's farm instead of a city, and being told to mind their manners or else. Live it detours into a piano solo that turns into a klezmer hoedown, with Mike and Page duelling.",
+   "lyric": "You'll smell my mule",
+   "debut": "1994-04-04, The Flynn Theatre, Burlington VT",
+   "nMod": 1,
+   "p": 0.2121,
+   "cover": false,
+   "why": "A 1995 staple they've almost entirely retired: 23 shows that year, and barely a handful in the three years since 2023.",
+   "fact": "The third verse is literally the chorus played backwards — the same chords and syllables in reverse. Béla Fleck plays banjo on the Hoist studio version.",
+   "nYear": 23
+  },
+  "Strange Design": {
+   "title": "Strange Design",
+   "ptIds": [
+    985
+   ],
+   "aliases": [],
+   "bio": "A gentle, drifting Tom Marshall ballad, usually sung by Page, about letting go and just relaxing into things. Short, quiet, and completely unlike anything around it in a setlist.",
+   "lyric": "Dripping in this strange design",
+   "debut": "1995-05-16, Lowell Memorial Auditorium, Lowell MA",
+   "nMod": 2,
+   "p": 0.2781,
+   "cover": false,
+   "why": "The strongest 1995 signal on the whole board: 28 of its plays came in 1995 alone, and it has barely surfaced in the years since.",
+   "fact": "It debuted at the Voters for Choice benefit in Lowell, a show played for victims of the 12/30/94 Brookline family-planning clinic shootings.",
+   "nYear": 28
+  },
+  "Taste": {
+   "title": "Taste",
+   "ptIds": [
+    1000,
+    1010,
+    1211
+   ],
+   "aliases": [
+    "The Fog That Surrounds",
+    "Taste That Surrounds"
+   ],
+   "bio": "A rare Phish song where Page and Trey trade full solos — Page on the baby grand, Trey on guitar — over a knotty, restless groove. It stays inside its own structure rather than opening into a free jam.",
+   "lyric": null,
+   "debut": "1995-06-07, BSU Pavilion, Boise ID",
+   "nMod": 19,
+   "p": 0.7342,
+   "cover": false,
+   "why": "The most 1995 song on the board: for most of that year it was performed under a completely different name, The Fog That Surrounds.",
+   "fact": "Written with the 5/16/95 Lowell batch but the only one of them not played that night. This square also counts The Fog That Surrounds, which is what they called it from 9/28/95 onward.",
+   "nYear": 33
+  },
+  "Theme from the Bottom": {
+   "title": "Theme from the Bottom",
+   "ptIds": [
+    1028
+   ],
+   "aliases": [],
+   "bio": "A Trey/Tom Marshall song sung from the point of view of a fish on the bottom of the tank, living off whatever the fish at the top drops. It builds slowly and then opens into one of Phish's prettiest guitar peaks.",
+   "lyric": "I feed from the bottom",
+   "debut": "1995-05-16, Lowell Memorial Auditorium, Lowell MA",
+   "nMod": 27,
+   "p": 0.7952,
+   "cover": false,
+   "why": "Another of the summer-1995 debuts, and one of the year's workhorses at 27 of 83 shows — while still being in heavy rotation today.",
+   "fact": "It came out of the same batch of new songs as Free, Billy Breathes, Taste and the very rare Spock's Brain, all previewed at Fishman's house on 5/14/95.",
+   "nYear": 27
+  },
+  "Timber (Jerry the Mule)": {
+   "title": "Timber (Jerry the Mule)",
+   "ptIds": [
+    1032,
+    6812
+   ],
+   "aliases": [
+    "Timber"
+   ],
+   "bio": "A 1930s work song by Josh White and Sam Gary about hauling lumber with a stubborn Arkansas mule named Jerry. Phish makes it dark and spacey, Trey singing lead before it often blasts into a jam.",
+   "lyric": "Timber, ho! This timber's gotta roll",
+   "debut": "1987-04-29, Nectar's, Burlington VT",
+   "nMod": 13,
+   "p": 0.4931,
+   "cover": true,
+   "why": "1995 is the year it came back: a three-year-gap bust-out on 7/3/95 kicked off a dozen performances that year.",
+   "fact": "On 12/14/95 in Binghamton they sandwiched it inside Tweezer. The 7/3/95 bust-out happened because two fans held up a \"Timber Ho!\" sign.",
+   "nYear": 12
+  },
+  "Wilson": {
+   "title": "Wilson",
+   "ptIds": [
+    1078
+   ],
+   "aliases": [],
+   "bio": "The evil king of Gamehendge, who stole the Helping Friendly Book from the Lizards and rules by force. The famous part isn't sung by the band at all: the whole arena shouts \"WIL-SON!\" in rhythm over the opening chords.",
+   "lyric": null,
+   "debut": "1986-10-12, Haybarn Theater, Goddard College, Plainfield VT",
+   "nMod": 16,
+   "p": 0.5559,
+   "cover": false,
+   "why": "One of only three A Live One tracks left unplayed this run, and it appeared at 13 shows in 1995.",
+   "fact": "On 12/28/95 in Worcester it ran straight into Buried Alive and then Tweezer.",
+   "nYear": 13
+  },
+  "Ya Mar": {
+   "title": "Ya Mar",
+   "ptIds": [
+    1087
+   ],
+   "aliases": [],
+   "bio": "A calypso cover by Bahamian musician Cyril Ferguson, sung by Mike, and one of Phish's bounciest dance tunes. Trey hollers \"Play it, Leo!\" to hand Page a piano solo — which is where Page's nickname came from.",
+   "lyric": "Play it, Leo!",
+   "debut": "1987-02-21, University of Vermont, Burlington VT",
+   "nMod": 12,
+   "p": 0.5292,
+   "cover": true,
+   "why": "A 1995 workhorse with 18 plays that year, including the first set of the Halloween Quadrophenia show and 12/30/95 right here at MSG.",
+   "fact": "Played in set one of 10/31/95 at Rosemont Horizon — the night Phish covered The Who's Quadrophenia — and again 12/30/95 at MSG with an Auld Lang Syne tease.",
+   "nYear": 18
+  },
+  "You Enjoy Myself": {
+   "title": "You Enjoy Myself",
+   "ptIds": [
+    1089
+   ],
+   "aliases": [],
+   "bio": "Trey wrote it in 1985 while busking through Europe, and it's now the most-played song Phish has. Twenty-odd minutes: a long composed section, Trey and Mike bouncing in sync on trampolines, a Mike bass solo, then a wordless vocal jam.",
+   "lyric": "Boy! Man! God! Shit!",
+   "debut": "1986-02-03, Hunt's, Burlington VT",
+   "nMod": 24,
+   "p": 0.7443,
+   "cover": false,
+   "why": "It's the 21-minute centerpiece of A Live One, Phish's 1995 live album — and the last unburned monster on that record.",
+   "fact": "The model ranked YEM a top pick on all three previous nights of this run and was wrong every time. Nine of A Live One's twelve tracks are already spent; only Montana, Wilson and YEM remain.",
+   "nYear": 23
+  }
+ },
+ "setlist": {
+  "showId": 62005,
+  "showDate": "2026-07-27",
+  "fetchedAt": "2026-07-28T13:13:23+00:00",
+  "source": "phantasy-tour",
+  "sourceCounts": {
+   "phantasy-tour": 20,
+   "phish.net-web": 20
+  },
+  "sourceMs": {
+   "phantasy-tour": 89,
+   "phish.net-web": 219
+  },
+  "count": 20,
+  "songs": [
+   {
+    "id": 1078,
+    "name": "Wilson",
+    "set": 1,
+    "pos": 1,
+    "segue": false
+   },
+   {
+    "id": 1032,
+    "name": "Timber (Jerry the Mule)",
+    "set": 1,
+    "pos": 2,
+    "segue": false
+   },
+   {
+    "id": 749,
+    "name": "Ha Ha Ha",
+    "set": 1,
+    "pos": 3,
+    "segue": false
+   },
+   {
+    "id": 944,
+    "name": "Scent of a Mule",
+    "set": 1,
+    "pos": 4,
+    "segue": false
+   },
+   {
+    "id": 1028,
+    "name": "Theme from the Bottom",
+    "set": 1,
+    "pos": 5,
+    "segue": false
+   },
+   {
+    "id": 750,
+    "name": "Halley's Comet",
+    "set": 1,
+    "pos": 6,
+    "segue": false
+   },
+   {
+    "id": 996,
+    "name": "The Man Who Stepped Into Yesterday",
+    "set": 1,
+    "pos": 7,
+    "segue": false
+   },
+   {
+    "id": 575,
+    "name": "Avenu Malkenu",
+    "set": 1,
+    "pos": 8,
+    "segue": false
+   },
+   {
+    "id": 882,
+    "name": "NICU",
+    "set": 1,
+    "pos": 9,
+    "segue": false
+   },
+   {
+    "id": 727,
+    "name": "Funky Bitch",
+    "set": 1,
+    "pos": 10,
+    "segue": false
+   },
+   {
+    "id": 1000,
+    "name": "Taste",
+    "set": 1,
+    "pos": 11,
+    "segue": false
+   },
+   {
+    "id": 1132,
+    "name": "The Curtain With",
+    "set": 2,
+    "pos": 1,
+    "segue": false
+   },
+   {
+    "id": 909,
+    "name": "Prince Caspian",
+    "set": 2,
+    "pos": 2,
+    "segue": false
+   },
+   {
+    "id": 689,
+    "name": "Drowned",
+    "set": 2,
+    "pos": 3,
+    "segue": false
+   },
+   {
+    "id": 592,
+    "name": "Billy Breathes",
+    "set": 2,
+    "pos": 4,
+    "segue": false
+   },
+   {
+    "id": 799,
+    "name": "It's Ice",
+    "set": 2,
+    "pos": 5,
+    "segue": false
+   },
+   {
+    "id": 806,
+    "name": "Johnny B Goode",
+    "set": 2,
+    "pos": 6,
+    "segue": false
+   },
+   {
+    "id": 722,
+    "name": "Free",
+    "set": 2,
+    "pos": 7,
+    "segue": false
+   },
+   {
+    "id": 985,
+    "name": "Strange Design",
+    "set": 9,
+    "pos": 1,
+    "segue": false
+   },
+   {
+    "id": 838,
+    "name": "Loving Cup",
+    "set": 9,
+    "pos": 2,
+    "segue": false
+   }
+  ]
+ },
+ "counts": {
+  "year": 83,
+  "modern": 164
+ }
+}

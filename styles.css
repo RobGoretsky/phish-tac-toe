@@ -84,6 +84,24 @@ main { max-width: 620px; margin: 0 auto; padding: 0 14px calc(28px + var(--safe-
 .score.won { background: linear-gradient(160deg, rgba(255,207,74,.22), var(--card)); border-color: var(--gold); }
 .score.won .sub { color: var(--gold); font-weight: 700; }
 
+/* ---------- show switcher ---------- */
+.showpicker {
+  display: flex; gap: 6px; justify-content: center; flex-wrap: wrap;
+  max-width: 620px; margin: 12px auto 0; padding: 0 14px;
+}
+.showtab {
+  display: flex; flex-direction: column; align-items: center; gap: 1px;
+  background: var(--card); border: 1px solid var(--line); border-radius: 999px;
+  padding: 6px 14px; cursor: pointer; color: var(--dim);
+  font: 500 11px/1 Inter, sans-serif;
+  transition: border-color .12s ease, color .12s ease;
+}
+.showtab:active { transform: scale(.97); }
+.showtab .d { font-weight: 700; letter-spacing: .3px; }
+.showtab .t { font-size: 9px; opacity: .75; }
+.showtab.sel { color: var(--ink); border-color: var(--gold); box-shadow: 0 0 0 1px var(--gold) inset; }
+.showtab.past.sel { border-color: var(--dim); box-shadow: 0 0 0 1px var(--dim) inset; }
+
 /* ---------- board header ---------- */
 .boardhead { display: flex; align-items: center; gap: 6px; margin: 18px 0 10px; }
 .whose { flex: 1; text-align: center; min-width: 0; }

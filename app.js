@@ -21,7 +21,26 @@ const state = {
   manual: new Set(JSON.parse(localStorage.getItem(LS_MANUAL) || "[]")),
   idx: 0,
   celebrated: new Set(),
+  shows: [],       // data/shows.json — tonight plus every archived night
+  show: null,      // the entry currently being viewed
+  counts: null,    // {year, modern} for the song sheet's stat grid
 };
+
+/** Viewing a finished night rather than tonight's live feed. */
+const isPast = () => !!(state.show && !state.show.live);
+
+/* Per-year song fields (`why96`, `n96`, `fact96`) are renamed per build, so the
+ * song sheet would break the moment it renders a different year. Archives are
+ * normalised at build time; do the same to the live file so there's one shape. */
+function normaliseSongs(songs) {
+  for (const s of Object.values(songs)) {
+    for (const key of Object.keys(s)) {
+      const m = /^(why|n|fact)(\d{2})$/.exec(key);
+      if (m) s[m[1] === "n" ? "nYear" : m[1]] = s[key];
+    }
+  }
+  return songs;
+}
 
 /* ---------- render ------------------------------------------------------- */
 function render() {
@@ -77,9 +96,26 @@ function renderBoard() {
     board.appendChild(d);
   });
 
-  if (state.champion && !state.celebrated.has(state.champion.id)) {
+  // Confetti is for the moment a line lands, not for re-reading an old result.
+  if (state.champion && !isPast() && !state.celebrated.has(state.champion.id)) {
     state.celebrated.add(state.champion.id);
     confetti(state.champion.accent);
+  }
+}
+
+function renderPicker() {
+  const el = $("showPicker");
+  el.innerHTML = "";
+  if (state.shows.length < 2) return;   // nothing to switch between
+  for (const s of state.shows) {
+    const b = document.createElement("button");
+    b.type = "button";
+    b.className = "showtab"
+      + (s === state.show ? " sel" : "")
+      + (s.live ? "" : " past");
+    b.innerHTML = `<span class="d">${s.tab}</span><span class="t">${s.live ? "Tonight" : s.title}</span>`;
+    b.onclick = () => { if (s !== state.show) loadShow(s); };
+    el.appendChild(b);
   }
 }
 
@@ -143,6 +179,7 @@ function renderSetlist() {
 /* ---------- song detail sheet -------------------------------------------- */
 function openSong(key) {
   const song = state.songs[key];
+  const year = state.show.year;
   const index = playedIndex(state.setlist);
   const play = findPlay(song, index);
   const manual = state.manual.has(key);
@@ -165,14 +202,14 @@ function openSong(key) {
     ${song.lyric ? `<div class="lyric">“${song.lyric}”</div>` : ""}
     <div class="label">What it is</div>
     <p class="body">${song.bio}</p>
-    <div class="label">Why it could drop on 1996 night</div>
-    <p class="body">${song.why96}</p>
+    <div class="label">Why it ${isPast() ? "could have dropped" : "could drop"} on ${year} night</div>
+    <p class="body">${song.why}</p>
     <div class="statgrid">
-      <div class="stat"><b>${song.n96}</b><span>of 71 shows<br>in 1996</span></div>
-      <div class="stat"><b>${song.nMod}</b><span>of 165 shows<br>since 2023</span></div>
-      <div class="stat"><b>${Math.round(song.p * 100)}%</b><span>our odds<br>for tonight</span></div>
+      <div class="stat"><b>${song.nYear}</b><span>of ${state.counts.year} shows<br>in ${year}</span></div>
+      <div class="stat"><b>${song.nMod}</b><span>of ${state.counts.modern} shows<br>since 2023</span></div>
+      <div class="stat"><b>${Math.round(song.p * 100)}%</b><span>our odds<br>${isPast() ? "that night" : "for tonight"}</span></div>
     </div>
-    ${song.fact96 ? `<div class="label">1996 factoid</div><p class="body">${song.fact96}</p>` : ""}
+    ${song.fact ? `<div class="label">${year} factoid</div><p class="body">${song.fact}</p>` : ""}
     <p class="onboards">On ${owners.map((o) => `<b style="color:${o.accent}">${o.name}</b>`).join(" · ")}${owners.length > 1 ? "'s boards" : "'s board"}.</p>
   `;
   $("sheetScroll").scrollTop = 0;   // the container is reused between songs
@@ -210,6 +247,7 @@ function openManual() {
 
 /* ---------- data loading -------------------------------------------------- */
 async function loadSetlist() {
+  if (isPast()) return;   // an archived night is frozen; nothing to poll
   try {
     const r = await fetch(`data/setlist.json?t=${Date.now()}`, { cache: "no-store" });
     if (!r.ok) throw new Error(r.status);
@@ -224,8 +262,54 @@ async function loadSetlist() {
   render();
 }
 
+/** Swap the whole page over to one show — tonight's live feed or an archive. */
+async function loadShow(desc) {
+  state.show = desc;
+  state.celebrated.clear();
+
+  if (desc.live) {
+    const [boards, songs] = await Promise.all([
+      fetch("data/boards.json").then((r) => r.json()),
+      fetch("data/songs.json").then((r) => r.json()),
+    ]);
+    state.boards = boards;
+    state.songs = normaliseSongs(songs);
+    state.counts = desc.counts;
+  } else {
+    const a = await fetch(desc.archive).then((r) => r.json());
+    // Archives are self-contained: their own boards, songs and final setlist.
+    state.boards = { show: a.show, players: a.players, about: a.about };
+    state.songs = a.songs;
+    state.counts = a.counts;
+    // Fill the year in on the descriptor itself rather than cloning it --
+    // renderPicker marks the selected tab by identity against state.shows.
+    desc.year = desc.year || a.show.year;
+    a.setlist.songs = (a.setlist.songs || []).map((s, i) => ({ ...s, order: i }));
+    state.setlist = a.setlist;
+  }
+
+  state.idx = Math.min(Number(localStorage.getItem(LS_BOARD) || 0),
+                       state.boards.players.length - 1);
+  $("showLine").textContent = state.boards.show.line;
+  document.title = `Phish-Tac-Toe · ${state.boards.show.title}`;
+  $("setlistTitle").textContent = isPast() ? "The Setlist" : "Tonight's Setlist";
+  // Manual marks belong to tonight's game; they'd corrupt a finished result.
+  $("manualBtn").hidden = isPast();
+
+  renderPicker();
+  renderLegend();
+  // render() first: setStatus names the champion, which render() computes.
+  if (isPast()) { render(); setStatus(state.setlist); } else { await loadSetlist(); }
+}
+
 function setStatus(d) {
   const pill = $("statusPill");
+  if (isPast()) {
+    const champ = state.champion;
+    pill.className = "status";
+    $("statusText").textContent = champ ? `final · ${champ.name} won` : "final";
+    return;
+  }
   const age = d.fetchedAt ? Date.now() - Date.parse(d.fetchedAt) : Infinity;
   const mins = Math.round(age / 60000);
   if (age < STALE_MS) {
@@ -306,19 +390,17 @@ function wireUp() {
 }
 
 async function main() {
-  const [boards, songs] = await Promise.all([
-    fetch("data/boards.json").then((r) => r.json()),
-    fetch("data/songs.json").then((r) => r.json()),
-  ]);
-  state.boards = boards;
-  state.songs = songs;
-  state.idx = Math.min(Number(localStorage.getItem(LS_BOARD) || 0), boards.players.length - 1);
-  $("showLine").textContent = boards.show.line;
-  document.title = `Phish-Tac-Toe · ${boards.show.title}`;
+  // shows.json is optional: without it the page is exactly the live-only app.
+  const shows = await fetch("data/shows.json")
+    .then((r) => (r.ok ? r.json() : null))
+    .catch(() => null);
+  state.shows = shows?.shows || [{ tab: "Tonight", live: true, year: "1996",
+                                   counts: { year: 71, modern: 165 } }];
+
   wireUp();
-  renderLegend();
-  await loadSetlist();
-  setInterval(loadSetlist, POLL_MS);
+  // Always open on tonight — an archive is something you go and ask for.
+  await loadShow(state.shows.find((s) => s.live) || state.shows[0]);
+  setInterval(loadSetlist, POLL_MS);   // no-ops while an archive is open
 }
 
 main();

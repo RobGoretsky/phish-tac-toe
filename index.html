@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=8">
+<link rel="stylesheet" href="styles.css?v=9">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍩</text></svg>">
 </head>
 <body>
@@ -25,6 +25,9 @@
     <span class="dot"></span><span id="statusText">connecting…</span>
   </button>
 </header>
+
+<!-- Show switcher: tonight, plus any finished night in data/archive/ -->
+<nav class="showpicker" id="showPicker"></nav>
 
 <!-- Scoreboard: all three players, always visible -->
 <nav class="scoreboard" id="scoreboard"></nav>
@@ -43,7 +46,7 @@
 
   <section class="setlist">
     <div class="setlist-head">
-      <h3>Tonight's Setlist</h3>
+      <h3 id="setlistTitle">Tonight's Setlist</h3>
       <span id="setlistCount">—</span>
     </div>
     <div class="legend" id="legend"></div>
@@ -94,7 +97,7 @@
 
 <div class="confetti" id="confetti" aria-hidden="true"></div>
 
-<script src="logic.js?v=8"></script>
-<script src="app.js?v=8"></script>
+<script src="logic.js?v=9"></script>
+<script src="app.js?v=9"></script>
 </body>
 </html>
