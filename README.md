@@ -3,7 +3,7 @@
 A setlist bingo board for **Phish at Madison Square Garden, Wednesday 2026-07-29 — 1996 Night**,
 the final night of a 5-night run where each show recreates a year (1992, 1993, 1994, 1995, **1996**).
 
-Three boards (Rob, Dylan, Justin), nine songs each. A square lights up when Phish plays it.
+Three boards (Rob, Jayme, Justin), nine songs each. A square lights up when Phish plays it.
 First to three in a row wins; if two boards complete a line, the one that completed **earlier in
 the show** takes it. Tapping a square opens the song's story, a famous line, and why it might drop
 tonight.
@@ -69,7 +69,7 @@ Validated on 60,000 further shows with a different RNG algorithm:
 | board | wins the game | gets a line | avg score |
 |-------|--------------|-------------|-----------|
 | Rob | 31.4% | 57.8% | 4.51 / 9 |
-| Dylan | 31.2% | 61.5% | 4.47 / 9 |
+| Jayme | 31.2% | 61.5% | 4.47 / 9 |
 | Justin | 30.3% | 62.1% | 4.50 / 9 |
 | nobody | 7.1% | | |
 

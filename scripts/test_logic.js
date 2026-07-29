@@ -89,15 +89,15 @@ ok("diagonals win too", () => {
 ok("earlier line wins the tiebreak", () => {
   const p = players();
   const rob = p.find((x) => x.name === "Rob");
-  const dyl = p.find((x) => x.name === "Dylan");
-  // Dylan's row completes at position 3, Rob's only at position 6.
-  const names = [dyl.squares[0], dyl.squares[1], dyl.squares[2],
+  const jay = p.find((x) => x.name === "Jayme");
+  // Jayme's row completes at position 3, Rob's only at position 6.
+  const names = [jay.squares[0], jay.squares[1], jay.squares[2],
                  rob.squares[0], rob.squares[1], rob.squares[2]]
     .filter((n) => n !== "Character Zero");
   const r = PTT.evaluate(p, songs, setlist(names), null);
-  assert.ok(r.players.find((x) => x.name === "Rob").won && r.players.find((x) => x.name === "Dylan").won,
+  assert.ok(r.players.find((x) => x.name === "Rob").won && r.players.find((x) => x.name === "Jayme").won,
     "both should have a line");
-  assert.strictEqual(r.champion.name, "Dylan");
+  assert.strictEqual(r.champion.name, "Jayme");
 });
 
 console.log("manual marks");
@@ -117,11 +117,11 @@ ok("manual marks never clear a feed hit", () => {
 ok("a manual-only line never steals the tiebreak from a real one", () => {
   const p = players();
   const rob = p.find((x) => x.name === "Rob");
-  const dyl = p.find((x) => x.name === "Dylan");
+  const jay = p.find((x) => x.name === "Jayme");
   const r = PTT.evaluate(p, songs,
-    setlist([dyl.squares[6], dyl.squares[7], dyl.squares[8]].filter((n) => n !== "You Enjoy Myself")),
+    setlist([jay.squares[6], jay.squares[7], jay.squares[8]].filter((n) => n !== "You Enjoy Myself")),
     new Set([rob.squares[0], rob.squares[1], rob.squares[2]]));
-  assert.strictEqual(r.champion.name, "Dylan");
+  assert.strictEqual(r.champion.name, "Jayme");
 });
 
 console.log("edge cases");
