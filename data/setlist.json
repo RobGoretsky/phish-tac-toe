@@ -1,7 +1,7 @@
 {
  "showId": 62006,
  "showDate": "2026-07-29",
- "fetchedAt": "2026-07-29T22:40:07+00:00",
+ "fetchedAt": "2026-07-29T22:49:00+00:00",
  "source": "phantasy-tour",
  "sourceCounts": {
   "phish.net-api": "skipped",
@@ -10,8 +10,8 @@
  },
  "sourceMs": {
   "phish.net-api": 0,
-  "phantasy-tour": 91,
-  "phish.net-web": 296
+  "phantasy-tour": 79,
+  "phish.net-web": 383
  },
  "count": 0,
  "songs": []
