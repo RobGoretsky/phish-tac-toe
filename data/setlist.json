@@ -1,19 +1,19 @@
 {
  "showId": 62006,
  "showDate": "2026-07-29",
- "fetchedAt": "2026-07-30T00:24:00+00:00",
+ "fetchedAt": "2026-07-30T00:27:01+00:00",
  "source": "phish.net-web",
  "sourceCounts": {
   "phish.net-api": "skipped",
   "phantasy-tour": 0,
-  "phish.net-web": 3
+  "phish.net-web": 4
  },
  "sourceMs": {
   "phish.net-api": 0,
-  "phantasy-tour": 90,
-  "phish.net-web": 180
+  "phantasy-tour": 99,
+  "phish.net-web": 649
  },
- "count": 3,
+ "count": 4,
  "songs": [
   {
    "name": "The Star-Spangled Banner",
@@ -31,6 +31,12 @@
    "name": "Axilla (Part II)",
    "set": 1,
    "pos": 3,
+   "segue": true
+  },
+  {
+   "name": "Esther",
+   "set": 1,
+   "pos": 4,
    "segue": false
   }
  ]
