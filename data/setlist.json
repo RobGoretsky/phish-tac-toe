@@ -1,19 +1,19 @@
 {
  "showId": 62006,
  "showDate": "2026-07-29",
- "fetchedAt": "2026-07-30T00:46:00+00:00",
+ "fetchedAt": "2026-07-30T00:50:01+00:00",
  "source": "phish.net-web",
  "sourceCounts": {
   "phish.net-api": "skipped",
   "phantasy-tour": 0,
-  "phish.net-web": 6
+  "phish.net-web": 7
  },
  "sourceMs": {
   "phish.net-api": 0,
-  "phantasy-tour": 135,
-  "phish.net-web": 159
+  "phantasy-tour": 130,
+  "phish.net-web": 148
  },
- "count": 6,
+ "count": 7,
  "songs": [
   {
    "name": "The Star-Spangled Banner",
@@ -49,6 +49,12 @@
    "name": "Talk",
    "set": 1,
    "pos": 6,
+   "segue": false
+  },
+  {
+   "name": "If I Could",
+   "set": 1,
+   "pos": 7,
    "segue": false
   }
  ]
