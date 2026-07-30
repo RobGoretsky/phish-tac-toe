@@ -1,19 +1,19 @@
 {
  "showId": 62006,
  "showDate": "2026-07-29",
- "fetchedAt": "2026-07-30T00:35:01+00:00",
+ "fetchedAt": "2026-07-30T00:36:01+00:00",
  "source": "phish.net-web",
  "sourceCounts": {
   "phish.net-api": "skipped",
   "phantasy-tour": 0,
-  "phish.net-web": 4
+  "phish.net-web": 5
  },
  "sourceMs": {
   "phish.net-api": 0,
-  "phantasy-tour": 157,
-  "phish.net-web": 173
+  "phantasy-tour": 126,
+  "phish.net-web": 453
  },
- "count": 4,
+ "count": 5,
  "songs": [
   {
    "name": "The Star-Spangled Banner",
@@ -37,6 +37,12 @@
    "name": "Esther",
    "set": 1,
    "pos": 4,
+   "segue": false
+  },
+  {
+   "name": "Guyute",
+   "set": 1,
+   "pos": 5,
    "segue": false
   }
  ]
