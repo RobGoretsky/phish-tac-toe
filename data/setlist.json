@@ -1,19 +1,19 @@
 {
  "showId": 62006,
  "showDate": "2026-07-29",
- "fetchedAt": "2026-07-30T01:03:00+00:00",
+ "fetchedAt": "2026-07-30T01:09:00+00:00",
  "source": "phish.net-web",
  "sourceCounts": {
   "phish.net-api": "skipped",
   "phantasy-tour": 0,
-  "phish.net-web": 9
+  "phish.net-web": 10
  },
  "sourceMs": {
   "phish.net-api": 0,
-  "phantasy-tour": 116,
-  "phish.net-web": 166
+  "phantasy-tour": 97,
+  "phish.net-web": 216
  },
- "count": 9,
+ "count": 10,
  "songs": [
   {
    "name": "The Star-Spangled Banner",
@@ -67,6 +67,12 @@
    "name": "Colonel Forbin's Ascent",
    "set": 1,
    "pos": 9,
+   "segue": true
+  },
+  {
+   "name": "Fly Famous Mockingbird",
+   "set": 1,
+   "pos": 10,
    "segue": false
   }
  ]
