@@ -1,19 +1,19 @@
 {
  "showId": 62006,
  "showDate": "2026-07-29",
- "fetchedAt": "2026-07-30T01:09:00+00:00",
+ "fetchedAt": "2026-07-30T01:16:00+00:00",
  "source": "phish.net-web",
  "sourceCounts": {
   "phish.net-api": "skipped",
   "phantasy-tour": 0,
-  "phish.net-web": 10
+  "phish.net-web": 11
  },
  "sourceMs": {
   "phish.net-api": 0,
-  "phantasy-tour": 97,
-  "phish.net-web": 216
+  "phantasy-tour": 218,
+  "phish.net-web": 154
  },
- "count": 10,
+ "count": 11,
  "songs": [
   {
    "name": "The Star-Spangled Banner",
@@ -73,6 +73,12 @@
    "name": "Fly Famous Mockingbird",
    "set": 1,
    "pos": 10,
+   "segue": false
+  },
+  {
+   "name": "Harpua",
+   "set": 1,
+   "pos": 11,
    "segue": false
   }
  ]
