@@ -1,19 +1,19 @@
 {
  "showId": 62006,
  "showDate": "2026-07-29",
- "fetchedAt": "2026-07-30T03:29:00+00:00",
+ "fetchedAt": "2026-07-30T03:34:02+00:00",
  "source": "phish.net-web",
  "sourceCounts": {
   "phish.net-api": "skipped",
   "phantasy-tour": 0,
-  "phish.net-web": 19
+  "phish.net-web": 20
  },
  "sourceMs": {
   "phish.net-api": 0,
-  "phantasy-tour": 88,
-  "phish.net-web": 158
+  "phantasy-tour": 169,
+  "phish.net-web": 1259
  },
- "count": 19,
+ "count": 20,
  "songs": [
   {
    "name": "The Star-Spangled Banner",
@@ -127,6 +127,12 @@
    "name": "A Day in the Life",
    "set": 9,
    "pos": 1,
+   "segue": false
+  },
+  {
+   "name": "Backwards Down the Number Line",
+   "set": 9,
+   "pos": 2,
    "segue": false
   }
  ]
