@@ -1,19 +1,19 @@
 {
  "showId": 62006,
  "showDate": "2026-07-29",
- "fetchedAt": "2026-07-30T03:27:00+00:00",
+ "fetchedAt": "2026-07-30T03:29:00+00:00",
  "source": "phish.net-web",
  "sourceCounts": {
   "phish.net-api": "skipped",
   "phantasy-tour": 0,
-  "phish.net-web": 18
+  "phish.net-web": 19
  },
  "sourceMs": {
   "phish.net-api": 0,
-  "phantasy-tour": 127,
-  "phish.net-web": 150
+  "phantasy-tour": 88,
+  "phish.net-web": 158
  },
- "count": 18,
+ "count": 19,
  "songs": [
   {
    "name": "The Star-Spangled Banner",
@@ -121,6 +121,12 @@
    "name": "Character Zero",
    "set": 2,
    "pos": 7,
+   "segue": false
+  },
+  {
+   "name": "A Day in the Life",
+   "set": 9,
+   "pos": 1,
    "segue": false
   }
  ]
