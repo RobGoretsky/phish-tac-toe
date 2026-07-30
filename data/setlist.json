@@ -1,18 +1,25 @@
 {
  "showId": 62006,
  "showDate": "2026-07-29",
- "fetchedAt": "2026-07-29T23:55:01+00:00",
- "source": "phantasy-tour",
+ "fetchedAt": "2026-07-30T00:04:00+00:00",
+ "source": "phish.net-web",
  "sourceCounts": {
   "phish.net-api": "skipped",
   "phantasy-tour": 0,
-  "phish.net-web": 0
+  "phish.net-web": 1
  },
  "sourceMs": {
   "phish.net-api": 0,
-  "phantasy-tour": 95,
-  "phish.net-web": 236
+  "phantasy-tour": 90,
+  "phish.net-web": 230
  },
- "count": 0,
- "songs": []
+ "count": 1,
+ "songs": [
+  {
+   "name": "The Star-Spangled Banner",
+   "set": 1,
+   "pos": 1,
+   "segue": false
+  }
+ ]
 }
