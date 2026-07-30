@@ -1,19 +1,19 @@
 {
  "showId": 62006,
  "showDate": "2026-07-29",
- "fetchedAt": "2026-07-30T03:15:01+00:00",
+ "fetchedAt": "2026-07-30T03:19:00+00:00",
  "source": "phish.net-web",
  "sourceCounts": {
   "phish.net-api": "skipped",
   "phantasy-tour": 0,
-  "phish.net-web": 17
+  "phish.net-web": 18
  },
  "sourceMs": {
   "phish.net-api": 0,
-  "phantasy-tour": 127,
-  "phish.net-web": 169
+  "phantasy-tour": 165,
+  "phish.net-web": 219
  },
- "count": 17,
+ "count": 18,
  "songs": [
   {
    "name": "The Star-Spangled Banner",
@@ -115,6 +115,12 @@
    "name": "Crosseyed and Painless",
    "set": 2,
    "pos": 6,
+   "segue": true
+  },
+  {
+   "name": "Character Zero",
+   "set": 2,
+   "pos": 7,
    "segue": false
   }
  ]
