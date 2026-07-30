@@ -1,19 +1,19 @@
 {
  "showId": 62006,
  "showDate": "2026-07-29",
- "fetchedAt": "2026-07-30T02:33:00+00:00",
+ "fetchedAt": "2026-07-30T02:40:01+00:00",
  "source": "phish.net-web",
  "sourceCounts": {
   "phish.net-api": "skipped",
   "phantasy-tour": 0,
-  "phish.net-web": 13
+  "phish.net-web": 14
  },
  "sourceMs": {
   "phish.net-api": 0,
-  "phantasy-tour": 231,
-  "phish.net-web": 224
+  "phantasy-tour": 98,
+  "phish.net-web": 171
  },
- "count": 13,
+ "count": 14,
  "songs": [
   {
    "name": "The Star-Spangled Banner",
@@ -91,6 +91,12 @@
    "name": "Waste",
    "set": 2,
    "pos": 2,
+   "segue": false
+  },
+  {
+   "name": "I Didn't Know",
+   "set": 2,
+   "pos": 3,
    "segue": false
   }
  ]
