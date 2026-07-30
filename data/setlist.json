@@ -1,19 +1,19 @@
 {
  "showId": 62006,
  "showDate": "2026-07-29",
- "fetchedAt": "2026-07-30T00:44:01+00:00",
+ "fetchedAt": "2026-07-30T00:46:00+00:00",
  "source": "phish.net-web",
  "sourceCounts": {
   "phish.net-api": "skipped",
   "phantasy-tour": 0,
-  "phish.net-web": 5
+  "phish.net-web": 6
  },
  "sourceMs": {
   "phish.net-api": 0,
-  "phantasy-tour": 85,
-  "phish.net-web": 141
+  "phantasy-tour": 135,
+  "phish.net-web": 159
  },
- "count": 5,
+ "count": 6,
  "songs": [
   {
    "name": "The Star-Spangled Banner",
@@ -43,6 +43,12 @@
    "name": "Guyute",
    "set": 1,
    "pos": 5,
+   "segue": false
+  },
+  {
+   "name": "Talk",
+   "set": 1,
+   "pos": 6,
    "segue": false
   }
  ]
