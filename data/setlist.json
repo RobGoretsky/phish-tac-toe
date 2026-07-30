@@ -1,7 +1,7 @@
 {
  "showId": 62006,
  "showDate": "2026-07-29",
- "fetchedAt": "2026-07-30T02:47:00+00:00",
+ "fetchedAt": "2026-07-30T02:50:01+00:00",
  "source": "phish.net-web",
  "sourceCounts": {
   "phish.net-api": "skipped",
@@ -10,19 +10,19 @@
  },
  "sourceMs": {
   "phish.net-api": 0,
-  "phantasy-tour": 119,
-  "phish.net-web": 164
+  "phantasy-tour": 100,
+  "phish.net-web": 148
  },
  "count": 17,
  "songs": [
   {
-   "name": "The Star-Spangled Banner",
+   "name": "Star Spangled Banner",
    "set": 1,
    "pos": 1,
    "segue": false
   },
   {
-   "name": "McGrupp and the Watchful Hosemasters",
+   "name": "McGrupp",
    "set": 1,
    "pos": 2,
    "segue": true
@@ -64,13 +64,13 @@
    "segue": false
   },
   {
-   "name": "Colonel Forbin's Ascent",
+   "name": "Forbin's",
    "set": 1,
    "pos": 9,
    "segue": true
   },
   {
-   "name": "Fly Famous Mockingbird",
+   "name": "Mockingbird",
    "set": 1,
    "pos": 10,
    "segue": false
@@ -82,7 +82,7 @@
    "segue": false
   },
   {
-   "name": "You Enjoy Myself",
+   "name": "YEM",
    "set": 2,
    "pos": 1,
    "segue": true
@@ -94,7 +94,7 @@
    "segue": false
   },
   {
-   "name": "I Didn't Know",
+   "name": "IDK",
    "set": 2,
    "pos": 3,
    "segue": true
@@ -106,13 +106,13 @@
    "segue": true
   },
   {
-   "name": "Hold Your Head Up",
+   "name": "HYHU",
    "set": 2,
    "pos": 5,
    "segue": false
   },
   {
-   "name": "Crosseyed and Painless",
+   "name": "C&P",
    "set": 2,
    "pos": 6,
    "segue": false
