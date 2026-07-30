@@ -1,19 +1,19 @@
 {
  "showId": 62006,
  "showDate": "2026-07-29",
- "fetchedAt": "2026-07-30T00:14:01+00:00",
+ "fetchedAt": "2026-07-30T00:15:01+00:00",
  "source": "phish.net-web",
  "sourceCounts": {
   "phish.net-api": "skipped",
   "phantasy-tour": 0,
-  "phish.net-web": 2
+  "phish.net-web": 3
  },
  "sourceMs": {
   "phish.net-api": 0,
-  "phantasy-tour": 96,
-  "phish.net-web": 158
+  "phantasy-tour": 95,
+  "phish.net-web": 194
  },
- "count": 2,
+ "count": 3,
  "songs": [
   {
    "name": "The Star-Spangled Banner",
@@ -25,6 +25,12 @@
    "name": "McGrupp and the Watchful Hosemasters",
    "set": 1,
    "pos": 2,
+   "segue": true
+  },
+  {
+   "name": "Axilla",
+   "set": 1,
+   "pos": 3,
    "segue": false
   }
  ]
