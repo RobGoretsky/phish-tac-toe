@@ -1,19 +1,19 @@
 {
  "showId": 62006,
  "showDate": "2026-07-29",
- "fetchedAt": "2026-07-30T01:49:00+00:00",
+ "fetchedAt": "2026-07-30T01:57:00+00:00",
  "source": "phish.net-web",
  "sourceCounts": {
   "phish.net-api": "skipped",
   "phantasy-tour": 0,
-  "phish.net-web": 11
+  "phish.net-web": 12
  },
  "sourceMs": {
   "phish.net-api": 0,
-  "phantasy-tour": 96,
-  "phish.net-web": 162
+  "phantasy-tour": 100,
+  "phish.net-web": 170
  },
- "count": 11,
+ "count": 12,
  "songs": [
   {
    "name": "The Star-Spangled Banner",
@@ -79,6 +79,12 @@
    "name": "Harpua",
    "set": 1,
    "pos": 11,
+   "segue": false
+  },
+  {
+   "name": "You Enjoy Myself",
+   "set": 2,
+   "pos": 1,
    "segue": false
   }
  ]
